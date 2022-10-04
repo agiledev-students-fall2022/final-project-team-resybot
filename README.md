@@ -6,8 +6,7 @@ This repository will be used for team projects.
 Several sets of instructions are included in this repository. They should each be treated as separate assignments with their own due dates and sets of requirements.
 
 1. See the [App Map & Wireframes](instructions-0a-app-map-wireframes.md) and [Prototyping](./instructions-0b-prototyping.md) instructions for the requirements of the initial user experience design of the app.
-
-1. 
+ 
 ## Collaborators
 Mark Lung, Zack Goldberg, Aditya Pradeep,Geoffrey Budiman, Rayhan Ahmed
 
