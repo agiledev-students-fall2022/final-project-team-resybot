@@ -10,7 +10,7 @@ Several sets of instructions are included in this repository. They should each b
 # Project Title: Resy Bot
 
 ## Collaborators
-Mark Lung ([github](https://github.com/ml6754)), Zack Goldberg, Aditya Pradeep,Geoffrey Budiman, Rayhan Ahmed
+Mark Lung ([github](https://github.com/ml6754)), Zack Goldberg, Aditya Pradeep([github](https://github.com/adityapradeep12)) ,Geoffrey Budiman, Rayhan Ahmed
 
 ## Vision Statement
 Resy Bot aims to obtain reservations at popular and hard to get into restaurants. As NYC continues to open up post-pandemic, popular restaurants are harder to get reservations at, but with Resy Bot, you are able to get a reservation at any restaurant of your liking!
