@@ -10,9 +10,7 @@ Several sets of instructions are included in this repository. They should each b
 1. 
 ## Collaborators
 <<<<<<< HEAD
-Mark Lung , Zack Goldberg
-=======
-Mark Lung, Aditya Pradeep
+Mark Lung , Zack Goldberg, Aditya Pradeep
 >>>>>>> 2985f8e92bd1a2316a144d01c058a9c741f4aeaf
 
 ## Project Title: Resy Bot
