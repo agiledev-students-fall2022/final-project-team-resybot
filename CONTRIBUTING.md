@@ -18,11 +18,9 @@ Times TBD
 - 11/22
 ## Setup Instructions
 GitHub is our primary resource for version control, project planning, issue tracking, and project documentation.
-
 1. Install [VSCode](https://code.visualstudio.com)
 1. Clone this repository on your local machine
 1. Work should be done locally and not on the remote repo
-
 ## Building and Testing Instructions
 TODO Later
 
