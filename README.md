@@ -7,7 +7,26 @@ Several sets of instructions are included in this repository. They should each b
 
 1. See the [App Map & Wireframes](instructions-0a-app-map-wireframes.md) and [Prototyping](./instructions-0b-prototyping.md) instructions for the requirements of the initial user experience design of the app.
 
-1. Delete the contents of this file and replace with the contents of a proper README.md, as described in the [project setup instructions](./instructions-0c-project-setup.md)
+1. 
+## Collaborators
+Mark Lung
+
+## Project Title: Resy Bot
+
+### What and why?
+Resy Bot aims to obtain reservations at popular and hard to get into restaurants. As NYC continues to open up post-pandemic, popular restaurants are harder to get reservations at, but with Resy Bot, you are able to get a reservation at any restaurant of your liking!
+
+### For whom?
+Whoever wants to get a reservation at a restaurant of their choosing.
+
+### How?
+Web app where you can select a restaurant and timing(s) of when you want to go. Resy Bot will then wait for the reservation to be open and snipe it instantly, then will email or send a text message regarding the reservation. 
+
+### Scope
+Project is reasonable for 4-6 people as the front-end is intuitive (simply inputting a restaurant's resy link) and the backend logic should be challenging enough to take time (we would need to constantly monitor active/open user requests), while it does not seem to be too challenging (same idea as implementing a sneaker bot, which does not seem too difficult).
+
+
+Delete the contents of this file and replace with the contents of a proper README.md, as described in the [project setup instructions](./instructions-0c-project-setup.md)
 
 1. See the [Sprint Planning instructions](instructions-0d-sprint-planning.md) for the requirements of Sprint Planning for each Sprint.
 
