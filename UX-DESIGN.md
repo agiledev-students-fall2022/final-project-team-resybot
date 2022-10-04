@@ -2,7 +2,7 @@
 
 This repository contains instructions and files for two assignments that together comprise the user experience design phase of a web app.
 
-hi all
+hello all
 
 Replace the contents of this file with the completed assignments, as described in:
 
