@@ -6,6 +6,9 @@
 ## Conflict Resolution
 - Conflicts should be brought up to all developers as soon as possible. 
 - All developers will collaboratively decide on the best outcome. 
+## Contribution Rules
+1. Work should be done locally and not on the remote repo
+1. All assigned work should be contributed by the end of the agreed time
 ## Stand-up meetings
 Times TBD
 - 10/13 
@@ -20,7 +23,6 @@ Times TBD
 GitHub is our primary resource for version control, project planning, issue tracking, and project documentation.
 1. Install [VSCode](https://code.visualstudio.com)
 1. Clone this repository on your local machine
-1. Work should be done locally and not on the remote repo
 ## Building and Testing Instructions
 TODO Later
 
