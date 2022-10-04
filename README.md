@@ -27,6 +27,9 @@ for more info on contribution visit [CONTRIBUTING.md](./CONTRIBUTING.md)
 ## Building and Running
 TODO later
 
+## Additional Links
+([Contributing](./UX-DESIGN.md))
+
 Delete the contents of this file and replace with the contents of a proper README.md, as described in the [project setup instructions](./instructions-0c-project-setup.md)
 
 1. See the [Sprint Planning instructions](instructions-0d-sprint-planning.md) for the requirements of Sprint Planning for each Sprint.
