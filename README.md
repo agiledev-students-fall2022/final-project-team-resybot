@@ -9,7 +9,7 @@ Several sets of instructions are included in this repository. They should each b
 
 1. 
 ## Collaborators
-Mark Lung
+Mark Lung , Zack Goldberg
 
 ## Project Title: Resy Bot
 
