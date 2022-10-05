@@ -1,12 +1,4 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8760730&assignment_repo_type=AssignmentRepo)
-# Project Repository
-
-This repository will be used for team projects.
-
-Several sets of instructions are included in this repository. They should each be treated as separate assignments with their own due dates and sets of requirements.
-
-1. See the [App Map & Wireframes](instructions-0a-app-map-wireframes.md) and [Prototyping](./instructions-0b-prototyping.md) instructions for the requirements of the initial user experience design of the app.
-
 # Project Title: Resy Bot
 ## Collaborators
 Mark Lung ([github](https://github.com/ml6754)), Zack Goldberg, Aditya Pradeep([github](https://github.com/adityapradeep12)) ,Geoffrey Budiman, Rayhan Ahmed
