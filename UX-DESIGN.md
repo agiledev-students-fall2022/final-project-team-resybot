@@ -1,4 +1,6 @@
-# User Experience Design
+# User Experience Design\
+## Prototype
+
 ## App Map
 [App Map](./ux-design/App%20Map.png)
 ## Wireframes
@@ -22,6 +24,7 @@
 
 [Cancel Booking](./ux-design/Cancel%20Booking.png)
 
+<<<<<<< HEAD
 [Menu](./ux-design/Menu.png)
 
 
@@ -41,6 +44,8 @@
 
 
 ## Prototype
+=======
+>>>>>>> 0d793fdf9abf1b0eeec7840cf7e19fa8caf71488
 
 - [app map & wireframe instructions](instructions-0a-app-map-wireframes.md).
 - [prototype instructions](instructions-0b-prototyping.md)
