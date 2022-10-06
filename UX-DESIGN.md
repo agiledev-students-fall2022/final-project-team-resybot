@@ -2,6 +2,7 @@
 ## App Map
 [App Map](./ux-design/App%20Map.png)
 ## Wireframes
+[Cancel Booking](./ux-design/Cancel%20Booking.png)
 
 ## Prototype
 
