@@ -1,6 +1,6 @@
 # User Experience Design
 ## App Map
-
+[App Map](./ux-design/App%20Map.png)
 ## Wireframes
 
 ## Prototype
