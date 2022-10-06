@@ -1,7 +1,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8760730&assignment_repo_type=AssignmentRepo)
 # Project Title: Resy Bot
 ## Collaborators
-Mark Lung ([github](https://github.com/ml6754)), Zack Goldberg, Aditya Pradeep([github](https://github.com/adityapradeep12)) ,Geoffrey Budiman ([github](https://github.com/geoffreybudiman91)), Rayhan Ahmed
+Mark Lung ([github](https://github.com/ml6754)), Zack Goldberg([github](https://github.com/zrg228)), Aditya Pradeep([github](https://github.com/adityapradeep12)) ,Geoffrey Budiman ([github](https://github.com/geoffreybudiman91)), Rayhan Ahmed
 ## Vision Statement
 Resy Bot aims to obtain reservations at popular and hard to get into restaurants. As NYC continues to open up post-pandemic, popular restaurants are harder to get reservations at, but with Resy Bot, you are able to get a reservation at any restaurant of your liking! For whoever wants to get a reservation at a restaurant of their choosing. Web app where you can select a restaurant and timing(s) of when you want to go. Resy Bot will then wait for the reservation to be open and snipe it instantly, then will email or send a text message regarding the reservation. 
 ## Contributing
