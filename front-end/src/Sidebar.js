@@ -5,9 +5,6 @@ import './Sidebar.css';
 export default (props) => {
   return (
     <Menu>
-      <div className="logo">
-        <img className="menu-item" src="resyBotLogo.png" />
-      </div>
       <a className="menu-item" href="/">
         My Bookings
       </a>

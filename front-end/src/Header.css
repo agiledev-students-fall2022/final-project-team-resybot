@@ -1,18 +1,14 @@
 .header {
   background-color: #222;
   color: white;
+  min-height: 105px;
   font-size: calc(15px + 0.5vmin);
+
 }
+/*logo size*/
 img {
-  width: 10%;
+  position: relative;
+  top: 10px;
+  width: 150px;
   height: autopx;
-}
-.header-hamburger{
-  display: flex; 
-  justify-content: space-between;
-  width: 50%;
-  height: autopx;
-  position:absolute;
-  left:15px;
-  top:15px;
 }
