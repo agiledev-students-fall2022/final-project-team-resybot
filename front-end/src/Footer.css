@@ -2,7 +2,6 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    min-height: 15vh;
     display: flex;
     flex-direction: column;
     text-align: center;

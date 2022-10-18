@@ -1,10 +1,18 @@
 .header {
-    background-color: #222;
-    min-height: 15vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: calc(15px + 0.5vmin)
-  }
+  background-color: #222;
+  color: white;
+  font-size: calc(15px + 0.5vmin);
+}
+img {
+  width: 10%;
+  height: autopx;
+}
+.header-hamburger{
+  display: flex; 
+  justify-content: space-between;
+  width: 50%;
+  height: autopx;
+  position:absolute;
+  left:0px;
+  top:5px;
+}
