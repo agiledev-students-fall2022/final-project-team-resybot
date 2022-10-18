@@ -1,22 +1,25 @@
-import Header from './Header';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
+import Header from './Header'
 import Footer from './Footer'
+import Home from'./Home'
 import './App.css';
-import SideBar from "./Sidebar";
 
 const App = () => {
   return (
-   <div className = "App" id="outer-container">
-      <SideBar pageWrapID={"page-wrap"} outerContainerId={"outer-container"} />
-      <div id="page-wrap">
+   <div className = "App">
+    <Router> 
         <div>
           <Header />
         </div>
         <div>
+          <Routes>
+          <Route path="/" element={<Home />} />
+          </Routes>
         </div>
         <div>
           <Footer />
         </div>
-      </div>
+      </Router>
     </div>
   );
 }
