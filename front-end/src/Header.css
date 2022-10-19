@@ -1,10 +1,11 @@
 .header {
-  background-color: #222;
-  color: white;
+  background-color: #ffffff;
+  color: #000000;
   min-height: 105px;
   font-size: calc(15px + 0.5vmin);
-
+  border-bottom: 2px solid #d4d4d48a;
 }
+
 /*logo size*/
 img {
   position: relative;
