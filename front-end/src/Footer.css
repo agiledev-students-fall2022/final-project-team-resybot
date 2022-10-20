@@ -1,5 +1,4 @@
 .footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
@@ -8,7 +7,6 @@
     justify-content: center;
     background-color: white;
     color: black;
-    min-height: 105px;
     font-size: calc(10px + 0.5vmin);
     border-top: 2px solid #d4d4d48a;
   }
