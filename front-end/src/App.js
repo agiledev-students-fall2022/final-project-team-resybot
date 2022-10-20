@@ -1,25 +1,20 @@
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
-import Header from './Header'
-import Footer from './Footer'
 import MyBookings from'./MyBookings'
 import './App.css';
+import Layout from "./Layout";
+import Login from "./Login"
 
 const App = () => {
   return (
    <div className = "App">
     <Router> 
-        <div>
-          <Header />
-        </div>
-        <div>
-          <Routes>
-          <Route path="/" element={<MyBookings />} />
-          </Routes>
-        </div>
-        <div>
-          <Footer />
-        </div>
-      </Router>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<MyBookings />} />
+              <Route path="/Login" element={<Login />} />
+            </Routes>
+          </Layout>
+    </Router>
     </div>
   );
 }
