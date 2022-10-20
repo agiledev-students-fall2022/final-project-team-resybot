@@ -6,9 +6,6 @@ const Sidebar = (props) => {
   return (
     <Menu>
       <a className="menu-item" href="/">
-        Home
-      </a>
-      <a className="menu-item" href="/mybookings">
         My Bookings
       </a>
       <a className="menu-item" href="/requests">

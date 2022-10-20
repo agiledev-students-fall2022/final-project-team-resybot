@@ -3,7 +3,7 @@
  * @param {*} param0 an object holding any props passed to this component from its parent component
  * @returns The contents of this component, in JSX form.
  */
-const Home = props => {
+const MyBookings = props => {
   return (
     <>
       <h1>Hello and welcome!</h1>
@@ -12,4 +12,4 @@ const Home = props => {
   )
 }
 
-export default Home
+export default MyBookings
