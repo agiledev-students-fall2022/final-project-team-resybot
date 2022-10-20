@@ -8,6 +8,7 @@ const MyBookings = props => {
     <>
       <h1>Hello and welcome!</h1>
       <p>This is a Test!</p>
+
     </>
   )
 }

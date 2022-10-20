@@ -6,7 +6,9 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    background-color: #222;
-    color: white;
-    font-size: calc(10px + 0.5vmin)
+    background-color: white;
+    color: black;
+    min-height: 105px;
+    font-size: calc(10px + 0.5vmin);
+    border-top: 2px solid #d4d4d48a;
   }

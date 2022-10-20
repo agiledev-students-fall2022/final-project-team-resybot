@@ -1,4 +1,5 @@
 .header {
+  position: sticky;
   background-color: #ffffff;
   color: #000000;
   min-height: 105px;
