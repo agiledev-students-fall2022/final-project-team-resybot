@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "bootstrap": "^5.2.2",
     "react-bootstrap": "^2.5.0",
     "react-burger-menu": "^3.0.8"

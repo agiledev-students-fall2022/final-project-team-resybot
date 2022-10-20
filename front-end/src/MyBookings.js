@@ -1,16 +1,23 @@
-/**
- * A React component that represents the Home page of the app.
- * @param {*} param0 an object holding any props passed to this component from its parent component
- * @returns The contents of this component, in JSX form.
- */
+import './MyBookings.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { Button } from 'reactstrap';
+
+
 const MyBookings = props => {
   return (
-    <>
-      <h1>My Bookings</h1>
-      <p>This is a Test!</p>
-      <p> yo </p>
-
-    </>
+    <div className="MyBookings">
+      <h1>Current Bookings</h1>
+      <main className='list'>
+        <p> <Button variant="contained">Reservation #1</Button> Indian place</p>
+        <p> <Button variant="contained">Reservation #2</Button> Kosher place</p>
+        <p> <Button variant="contained">Reservation #3</Button> Mexican place</p>
+        <p> <Button variant="contained">Reservation #4</Button> Burger joint</p>
+      </main>
+      <bottom className='bottom'>
+        <Button type = "button" class="btn btn-primary btn-lg btn-block">Make a new reservation</Button>
+      </bottom>
+    </div>
   )
 }
 
