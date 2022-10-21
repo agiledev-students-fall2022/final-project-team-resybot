@@ -1,0 +1,20 @@
+.MyBookings {
+text-align: left;
+top: 10px;
+left: 5000px;
+color: purple;
+position:relative;
+font-family: 'Franklin Gothic Medium';
+top:10px;
+left:10px;
+margin-left:300px;
+margin-right:10px; 
+}
+
+.list {
+    color: orangered;
+}
+
+.bottom {
+    text-align: center;
+}
