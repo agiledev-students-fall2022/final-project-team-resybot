@@ -15,7 +15,7 @@ const MyBookings = props => {
         <p> <Button variant="contained">Reservation #4</Button> Burger joint</p>
       </main>
       <bottom className='bottom'>
-        <Button type = "button" class="btn btn-primary btn-lg btn-block">Make a new reservation</Button>
+        <button type = "button" class="btn btn-primary btn-lg btn-block">Make a new reservation</button>
       </bottom>
     </div>
   )
