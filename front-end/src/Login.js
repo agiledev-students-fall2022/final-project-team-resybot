@@ -5,7 +5,7 @@ const Login = (/*{Login, error}*/) => (
       <h1 className = "login-header"> Login </h1>
       <div className = "login-formgroup">
         <label>
-          email: 
+          Email: 
           <input type = "text"  name = "email"  id = "email"/>
         </label>
       </div>
