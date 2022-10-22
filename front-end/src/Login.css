@@ -1,0 +1,16 @@
+.login-header {
+    text-align: center;
+    color: black;
+    font-family: 'Franklin Gothic Medium';
+}
+.login-form{
+    text-align: center;
+    color: black;
+    font-family: 'Franklin Gothic Medium';
+}
+label {
+    text-align: center;
+    width: 800px;
+    line-height: 26px;
+    margin-bottom: 20px;
+}
