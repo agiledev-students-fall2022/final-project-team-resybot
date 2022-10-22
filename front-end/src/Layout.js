@@ -1,5 +1,6 @@
 import Header from './Header'
 import Footer from './Footer'
+import LoginSignUpHeader from './LoginSignUpHeader'
 import {useLocation} from 'react-router-dom'
 
 const Layout =({children}) =>{
@@ -7,6 +8,7 @@ const Layout =({children}) =>{
     if(location.pathname === "/login")
     return (
         <>
+        <LoginSignUpHeader/>
         <main>{children}</main>
         <Footer/>
         </>
