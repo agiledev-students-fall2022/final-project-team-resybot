@@ -1,22 +1,21 @@
 import './Login.css'
-const Login = props => (
+import React, { useState } from 'react'
+const Login = (/*{Login, error}*/) => (
   <div className = "login">
-      <h1 className = "login-header">
-        Login
-      </h1>
-      <form className = "login-form">
+      <h1 className = "login-header"> Login </h1>
+      <div className = "login-formgroup">
         <label>
-          Username: 
-          <input type = "text"  name = "username"/>
+          email: 
+          <input type = "text"  name = "email"  id = "email"/>
         </label>
-        <br/>
+      </div>
+      <div className = "login-formgroup">
         <label>
           Password:
-          <input type = "text"  name = "password"/>
+          <input type = "text"  name = "password" id = "password"/>
         </label>
-        <br/>
-        <input type = "submit" value="Submit" />
-      </form>
+      </div>
+      <input type = "submit" value="Login" />
   </div>
 );
 export default Login;
