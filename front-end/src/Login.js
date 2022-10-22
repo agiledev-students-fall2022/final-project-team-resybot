@@ -1,7 +1,7 @@
 import './Login.css'
 import React, { useState } from 'react'
 const Login = (/*{Login, error}*/) => (
-  <div className = "login">
+  <form className = "login">
       <h1 className = "login-header"> Login </h1>
       <div className = "login-formgroup">
         <label>
@@ -15,7 +15,7 @@ const Login = (/*{Login, error}*/) => (
           <input type = "text"  name = "password" id = "password"/>
         </label>
       </div>
-      <input type = "submit" value="Login" />
-  </div>
+      <input type = "submit" name = "submit" value="Login" />
+  </form>
 );
 export default Login;
