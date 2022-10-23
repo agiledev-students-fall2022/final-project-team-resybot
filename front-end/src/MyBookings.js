@@ -2,6 +2,7 @@ import './MyBookings.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 const MyBookings = props => {
@@ -15,9 +16,10 @@ const MyBookings = props => {
         <p> <Button variant="contained">Reservation #4</Button> Burger joint</p>
       </main>
       <bottom className='bottom'>
-        <button type = "button" class="btn btn-primary btn-lg btn-block">Make a new reservation</button>
+      <Link to="/Requests" className="btn btn-primary">New Reservation</Link>
       </bottom>
     </div>
+     //<button onclick="location.href = 'www.google.com';" id="myButton" class="btn btn-primary btn-lg btn-block">Make a new reservation</button>
   )
 }
 
