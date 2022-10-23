@@ -5,7 +5,7 @@ import {useLocation} from 'react-router-dom'
 
 const Layout =({children}) =>{
     const location = useLocation();
-    if(location.pathname === "/login")
+    if(location.pathname === "/login" || location.pathname === "/signup")
     return (
         <>
         <LoginSignUpHeader/>
