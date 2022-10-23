@@ -1,8 +1,8 @@
-import './Login.css'
+import './SignUp.css'
 import React, { useState } from 'react'
-const Login = (/*{Login, error}*/) => (
-  <form className = "login">
-      <h1 className = "login-header"> Login </h1>
+const SignUp = (/*{SignUp, error}*/) => (
+  <form className = "signUp">
+      <h1 className = "signUp-header"> Sign Up </h1>
         <label>
           Email: 
           <input type = "text"  name = "email"  id = "email"/>
@@ -14,4 +14,4 @@ const Login = (/*{Login, error}*/) => (
       <input type = "submit" name = "submit" value="Login" />
   </form>
 );
-export default Login;
+export default SignUp;
