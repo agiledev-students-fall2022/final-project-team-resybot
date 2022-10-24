@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import Login from "./Login"
 import SignUp from "./SignUp"
 //import {useState} from "react"
+import Settings from './Settings';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<MyBookings />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp/>}/>
               <Route path="/signup" element={<SignUp/>}/>
             </Routes>
           </Layout>

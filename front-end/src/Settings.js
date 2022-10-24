@@ -8,9 +8,6 @@ import './Settings.css';
 const Settings = (props) => {
   return (
    <div>
-    <div>
-      <Header />
-    </div>
       <div className='info-container'>
         <div className='personal-information'>
           <h1> Personal Information </h1>
@@ -24,9 +21,6 @@ const Settings = (props) => {
           <Button variant = "secondary" size = "lg " >Sign Out</Button>
         </div>
       </div>
-    <div>
-      <Footer />
-    </div>
    </div>
   );
 }
