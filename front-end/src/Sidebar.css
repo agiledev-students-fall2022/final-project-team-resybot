@@ -68,8 +68,3 @@
 .bm-item:hover {
     color: #ffffff;
 }
-/*logo sizing*/
-.logo{
-    width: 1000%;
-    height: autopx;
-}
