@@ -3,7 +3,8 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import MyBookings from'./MyBookings'
 import Layout from "./Layout";
 import Login from "./Login"
-import SignUp from './SignUp';
+import SignUp from "./SignUp"
+//import {useState} from "react"
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<MyBookings />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<SignUp />} />
+              <Route path="/signup" element={<SignUp/>}/>
             </Routes>
           </Layout>
     </Router>
