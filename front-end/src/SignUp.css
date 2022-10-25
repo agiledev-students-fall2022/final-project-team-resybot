@@ -1,16 +1,12 @@
-.signUp-header {
+.signUp-header{
     text-align: center;
     color: black;
     font-family: 'Franklin Gothic Medium';
 }
-.signUp-form{
+.form-control{
     text-align: center;
-    color: black;
-    font-family: 'Franklin Gothic Medium';
-}
-label {
-    text-align: center;
-    width: 800px;
-    line-height: 26px;
-    margin-bottom: 20px;
+    position: center;
+    padding: 20px;
+    margin-left: 10px;
+    width: calc( 100% - 20px);
 }
