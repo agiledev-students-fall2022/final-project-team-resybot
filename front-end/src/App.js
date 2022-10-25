@@ -4,6 +4,7 @@ import MyBookings from'./MyBookings'
 import Layout from "./Layout";
 import Login from "./Login"
 import Settings from './Settings';
+import EditInformation from './EditInformation';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
               <Route path="/" element={<MyBookings />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Settings" element={<Settings />} />
+              <Route path="/EditInformation" element={<EditInformation />} />
             </Routes>
           </Layout>
     </Router>

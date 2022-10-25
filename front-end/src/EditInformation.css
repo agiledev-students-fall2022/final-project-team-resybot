@@ -1,0 +1,12 @@
+.flex-container {
+    background-color: beige;
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 100;
+    flex-direction: column;
+}
+

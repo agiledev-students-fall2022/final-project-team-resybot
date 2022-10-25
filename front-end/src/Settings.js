@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Header from './Header';
 import Footer from './Footer'
+import {Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Settings.css';
@@ -16,7 +17,9 @@ const Settings = (props) => {
       </div>
       <div className='button-container'>
         <div className = "d-grid gap-2">
-          <Button variant = "secondary" size = "lg " >Edit Information</Button>      
+          <Link to = "/EditInformation">
+            <Button variant = "secondary" size = "lg " >Edit Information</Button>
+          </Link>     
           <Button variant = "dark" size = "lg " >Dark Mode</Button>
           <Button variant = "secondary" size = "lg " >Sign Out</Button>
         </div>
