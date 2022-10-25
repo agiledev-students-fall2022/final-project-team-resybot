@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const SignUp = () => (
   <div className = "signUp">
       <br/>
-      <h1 className = "signUp-header"> Login </h1>
+      <h1 className = "signUp-header"> Sign Up </h1>
       <br/>
           <input type = "text"  placeholder = "Email"  id = "email"
           //onChange = {(e)=>setEmail(e.target.value)}
