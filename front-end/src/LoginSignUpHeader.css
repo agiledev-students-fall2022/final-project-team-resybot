@@ -5,6 +5,7 @@
     min-height: 105px;
     font-size: calc(15px + 0.5vmin);
     border-bottom: 2px solid #d4d4d48a;
+    z-index: 3;
   }
   
   /*logo size*/

@@ -1,4 +1,4 @@
-.login-header{
+.signUp-header{
     text-align: center;
     color: black;
     font-family: 'Franklin Gothic Medium';
@@ -10,4 +10,3 @@
     margin-left: 10px;
     width: calc( 100% - 20px);
 }
-
