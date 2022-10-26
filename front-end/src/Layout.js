@@ -2,6 +2,7 @@ import Header from './Header'
 import Footer from './Footer'
 import LoginSignUpHeader from './LoginSignUpHeader'
 import {useLocation} from 'react-router-dom'
+import './Layout.css'
 
 const Layout =({children}) =>{
     const location = useLocation();
@@ -9,7 +10,9 @@ const Layout =({children}) =>{
     return (
         <>
         <LoginSignUpHeader/>
-        <main>{children}</main>
+            <div className="mainControl">
+                <main>{children}</main>
+            </div>
         <Footer/>
         </>
     )
@@ -17,7 +20,9 @@ const Layout =({children}) =>{
     return (
         <>
         <Header/>
-        <main>{children}</main>
+            <div className="mainControl">
+                <main>{children}</main>
+            </div>
         <Footer/>
         </>
     )

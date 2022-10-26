@@ -4,7 +4,7 @@ const Footer = () => (
   <div className = "footer">
     {/*what we want to put in the footer*/}
     <footer className="Footer-footer">
-      &copy;2022. ResyBot Team. No rights reserved.
+      2022. ResyBot Team. No rights reserved.
     </footer>
   </div>
 )
