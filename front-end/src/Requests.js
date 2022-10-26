@@ -1,23 +1,17 @@
 import './Requests.css';
-import Cart from './Cart.js'
-import { useState } from 'react'
-import MakeRequest from './MakeRequest';
+import React, { useEffect } from 'react'
 import StandaloneRequest from './StandaloneRequest';
 
-const Requests = () => {
-    const [cartItems, setCartItems] = useState([]);
-    const onAdd = () => {
-        setCartItems(
-            console.warn("adding element"),
-            cartItems.push(<StandaloneRequest/>)
-        )
-    }
 
+const Requests = ({cartItems,setCartItems}) => {
+    useEffect(()=>{})
     return(
-    <div className = "Requests">
-        <h1> Requests </h1>
-        <Cart cartItems = {cartItems}></Cart>
-        {MakeRequest({onAdd})}
-    </div>
+        <div className = "Cart">
+            <h1> Requests </h1>
+            <main>
+                {cartItems}
+                <button onClick = {() => setCartItems([...cartItems,<StandaloneRequest/>])}> Add Request </button>
+            </main>
+        </div>
   )}
   export default Requests;

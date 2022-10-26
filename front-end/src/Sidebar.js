@@ -11,6 +11,9 @@ const Sidebar = (props) => {
       <a className="menu-item" href="/requests">
         Requests
       </a>
+      <a className="menu-item" href="/makerequest">
+        Make Request
+      </a>
       <a className="menu-item" href="/settings">
         Settings
       </a>

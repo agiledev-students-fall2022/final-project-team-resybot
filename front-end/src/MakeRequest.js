@@ -1,8 +1,14 @@
 import './MakeRequest.css';
-import React from 'react'
+import React, { useEffect } from 'react'
+import StandaloneRequest from './StandaloneRequest';
 
-const MakeRequest = (props) => {
-    const {onAdd} = props;
+
+const MakeRequest =({cartItems,setCartItems}) => {
+    // const {cartItems, setCartItems} = props
+    const onAdd = () => {
+        setCartItems([...cartItems,<StandaloneRequest/>])
+    }
+    useEffect(()=>{})
     return (
     <div className = "makeRequest">
         <button onClick = {onAdd}> Add Request </button>
