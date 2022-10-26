@@ -10,7 +10,6 @@ const Layout =({children}) =>{
         <>
         <LoginSignUpHeader/>
         <main>{children}</main>
-        <Footer/>
         </>
     )
     else
@@ -18,7 +17,6 @@ const Layout =({children}) =>{
         <>
         <Header/>
         <main>{children}</main>
-        <Footer/>
         </>
     )
 }
