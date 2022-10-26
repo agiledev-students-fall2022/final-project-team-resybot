@@ -3,14 +3,13 @@ import React, { useEffect } from 'react'
 import StandaloneRequest from './StandaloneRequest';
 
 
-const Requests = ({cartItems,setCartItems}) => {
+const Requests = ({cartItems}) => {
     useEffect(()=>{})
     return(
         <div className = "Cart">
             <h1> Requests </h1>
             <main>
                 {cartItems}
-                <button onClick = {() => setCartItems([...cartItems,<StandaloneRequest/>])}> Add Request </button>
             </main>
         </div>
   )}

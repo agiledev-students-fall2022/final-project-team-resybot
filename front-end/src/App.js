@@ -24,7 +24,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
               <Route path="/settings" element={<Settings/>}/>
-              <Route path="/requests" element={<Requests cartItems = {cartItems} setCartItems = {setCartItems}/>}/>
+              <Route path="/requests" element={<Requests cartItems = {cartItems}/>}/>
               <Route path="/makerequest" element={<MakeRequest cartItems = {cartItems} setCartItems = {setCartItems}/>}/>
             </Routes>
           </Layout>
