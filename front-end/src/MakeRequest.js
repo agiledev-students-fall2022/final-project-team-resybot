@@ -7,7 +7,7 @@ const MakeRequest =({cartItems,setCartItems}) => {
     const onAdd = () => {
         setCartItems([...cartItems,<StandaloneRequest/>])
     }
-    useEffect(()=>{})
+    
     return (
     <div className = "makeRequest">
         <button onClick = {onAdd}> Add Request </button>
