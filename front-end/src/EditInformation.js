@@ -24,8 +24,14 @@ const EditInformation = () => {
             e.preventDefault();
         } else {
             let path = '/settings';
-            navigate(path)
+            navigate(path, {state : displayInfo})
         }
+    }
+
+    let displayInfo = {
+        displayName: name,
+        displayResyBotEmail: resyBotEmail,
+        displayResyEmail: resyEmail,
     }
 
 
