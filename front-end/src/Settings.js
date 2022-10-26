@@ -20,7 +20,6 @@ const Settings = (props) => {
           <Link to = "/EditInformation">
             <Button variant = "secondary" size = "lg " >Edit Information</Button>
           </Link>     
-          <Button variant = "dark" size = "lg " >Dark Mode</Button>
           <Button variant = "secondary" size = "lg " >Sign Out</Button>
         </div>
       </div>
