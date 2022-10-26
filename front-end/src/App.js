@@ -7,6 +7,7 @@ import SignUp from "./SignUp"
 //import {useState} from "react"
 import Settings from './Settings'
 import Requests from './Requests'
+import MakeRequest from './MakeRequest';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
               <Route path="/signup" element={<SignUp/>}/>
               <Route path="/settings" element={<Settings/>}/>
               <Route path="/requests" element={<Requests/>}/>
+              <Route path="/makerequest" element={<MakeRequest/>}/>
             </Routes>
           </Layout>
     </Router>
