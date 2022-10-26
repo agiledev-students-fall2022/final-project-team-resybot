@@ -13,7 +13,6 @@ const MyBookings = props => {
     const response = await fetch("https://api.mockaroo.com/api/c2496c90?count=10&key=459f4720")
     const stuff = await response.json()
     setRes(stuff)
-
   }
 
   useEffect(() => {
