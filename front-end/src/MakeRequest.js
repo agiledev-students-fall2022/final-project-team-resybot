@@ -22,7 +22,7 @@ const addRequests = async ({restaurant}) => {
     // }
 
 const location = useLocation();
-    const { restaurant } = location.state;
+const { restaurant } = location.state;
     return (
     <div className = "makeRequest">
         <img src={restaurant.picture} alt="" className="requestpicture"/>
