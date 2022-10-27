@@ -1,9 +1,9 @@
 import './MakeRequest.css';
 import React, { useEffect } from 'react'
 import StandaloneRequest from './StandaloneRequest';
+import { useLocation } from 'react-router-dom';
 
-
-const MakeRequest =({restaurant}) => {
+const MakeRequest =(props) => {
 const addRequests = async () => {
     let item={"id":"${mockData.length + 1}","restaurant":"test","party_size":"test_size","time":"test_time","expiration_date":"test_date"}
     let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests", {
@@ -20,6 +20,8 @@ const addRequests = async () => {
     // const onAdd = () => {
     //     let data.push({"id":"${mockData.length + 1}","restaurant":"test","party_size":"test_size","expiration_date":"test_date"})
     // }
+    const location = useLocation();
+    const { restaurant } = location.state;
 
     return (
     <div className = "makeRequest">
