@@ -22,3 +22,9 @@ margin-right:10px;
     text-align: center;
     background-color: orangered;
 }
+
+.top{
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: blue;
+}

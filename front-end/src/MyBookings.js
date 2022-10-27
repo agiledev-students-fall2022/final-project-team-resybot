@@ -1,7 +1,7 @@
 import './MyBookings.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
-//import { Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -19,9 +19,17 @@ const MyBookings = props => {
     fetchResy()
   }, [])
 
+  function rem(id) {
+
+    const listChange= Resturaunts.filter((item) => item.id !== id);
+
+    setRes(listChange)
+  }
+
 
   return (
     <div>
+      <h1 className='top'>Current Bookings</h1>
       {Resturaunts.length > 0 && (
           <ul className= 'lists'>
             {Resturaunts.map(res => (
@@ -29,6 +37,10 @@ const MyBookings = props => {
                 <p className='asd'>
                   <Link to="/makerequest" className="btn btn-primary">{res["restaurant"]}</Link>
                   Place: {res["location"]}
+                  <Button type = "button" onClick = {() => rem(res["id"])}>
+                    Delete
+                  </Button>
+
                 </p>
                 
               </li>))}
