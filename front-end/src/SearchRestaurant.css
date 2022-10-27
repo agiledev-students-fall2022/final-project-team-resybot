@@ -6,22 +6,22 @@
     float: center;
 }
 
-.template {
+.entry {
     margin: 10px;
     width: 100%;
-    height: 200px;
+    height: 125px;
     padding: 10px;
     border: 2px solid #d4d4d48a;
     float: center;
 }
 
 .picture {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     float: left;
 }
 
-.description {
+.details {
     float: center;
     text-overflow: ellipsis;
 }

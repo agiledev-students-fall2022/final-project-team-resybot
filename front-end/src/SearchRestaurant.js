@@ -30,12 +30,11 @@ const SearchRestaurant = (props) => {
                     })
                     .map((val) => {
                         return(
-                        <div className="template" key={val.id}>
+                        <div className="entry" key={val.id}>
                             <img src={val.picture} alt="" className="picture"/>
-                            <div className="description">
+                            <div className="details">
                                 <h3>{val.restaurant_name}</h3>
-                                <h5>{val.location}</h5>
-                                <h5>{val.type}</h5>
+                                <h5>{val.location}, {val.type}</h5>
                             </div>
                             <div className="rating">
                                 <h6>{val.rating}({val.no_reviews})</h6>
