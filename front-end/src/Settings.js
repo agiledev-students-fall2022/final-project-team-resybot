@@ -44,12 +44,15 @@ const Settings = (props) => {
         </div>   
       </div>
       <div className='button-container'>
-        <div className = "d-grid gap-2">
-          <Link to = "/EditInformation">
+        <div>
+        <Link to = "/EditInformation">
             <Button variant = "secondary" size = "lg " >Edit Information</Button>
-          </Link>     
-          <Button variant = "secondary" size = "lg " >Sign Out</Button>
+          </Link> 
         </div>
+        <div className='sign-out'>
+        <Button variant = "danger" size = "lg " >Sign Out</Button>
+        </div>
+             
       </div>
    </div>
   );
