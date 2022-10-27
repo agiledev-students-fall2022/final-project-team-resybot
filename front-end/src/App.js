@@ -28,7 +28,7 @@ const App = () => {
               <Route path = "/editinformation" element = {<EditInformation/>}/>
               <Route path="/requests" element={<Requests cartItems = {cartItems} setCartItems = {setCartItems}/>}/>
               <Route path="/makerequest" element={<MakeRequest />}/>
-              <Route path="/searchrestaurant" element={<SearchRestaurant />} />
+              <Route path="/SearchRestaurant" element={<SearchRestaurant />} />
             </Routes>
           </Layout>
     </Router>
