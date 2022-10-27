@@ -8,6 +8,8 @@ import SignUp from "./SignUp"
 import Settings from './Settings'
 import Requests from './Requests'
 import MakeRequest from './MakeRequest'
+import SearchRestaurant from './SearchRestaurant';
+import StandaloneRequest from './StandaloneRequest'
 import mockData from './mockdata/requests.json'
 import EditInformation from './EditInformation';
 
@@ -29,6 +31,7 @@ const App = () => {
               <Route path = "/editinformation" element = {<EditInformation/>}/>
               <Route path="/requests" element={<Requests cartItems = {cartItems} setCartItems = {setCartItems}/>}/>
               <Route path="/makerequest" element={<MakeRequest />}/>
+              <Route path="/SearchRestaurant" element={<SearchRestaurant />} />
             </Routes>
           </Layout>
     </Router>

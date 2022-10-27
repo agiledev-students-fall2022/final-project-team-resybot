@@ -1,0 +1,40 @@
+.search {
+    padding: 20px;
+}
+
+.input {
+    float: center;
+}
+
+.template {
+    margin: 10px;
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: 2px solid #d4d4d48a;
+    float: center;
+}
+
+.picture {
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+
+.description {
+    float: center;
+    text-overflow: ellipsis;
+}
+
+h3 {
+    text-overflow: ellipsis;
+}
+
+h5 {
+    text-overflow: ellipsis;
+}
+
+.rating {
+    float: right;
+    text-overflow: ellipsis;
+}
