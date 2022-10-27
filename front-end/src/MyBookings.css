@@ -13,6 +13,7 @@ margin-right:10px;
 
 .lists {
     color: orangered;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     list-style: decimal;
     text-align: left;
 }
