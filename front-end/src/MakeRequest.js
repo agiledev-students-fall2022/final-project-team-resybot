@@ -3,9 +3,9 @@ import React, { useEffect } from 'react'
 import StandaloneRequest from './StandaloneRequest';
 import { useLocation } from 'react-router-dom';
 
-const MakeRequest =(props) => {
-const addRequests = async () => {
-    let item={"restaurant":"${test}","party_size":"test_size","time":"test_time","expiration_date":"test_date"}
+const MakeRequest =() => {
+const addRequests = async ({restaurant}) => {
+    let item={"restaurant":restaurant.restaurant_name,"party_size":"test_size","time":"test_time","expiration_date":"test_date"}
     let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests", {
         method: 'POST',
         headers:{
@@ -30,7 +30,7 @@ const addRequests = async () => {
         <h2> {restaurant.address} </h2>
         <button> Select Request Lifetime </button>
         <button> Select Time </button>
-        <button onClick = {addRequests}> Make Request </button>
+        <button onClick = {addRequests({restaurant})}> Make Request </button>
     </div>
   )}
   export default MakeRequest;
