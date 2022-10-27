@@ -2,7 +2,7 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import './RequestConfirmation.css';
 
-const RequestConfirmation = () => (
+const RequestConfirmation = ({}) => (
     <Popup trigger={<button>MakeRequest</button>} position="center center">
       {close => (
         <div className='popup_wrapper'>
