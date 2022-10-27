@@ -6,7 +6,7 @@ import StandaloneRequest from './StandaloneRequest';
 const MakeRequest =() => {
 const addRequests = async () => {
     let item={"id":"${mockData.length + 1}","restaurant":"test","party_size":"test_size","expiration_date":"test_date"}
-    let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Request", {
+    let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests", {
         method: 'POST',
         headers:{
             "Content-Type":"application/json",
