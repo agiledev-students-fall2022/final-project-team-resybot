@@ -1,0 +1,15 @@
+.itemControl{
+    padding-left: 10px;
+}
+.description{
+    text-align: left;
+    color: white;
+    margin-left:25vw;
+    background-color: #c76c6c;
+    width:50vw;
+    padding: 5px;
+}
+.template{
+    padding: 10px;
+    align-items: center;
+}

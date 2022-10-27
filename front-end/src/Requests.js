@@ -1,15 +1,15 @@
 import './Requests.css';
 import React, { useEffect } from 'react'
-import StandaloneRequest from './StandaloneRequest';
 import mockData from './mockdata/requests.json'
+import {Box} from '@mui/material';
 const onAdd = ({setCartItems}) => {
     let list = mockData.map((val) => 
       <div className="template" key={val.id}>
-          <div className="description">
-              <p>{val.restaurant}</p>
-              <p>{val.party_size}</p>
-              <p>{val.expiration_date}</p>
-          </div>
+          <Box className="description">
+            <div className = "itemControl">{val.restaurant}</div>
+            <div className = "itemControl">{val.party_size}</div>
+            <div className = "itemControl">{val.expiration_date}</div>
+          </Box>
       </div> 
     )
     setCartItems(list)
