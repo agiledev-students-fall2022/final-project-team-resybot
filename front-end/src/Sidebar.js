@@ -17,7 +17,7 @@ const Sidebar = (props) => {
       {/* <a className="menu-item" href="/makerequest">
         Make Request
       </a> */}
-      <Link to="/makerequest">Make Request</Link>
+      <Link to="/SearchRestaurant">Make Request</Link>
       <a className="menu-item" href="/settings">
         Settings
       </a>
