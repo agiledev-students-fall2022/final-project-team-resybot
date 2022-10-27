@@ -1,7 +1,7 @@
 import './MakeRequest.css';
 import React, { useEffect } from 'react'
 import StandaloneRequest from './StandaloneRequest';
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const MakeRequest =() => {
 const addRequests = async ({restaurant}) => {
