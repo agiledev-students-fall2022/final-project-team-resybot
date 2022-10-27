@@ -6,9 +6,9 @@ const onAdd = ({setCartItems}) => {
     let list = mockData.map((val) => 
       <div className="template" key={val.id}>
           <Box className="description">
-            <div className = "itemControl">{val.restaurant}</div>
-            <div className = "itemControl">{val.party_size}</div>
-            <div className = "itemControl">{val.expiration_date}</div>
+            <div className = "itemControl"> Restaurant: <div className = "valueControl">{val.restaurant} </div></div>
+            <div className = "itemControl"> Party Size: <div className = "valueControl">{val.party_size}</div></div>
+            <div className = "itemControl"> Expiration Date: <div className = "valueControl">{val.expiration_date}</div></div>
           </Box>
       </div> 
     )
@@ -19,8 +19,8 @@ const onAdd = ({setCartItems}) => {
 const Requests = ({cartItems,setCartItems}) => {
     useEffect(()=>{onAdd({setCartItems})})
     return(
-        <div className = "Cart">
-            <h1> Requests </h1>
+        <div>
+            <h1 id="request_title"> Requests </h1>
             <main>
                 {cartItems}
             </main>
