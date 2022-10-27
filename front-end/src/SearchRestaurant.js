@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import TextField from "@mui/material/TextField";
 import './SearchRestaurant.css';
 import data from "./mockdata/MockRestaurantData.json";
+import {Link} from 'react-router-dom'
 
 const SearchRestaurant = (props) => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -30,16 +31,18 @@ const SearchRestaurant = (props) => {
                     })
                     .map((val) => {
                         return(
-                        <div className="entry" key={val.id}>
-                            <img src={val.picture} alt="" className="picture"/>
-                            <div className="details">
-                                <h3>{val.restaurant_name}</h3>
-                                <h5>{val.location}, {val.type}</h5>
+                            <Link to="/makerequest" state={{ restaurant: val }}> 
+                            <div className="entry" key={val.id}>
+                                <img src={val.picture} alt="" className="picture"/>
+                                <div className="details">
+                                    <h3>{val.restaurant_name}</h3>
+                                    <h5>{val.location}, {val.type}</h5>
+                                </div>
+                                <div className="rating">
+                                    <h6>{val.rating}({val.no_reviews})</h6>
+                                </div>
                             </div>
-                            <div className="rating">
-                                <h6>{val.rating}({val.no_reviews})</h6>
-                            </div>
-                        </div> 
+                            </Link> 
                         )
                     })
                 }
