@@ -9,7 +9,6 @@ import Settings from './Settings'
 import Requests from './Requests'
 import MakeRequest from './MakeRequest'
 import SearchRestaurant from './SearchRestaurant';
-import StandaloneRequest from './StandaloneRequest'
 import mockData from './mockdata/requests.json'
 import EditInformation from './EditInformation';
 const App = () => {
