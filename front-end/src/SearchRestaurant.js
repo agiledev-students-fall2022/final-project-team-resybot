@@ -1,10 +1,21 @@
 import React, {useState} from "react";
+import { useEffect } from 'react'
 import TextField from "@mui/material/TextField";
 import './SearchRestaurant.css';
-import data from "./mockdata/MockRestaurantData.json";
 
 const SearchRestaurant = (props) => {
     const [searchTerm, setSearchTerm] = useState("");
+    const [restauraunts , setRestaurants] = useState([])
+
+    const fetchRestauraunts = async () => {
+        const response = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Restaurants")
+        const data = await response.json()
+        setRestaurants(data)
+    } 
+    //try
+    useEffect(() => {
+        fetchRestauraunts()
+    }, [])
 
     return (
         <div className="search">
@@ -19,26 +30,26 @@ const SearchRestaurant = (props) => {
             </div>
             <div className="filter">
                 {
-                    data 
-                    .filter((val) => {
+                    restauraunts 
+                    .filter((entry) => {
                         if(searchTerm == ""){
-                            return val;
+                            return entry;
                         }
-                        else if(val.restaurant_name.toLowerCase().includes(searchTerm.toLowerCase())){
-                            return val;
+                        else if(entry.restaurant_name.toLowerCase().includes(searchTerm.toLowerCase())){
+                            return entry;
                         }
                     })
-                    .map((val) => {
+                    .map((entry) => {
                         return(
-                        <div className="template" key={val.id}>
-                            <img src={val.picture} alt="" className="picture"/>
-                            <div className="description">
-                                <h3>{val.restaurant_name}</h3>
-                                <h5>{val.location}</h5>
-                                <h5>{val.type}</h5>
+                        <div className="entry" key={entry.id}>
+                            <img src={entry.picture} alt="restaurant image" className="picture"/>
+                            <div className="restaurant_details">
+                                <h3>{entry.restaurant_name}</h3>
+                                <h5>{entry.location}</h5>
+                                <h5>{entry.type}</h5>
                             </div>
                             <div className="rating">
-                                <h6>{val.rating}({val.no_reviews})</h6>
+                                <h6>{entry.rating}({entry.no_reviews})</h6>
                             </div>
                         </div> 
                         )
