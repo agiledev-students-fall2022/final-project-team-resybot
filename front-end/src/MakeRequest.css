@@ -1,4 +1,16 @@
-#request_title{
-    color: rgb(0, 0, 0);
-    font-family: 'Franklin Gothic Medium';
+.makerequest {
+    width: 800px;
+    padding: 50px;
+}
+
+.requestpicture {
+    width: 700px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 700px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }

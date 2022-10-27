@@ -13,6 +13,12 @@
     padding: 10px;
     border: 2px solid #d4d4d48a;
     float: center;
+    color: black;
+    text-decoration:none;
+}
+
+.entry:hover {
+    background-color: #d4d4d48a;
 }
 
 .picture {
@@ -24,6 +30,7 @@
 .details {
     float: center;
     text-overflow: ellipsis;
+    text-decoration:none;
 }
 
 h3 {
@@ -37,4 +44,5 @@ h5 {
 .rating {
     float: right;
     text-overflow: ellipsis;
+    text-decoration:none;
 }
