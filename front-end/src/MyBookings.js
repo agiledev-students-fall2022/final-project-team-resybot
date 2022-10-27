@@ -15,7 +15,7 @@ const MyBookings = props => {
     setRes(stuff)
 
   }
-
+  //try
   useEffect(() => {
     fetchResy()
   }, [])
