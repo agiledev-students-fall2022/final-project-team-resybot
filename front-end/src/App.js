@@ -26,6 +26,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
               <Route path="/settings" element={<Settings/>}/>
+              <Route path = "/editinformation" element = {<EditInformation/>}/>
               <Route path="/requests" element={<Requests cartItems = {cartItems} setCartItems = {setCartItems}/>}/>
               <Route path="/makerequest" element={<MakeRequest cartItems = {cartItems} setCartItems = {setCartItems}/>}/>
             </Routes>
