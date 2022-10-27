@@ -2,6 +2,7 @@ import './Requests.css';
 import React, { useEffect } from 'react'
 import mockData from './mockdata/requests.json'
 import {Box} from '@mui/material';
+import { useState } from 'react';
 
 const showRequests = ({setCartItems, data}) => {
   let list = data.map((val) => 
@@ -22,7 +23,8 @@ const fetchRequests = async ({setCartItems}) => {
     const data = await response.json()
     showRequests({setCartItems,data})
 }
-const Requests = ({cartItems,setCartItems}) => {
+const Requests = () => {
+const [cartItems, setCartItems] = useState([]);
     useEffect(()=>{fetchRequests({setCartItems})},[])
     return(
         <div>

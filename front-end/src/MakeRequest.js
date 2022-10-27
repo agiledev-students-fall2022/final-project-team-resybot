@@ -1,12 +1,22 @@
 import './MakeRequest.css';
 import React, { useEffect } from 'react'
 import { useLocation } from "react-router-dom";
-import RequestConfirmation from './RequestConfirmation';
 
 
 const MakeRequest = () => {
 
-
+    const addRequests = async ({restaurant}) => {
+        let item={"restaurant":restaurant.restaurant_name,"party_size":"test_size","expiration_date":"test_date"}
+        let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests", {
+            method: 'POST',
+            headers:{
+                "Content-Type":"application/json",
+                "Accept":'application/json'
+            },
+            body:JSON.stringify(item)
+            })
+        result = await result.json();
+    };
     // const onAdd = () => {
     //     let data.push({"id":"${mockData.length + 1}","restaurant":"test","party_size":"test_size","expiration_date":"test_date"})
     // }
@@ -21,7 +31,7 @@ const MakeRequest = () => {
         <button> Select Party Size </button>
         <button> Select Time </button>
         <button> Select Request Lifetime </button>
-        <RequestConfirmation restaurant={restaurant}></RequestConfirmation>
+        <button onClick = {addRequests(restaurant)}> Make Request </button>
     </div>
   )}
   export default MakeRequest;
