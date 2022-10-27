@@ -1,5 +1,5 @@
-[{"id":1,"restaurant":"Kautzer, Hessel and Lowe","party_size":"08-542-6688","expiration_date":"11/1/2021"},
-{"id":2,"restaurant":"Considine-Schneider","party_size":"31-219-5832","expiration_date":"12/15/2021"},
-{"id":3,"restaurant":"Franecki, Veum and Grimes","party_size":"52-181-0176","expiration_date":"7/28/2022"},
-{"id":4,"restaurant":"Graham, Lockman and Predovic","party_size":"12-920-4386","expiration_date":"4/6/2022"},
-{"id":5,"restaurant":"Denesik Group","party_size":"00-850-4686","expiration_date":"2/25/2022"}]
+[{"id":1,"restaurant":"Kautzer, Hessel and Lowe","party_size":"08","expiration_date":"11/1/2021"},
+{"id":2,"restaurant":"Considine-Schneider","party_size":"31","expiration_date":"12/15/2021"},
+{"id":3,"restaurant":"Franecki, Veum and Grimes","party_size":"52","expiration_date":"7/28/2022"},
+{"id":4,"restaurant":"Graham, Lockman and Predovic","party_size":"12","expiration_date":"4/6/2022"},
+{"id":5,"restaurant":"Denesik Group","party_size":"00","expiration_date":"2/25/2022"}]
