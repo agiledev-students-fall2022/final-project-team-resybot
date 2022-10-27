@@ -1,0 +1,28 @@
+.popup-content {
+    margin: auto;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: #fff;
+    border: 5px solid #d4d4d48a;
+    height: auto;
+    width: 750px;
+    position: relative;
+}
+
+h1 {
+    font-size: 35px;
+    margin: 15px;
+    float: center;
+}
+
+.button_wrapper.absolute {
+    position: absolute;
+    bottom: 15px;
+}
+
+.popupbutton {
+    background-color: #d4d4d48a;
+    width: 340px;
+    height: 50px;
+    margin: 10px;
+}
