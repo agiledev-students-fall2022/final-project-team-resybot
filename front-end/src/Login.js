@@ -23,9 +23,9 @@ const Login = () => {
       body:JSON.stringify(item)
     })
     result = await result.json();
-    //localStorage.setItem("user", JSON.stringify(result))
+    localStorage.setItem("user", JSON.stringify(result))
     //test for now
-  
+    navigate("/login")
   }
   return (
   <div className = "login">
@@ -38,7 +38,7 @@ const Login = () => {
           <br/>
 
           <input type = "password"  placeholder = "Password" id = "password"
-          //onChange = {(e)=>setPassword(e.target.value)}
+          onChange = {(e)=>setPassword(e.target.value)}
           className = "form-control"/>
           <br/>
           <button onClick={login} className = "btn" type = "submit">Login</button>

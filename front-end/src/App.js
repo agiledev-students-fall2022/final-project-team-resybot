@@ -8,15 +8,11 @@ import SignUp from "./SignUp"
 import Settings from './Settings'
 import Requests from './Requests'
 import MakeRequest from './MakeRequest'
-import mockData from './mockdata/requests.json'
 import EditInformation from './EditInformation';
-
 const App = () => {
   // for adding items to a cart
   const [cartItems, setCartItems] = useState([]);
-  
 
-  
   return (
    <div className = "App">
     <Router> 

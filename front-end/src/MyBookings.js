@@ -10,11 +10,11 @@ const MyBookings = props => {
   const [Resturaunts , setRes] = useState([])
   
   const fetchResy = async () => {
-    const response = await fetch("https://api.mockaroo.com/api/c2496c90?count=10&key=459f4720")
+    const response = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Bookings")//"https://api.mockaroo.com/api/c2496c90?count=10&key=459f4720"
     const stuff = await response.json()
     setRes(stuff)
   }
-
+  //try
   useEffect(() => {
     fetchResy()
   }, [])
@@ -27,8 +27,8 @@ const MyBookings = props => {
             {Resturaunts.map(res => (
               <li key={res["id"]}>
                 <p className='asd'>
-                  <Link to="/makerequest" className="btn btn-primary">{res["Resturant name"]}</Link>
-                  location {res["location"]}
+                  <Link to="/makerequest" className="btn btn-primary">{res["restaurant"]}</Link>
+                  Place: {res["location"]}
                 </p>
                 
               </li>))}
