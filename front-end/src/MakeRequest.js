@@ -10,7 +10,7 @@ const MakeRequest =({cartItems,setCartItems}) => {
     
     return (
     <div className = "makeRequest">
-        <h1 id="request_title"> Requests </h1>
+        <h1 id="request_title"> Make Request </h1>
         <button onClick = {onAdd}> Add Request </button>
     </div>
   )}
