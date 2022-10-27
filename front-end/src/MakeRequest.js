@@ -30,7 +30,7 @@ const { restaurant } = location.state;
         <h2> {restaurant.address} </h2>
         <button> Select Request Lifetime </button>
         <button> Select Time </button>
-        <button onClick = {addRequests}> Make Request </button>
+        <button onClick = {addRequests({restaurant})}> Make Request </button>
     </div>
   )}
   export default MakeRequest;
