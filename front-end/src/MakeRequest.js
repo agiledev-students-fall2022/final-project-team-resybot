@@ -4,9 +4,9 @@ import StandaloneRequest from './StandaloneRequest';
 import { useLocation } from "react-router-dom";
 
 
-const MakeRequest =() => {
-const addRequests = async ({restaurant}) => {
-    let item={"restaurant":restaurant.restaurant_name,"party_size":"test_size","time":"test_time","expiration_date":"test_date"}
+const MakeRequest =({restaurant}) => {
+const addRequests = async () => {
+    let item={"id":"${mockData.length + 1}","restaurant":"test","party_size":"test_size","time":"test_time","expiration_date":"test_date"}
     let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests", {
         method: 'POST',
         headers:{
@@ -18,7 +18,9 @@ const addRequests = async ({restaurant}) => {
     result = await result.json();
 }
 
-
+    // const onAdd = () => {
+    //     let data.push({"id":"${mockData.length + 1}","restaurant":"test","party_size":"test_size","expiration_date":"test_date"})
+    // }
 
 const location = useLocation();
     const { restaurant } = location.state;
