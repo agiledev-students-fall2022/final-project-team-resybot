@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 const MakeRequest =(props) => {
 const addRequests = async () => {
-    let item={"id":"${mockData.length + 1}","restaurant":"test","party_size":"test_size","time":"test_time","expiration_date":"test_date"}
+    let item={"restaurant":"${test}","party_size":"test_size","time":"test_time","expiration_date":"test_date"}
     let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests", {
         method: 'POST',
         headers:{
@@ -30,7 +30,7 @@ const addRequests = async () => {
         <h2> {restaurant.address} </h2>
         <button> Select Request Lifetime </button>
         <button> Select Time </button>
-        <button> Make Request </button>
+        <button onClick = {addRequests}> Make Request </button>
     </div>
   )}
   export default MakeRequest;
