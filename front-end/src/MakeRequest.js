@@ -2,7 +2,6 @@ import './MakeRequest.css';
 import React, { useEffect } from 'react'
 import StandaloneRequest from './StandaloneRequest';
 import { useLocation } from "react-router-dom";
-import SelectTime from './SelectTime';
 import RequestConfirmation from './RequestConfirmation';
 
 
@@ -31,8 +30,9 @@ const MakeRequest = (props) => {
         <img src={restaurant.picture} alt="" className="requestpicture"/>
         <h1> Reservation at {restaurant.restaurant_name} </h1>
         <h2> {restaurant.address} </h2>
+        <button> Select Party Size </button>
+        <button> Select Time </button>
         <button> Select Request Lifetime </button>
-        <SelectTime></SelectTime>
         <RequestConfirmation></RequestConfirmation>
     </div>
   )}
