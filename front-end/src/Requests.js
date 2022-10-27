@@ -17,7 +17,7 @@ const showRequests = ({setCartItems, data}) => {
 };
 
 const fetchRequests = async ({setCartItems}) => {
-    const response =  await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Request")
+    const response =  await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests")
     const data = await response.json()
     showRequests({setCartItems,data})
 }
