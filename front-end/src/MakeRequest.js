@@ -1,13 +1,12 @@
 import './MakeRequest.css';
-import React, { useState , useEffect } from 'react'
-import { useLocation } from "react-router-dom";
+import React, { useState } from 'react'
+import { useLocation, useNavigate } from "react-router-dom";
 
 const MakeRequest = () => {
-    useEffect(() => {
-    }, [])
     const [partySize, setPartySize] = useState(0);
     const [time, setTime] = useState("");
     const [expiration_date, setExpirationDate] = useState("");
+    const navigate = useNavigate();
 
     const addRequests = async ({restaurant}) => {
       console.log(partySize)
@@ -23,6 +22,9 @@ const MakeRequest = () => {
           body:JSON.stringify(item)
           })
       result = await result.json();
+      
+      let path = "/requests"; 
+      navigate(path);
     };
 
     const location = useLocation();
