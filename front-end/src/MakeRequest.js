@@ -9,7 +9,7 @@ const MakeRequest = () => {
     const [time, setTime] = useState("");
     const [expiration_date, setExpirationDate] = useState("");
 
-    const addRequests = async ({restaurant},partySize,time,expiration_date) => {
+    const addRequests = async ({restaurant}) => {
       console.log(partySize)
       console.log(time)
       console.log(expiration_date)
@@ -42,7 +42,7 @@ const MakeRequest = () => {
         <input type = "date"  placeholder = "Expiration Date"  id = "expiration-date"
         onChange = {(e)=>setExpirationDate(e.target.value)}
         className = "form-control"/>
-        <button onClick={() => addRequests({restaurant},partySize,time,expiration_date)}> Make Request </button> 
+        <button onClick={() => addRequests(restaurant)}> Make Request </button> 
     </div>
   )}
   export default MakeRequest;
