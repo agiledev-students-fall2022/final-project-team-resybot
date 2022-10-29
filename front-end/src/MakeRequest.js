@@ -42,7 +42,7 @@ const MakeRequest = () => {
         <input type = "date"  placeholder = "Expiration Date"  id = "expiration-date"
         onChange = {(e)=>setExpirationDate(e.target.value)}
         className = "form-control"/>
-        <button onClick={() => addRequests(restaurant)}> Make Request </button> 
+        <button onClick={() => addRequests(restaurant)} > Make Request </button> 
     </div>
   )}
   export default MakeRequest;

@@ -9,15 +9,12 @@ const Sidebar = (props) => {
       <a className="menu-item" href="/">
         My Bookings
       </a>
-      {/* <a className="menu-item" href="/requests">
+      <a className="menu-item" href="/requests">
         Requests
-      </a> */}
-      <Link to="/requests">Requests</Link>
-
-      {/* <a className="menu-item" href="/makerequest">
+      </a>  
+      <a className="menu-item" href="/SearchRestaurant">
         Make Request
-      </a> */}
-      <Link to="/SearchRestaurant">Make Request</Link>
+      </a>
       <a className="menu-item" href="/settings">
         Settings
       </a>
