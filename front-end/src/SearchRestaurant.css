@@ -15,6 +15,7 @@
     float: center;
     color: black;
     text-decoration:none;
+    font-family: 'Franklin Gothic Medium';
 }
 
 .entry:hover {

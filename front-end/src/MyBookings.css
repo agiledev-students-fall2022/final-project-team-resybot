@@ -2,7 +2,6 @@
 text-align: left;
 top: 10px;
 left: 5000px;
-color: purple;
 position:relative;
 font-family: 'Franklin Gothic Medium';
 top:10px;
@@ -11,20 +10,20 @@ margin-left:30px;
 margin-right:10px; 
 }
 
-.lists {
-    color: orangered;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    list-style: decimal;
-    text-align: left;
-}
-
-.bottom {
-    text-align: center;
-    background-color: orangered;
-}
-
 .top{
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: blue;
+    background-color: white;
+}
+.boxControl{
+    text-align: left;
+    margin-left:25vw;
+    background-color: white;
+    border: 2px solid #d4d4d48a;
+    width:50vw;
+    padding: 5px;
+    color: black;
+}
+.btn-primary{
+    color: grey
 }
