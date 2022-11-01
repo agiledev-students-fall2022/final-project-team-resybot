@@ -9,13 +9,9 @@ import Settings from './Settings'
 import Requests from './Requests'
 import MakeRequest from './MakeRequest'
 import SearchRestaurant from './SearchRestaurant';
-import StandaloneRequest from './StandaloneRequest'
 import mockData from './mockdata/requests.json'
 import EditInformation from './EditInformation';
 const App = () => {
-  // for adding items to a cart
-  const [cartItems, setCartItems] = useState([]);
-
   return (
    <div className = "App">
     <Router> 
@@ -26,7 +22,7 @@ const App = () => {
               <Route path="/signup" element={<SignUp/>}/>
               <Route path="/settings" element={<Settings/>}/>
               <Route path = "/editinformation" element = {<EditInformation/>}/>
-              <Route path="/requests" element={<Requests cartItems = {cartItems} setCartItems = {setCartItems}/>}/>
+              <Route path="/requests" element={<Requests/>}/>
               <Route path="/makerequest" element={<MakeRequest />}/>
               <Route path="/SearchRestaurant" element={<SearchRestaurant />} />
             </Routes>
