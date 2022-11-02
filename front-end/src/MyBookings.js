@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import {Box} from '@mui/material';
 
 
 const MyBookings = props => {
@@ -31,21 +32,18 @@ const MyBookings = props => {
     <div>
       <h1 className='top'>Current Bookings</h1>
       {Resturaunts.length > 0 && (
-          <ul className= 'lists'>
+          <div className= 'lists'>
             {Resturaunts.map(res => (
-              <li key={res["id"]}>
-                <p className='asd'>
-                  <Link to="/makerequest" className="btn btn-primary">{res["restaurant"]}</Link>
+              <div key={res["id"]}>
+                <Box className="boxControl">
+                  <Button to="/makerequest" className="btn-primary">{res["restaurant"]}</Button>
                   Place: {res["location"]}
-                  <Button type = "button" onClick = {() => rem(res["id"])}>
+                  <Button type = "button" className = "button" onClick = {() => rem(res["id"])}>
                     Delete
                   </Button>
-
-                </p>
-                
-              </li>))}
-
-          </ul>
+                </Box>  
+              </div>))}
+          </div>
       )} 
 
     </div>

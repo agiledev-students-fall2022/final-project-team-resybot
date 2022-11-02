@@ -29,11 +29,10 @@ const MakeRequest = () => {
 
     const location = useLocation();
     const restaurant = location.state;
-
     return (
     <div className = "makeRequest">
         <img src={restaurant.picture} alt="" className="requestpicture"/>
-        <h1> Reservation at {restaurant.restaurant_name} </h1>
+        <h1> Reservation {restaurant.restaurant_name} </h1>
         <h2> {restaurant.address} </h2>
         <input type = "number"  placeholder = "Party Size"  id = "party-size"
         onChange = {(e)=>setPartySize(e.target.value)}
