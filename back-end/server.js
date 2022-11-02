@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/env node
 const server = require("./app") // load up the web server
 const port = 3000 // the port to listen to for incoming requests
@@ -12,3 +13,20 @@ const close = () => {
 module.exports = {
   close: close,
 }
+=======
+const express = require('express');
+
+const path = require('path');
+
+const app = express();
+
+const port = 3000;
+
+app.get('/', (request, response) => {
+    response.send('Yes, this works');
+})
+
+app.listen(port, () => {
+    console.log('Express server listening on port ${port}');
+})
+>>>>>>> e16718e (basic template for express app)
