@@ -30,18 +30,22 @@ const MyBookings = props => {
 
   return (
     <div>
-      <h1 className='top'>Current Bookings</h1>
+      <h1 className='top'>My Bookings</h1>
       {Resturaunts.length > 0 && (
           <div className= 'lists'>
             {Resturaunts.map(res => (
-              <div key={res["id"]}>
-                <Box className="boxControl">
-                  <Button to="/makerequest" className="btn-primary">{res["restaurant"]}</Button>
-                  Place: {res["location"]}
-                  <Button type = "button" className = "button" onClick = {() => rem(res["id"])}>
-                    Delete
-                  </Button>
-                </Box>  
+              <div key={res["id"]} className = "template">
+                <div className="bookingsDescription">
+                  <div class="columnLeft">
+                    <div className = "itemControl"> Restaurant: <div className = "valueControl">{res["restaurant"]}</div></div>
+                    <div className = "itemControl"> Location: <div className = "valueControl">{res["location"]}</div></div>
+                  </div>
+                  <div class="columnRight">
+                    <Button className="delete" onClick = {() => rem(res["id"])}>
+                      Delete 
+                    </Button>
+                  </div>
+                </div>  
               </div>))}
           </div>
       )} 
