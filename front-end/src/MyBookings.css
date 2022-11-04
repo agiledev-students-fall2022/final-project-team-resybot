@@ -22,6 +22,7 @@
     right: 25vw;
 }
 .bookingsDescription{
+    border-radius: 25px;
     justify-content: space-between;
     column-count: 2;
     display:flex;
