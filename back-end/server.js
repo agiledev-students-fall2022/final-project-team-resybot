@@ -13,3 +13,10 @@ app.get('/', (request, response) => {
 app.listen(port, () => {
     console.log('Express server listening on port ${port}');
 })
+// a function to stop listening to the port
+const close = () => {
+  listener.close()
+}
+module.exports = {
+  close: close,
+}
