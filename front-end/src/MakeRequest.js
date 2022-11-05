@@ -5,14 +5,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 const MakeRequest = () => {
     const [partySize, setPartySize] = useState(0);
     const [time, setTime] = useState("");
-    const [expiration_date, setExpirationDate] = useState("");
+    const [date, setDate] = useState("");
     const navigate = useNavigate();
 
     const addRequests = async ({restaurant}) => {
       console.log(partySize)
       console.log(time)
-      console.log(expiration_date)
-      let item={"restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"expiration_date":expiration_date}
+      console.log(date)
+      let item={"restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date}
       let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests", {
           method: 'POST',
           headers:{
@@ -40,8 +40,8 @@ const MakeRequest = () => {
         <input type = "time"  placeholder = "Time"  id = "time"
         onChange = {(e)=>setTime(e.target.value)}
         className = "form-control"/>
-        <input type = "date"  placeholder = "Expiration Date"  id = "expiration-date"
-        onChange = {(e)=>setExpirationDate(e.target.value)}
+        <input type = "date"  placeholder = "Date"  id = "date"
+        onChange = {(e)=>setDate(e.target.value)}
         className = "form-control"/>
         <button onClick={() => addRequests(restaurant)} > Make Request </button> 
     </div>

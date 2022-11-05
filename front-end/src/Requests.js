@@ -13,7 +13,7 @@ const showRequests = ({setCartItems, data}) => {
             <div className = "requestsItemControl"> Restaurant: <div className = "requestsValueControl">{val.restaurant} </div></div>
             <div className = "requestsItemControl"> Party Size: <div className = "requestsValueControl">{val.party_size}</div></div>
             <div className = "requestsItemControl"> Time: <div className = "requestsValueControl">{val.time}</div></div>
-            <div className = "requestsItemControl"> Expiration Date: <div className = "requestsValueControl">{val.expiration_date}</div></div>      
+            <div className = "requestsItemControl"> Date: <div className = "requestsValueControl">{val.date}</div></div>      
           </div>
           <div class="requestsColumnRight">
             {/*doesn't do anything yet*/}
