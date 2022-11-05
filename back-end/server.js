@@ -1,12 +1,20 @@
-const server = require("./app")
-const port = 4000
+const express = require('express');
+const bookings = require('./routes/bookings.js');
+const requests = require('./routes/requests');
+const makerequests = require('./routes/makerequests');
+const search = require('./routes/search');
+
+const server = express();
+
+const port = 5000
+// set bodyparser
+server.use(express.json());
+
+server.use('/', bookings);
+server.use('/requests', requests);
+server.use('/makerequests', makerequests);
+server.use('/search', search);
+
 server.listen(port, () => {
-    console.log('Server running on port: ' + port);
-})
-// a function to stop listening to the port
-const close = () => {
-  listener.close()
-}
-module.exports = {
-  close: close,
-}
+    console.log(`Server running on port: ${port}`);
+});
