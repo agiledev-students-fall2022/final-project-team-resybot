@@ -1,6 +1,5 @@
 import './Requests.css';
 import React, { useEffect } from 'react'
-import mockData from './mockdata/requests.json'
 import {Box} from '@mui/material';
 import { useState } from 'react';
 import { Button } from 'reactstrap';
@@ -28,7 +27,7 @@ const showRequests = ({setCartItems, data}) => {
 };
 
 const fetchRequests = async ({setCartItems}) => {
-    const response =  await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests")
+    const response =  await fetch("/requests")
     const data = await response.json()
     showRequests({setCartItems,data})
 }
