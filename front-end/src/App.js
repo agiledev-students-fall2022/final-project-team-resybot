@@ -11,6 +11,7 @@ import MakeRequest from './MakeRequest'
 import SearchRestaurant from './SearchRestaurant';
 import mockData from './mockdata/requests.json'
 import EditInformation from './EditInformation';
+import ContactUs from './ContactUs';
 const App = () => {
   return (
    <div className = "App">
@@ -25,6 +26,7 @@ const App = () => {
               <Route path="/requests" element={<Requests/>}/>
               <Route path="/makerequest" element={<MakeRequest />}/>
               <Route path="/SearchRestaurant" element={<SearchRestaurant />} />
+              <Route path="/contactus" element={<ContactUs />}/>
             </Routes>
           </Layout>
     </Router>
