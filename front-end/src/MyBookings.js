@@ -15,7 +15,6 @@ const MyBookings = props => {
     const stuff = await response.json()
     setRes(stuff)
   }
-  //try
   useEffect(() => {
     fetchResy()
   }, [])
