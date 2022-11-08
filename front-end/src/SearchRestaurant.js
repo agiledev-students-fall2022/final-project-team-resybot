@@ -1,12 +1,19 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import TextField from "@mui/material/TextField";
 import './SearchRestaurant.css';
-import data from "./mockdata/MockRestaurantData.json";
 import {Link} from 'react-router-dom'
+
+const fetchRestaurants = async ({setRestaurants}) => {
+    const response =  await fetch("/search")
+    const data = await response.json()
+    setRestaurants(data)
+}
 
 const SearchRestaurant = (props) => {
     const [searchTerm, setSearchTerm] = useState("");
+    const [restaurants, setRestaurants] = useState([]);
 
+    useEffect(()=>{fetchRestaurants({setRestaurants})},[])
     return (
         <div className="search">
             <div className="input">
@@ -20,7 +27,7 @@ const SearchRestaurant = (props) => {
             </div>
             <div className="filter">
                 {
-                    data 
+                    restaurants 
                     .filter((val) => {
                         if(searchTerm == ""){
                             return val;
@@ -39,7 +46,7 @@ const SearchRestaurant = (props) => {
                                     <h5>{val.location}, {val.type}</h5>
                                 </div>
                                 <div className="rating">
-                                    <h6>{val.rating}({val.no_reviews})</h6>
+                                    <h6>{val.rating}/5 ({val.no_reviews} reviews)</h6>
                                 </div>
                             </div>
                             </Link> 
