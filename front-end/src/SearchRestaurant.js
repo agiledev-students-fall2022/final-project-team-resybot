@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import TextField from "@mui/material/TextField";
 import './SearchRestaurant.css';
-import x from "./mockdata/MockRestaurantData.json";
 import {Link} from 'react-router-dom'
 
 const fetchRestaurants = async ({setRestaurants}) => {
