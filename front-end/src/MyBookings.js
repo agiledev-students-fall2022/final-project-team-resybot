@@ -11,11 +11,10 @@ const MyBookings = props => {
   const [Resturaunts , setRes] = useState([])
   
   const fetchResy = async () => {
-    const response = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Bookings")//"https://api.mockaroo.com/api/c2496c90?count=10&key=459f4720"
+    const response = await fetch("/bookings")//"https://api.mockaroo.com/api/c2496c90?count=10&key=459f4720"
     const stuff = await response.json()
     setRes(stuff)
   }
-  //try
   useEffect(() => {
     fetchResy()
   }, [])
@@ -46,7 +45,9 @@ const MyBookings = props => {
                     </Button>
                   </div>
                 </div>  
+                
               </div>))}
+              <Link to="/makerequest" className="btn btn-primary">New Reservation</Link>
           </div>
       )} 
 

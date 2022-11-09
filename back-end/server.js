@@ -10,7 +10,7 @@ const port = 3001
 // set bodyparser
 server.use(express.json());
 
-server.use('/', bookings);
+server.use('/bookings', bookings);
 server.use('/requests', requests);
 server.use('/makerequests', makerequests);
 server.use('/search', search);
