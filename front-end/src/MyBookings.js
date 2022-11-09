@@ -45,7 +45,9 @@ const MyBookings = props => {
                     </Button>
                   </div>
                 </div>  
+                
               </div>))}
+              <Link to="/makerequest" className="btn btn-primary">New Reservation</Link>
           </div>
       )} 
 
