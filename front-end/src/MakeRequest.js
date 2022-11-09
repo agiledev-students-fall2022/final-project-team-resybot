@@ -1,7 +1,7 @@
 import './MakeRequest.css';
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from 'axios';
+const axios = require('axios')
 
 const MakeRequest = () => {
     const [partySize, setPartySize] = useState(0);
@@ -10,13 +10,13 @@ const MakeRequest = () => {
     const navigate = useNavigate();
 
     const addRequests = async ({restaurant}) => {
-        let result = await axios.post("/requests", {
-          "restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date
-          })
-        result = await result;
-        let path = "/requests"; 
-        navigate(path);
-      };
+      let result = await axios.post("/requests", {
+        "restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date
+        })
+      result = await result;
+      let path = "/requests"; 
+      navigate(path);
+    };
 
     const location = useLocation();
     const restaurant = location.state;

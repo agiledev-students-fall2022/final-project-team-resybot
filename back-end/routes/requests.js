@@ -21,7 +21,6 @@ router.post("/", async (req,res) => {
             res.json(apiResponse.data)
         })
     } catch (error) {
-        console.log("error")
         console.log(error.response)
     }
 })
