@@ -1,7 +1,6 @@
 const express = require('express');
 const bookings = require('./routes/bookings.js');
 const requests = require('./routes/requests');
-const makerequests = require('./routes/makerequests');
 const search = require('./routes/search');
 
 const server = express();
@@ -12,7 +11,6 @@ server.use(express.json());
 
 server.use('/bookings', bookings);
 server.use('/requests', requests);
-server.use('/makerequests', makerequests);
 server.use('/search', search);
 
 server.listen(port, () => {
