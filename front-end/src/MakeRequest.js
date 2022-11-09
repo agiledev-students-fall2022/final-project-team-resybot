@@ -9,23 +9,13 @@ const MakeRequest = () => {
     const navigate = useNavigate();
 
     const addRequests = async ({restaurant}) => {
-      console.log(partySize)
-      console.log(time)
-      console.log(date)
-      let item={"restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date}
-      let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/Requests", {
-          method: 'POST',
-          headers:{
-              "Content-Type":"application/json",
-              "Accept":'application/json'
-          },
-          body:JSON.stringify(item)
+        let result = await axios.post("/requests", {
+          "restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date
           })
-      result = await result.json();
-      
-      let path = "/requests"; 
-      navigate(path);
-    };
+        result = await result;
+        let path = "/requests"; 
+        navigate(path);
+      };
 
     const location = useLocation();
     const restaurant = location.state;
