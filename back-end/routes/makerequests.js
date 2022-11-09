@@ -4,9 +4,9 @@ const axios = require('axios')
 require("dotenv").config({ silent: true })
 
 //do stuff here
-router.get('/',(req,res) => {
+router.post('/',(req,res) => {
     axios
-    .get(`${process.env.API_BASE_URL+process.env.REQUEST}?&key=${process.env.API_KEY}`)
+    .post(`${process.env.API_BASE_URL+process.env.REQUEST}?&key=${process.env.API_KEY}`)
     .then(apiResponse => {
         res.json(apiResponse.data)
     })
