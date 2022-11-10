@@ -20,6 +20,10 @@
   },
   "devDependencies": {
     "jest": "^29.3.1",
+    "eslint": "^8.26.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-mocha": "^10.1.0",
+    "mocha": "^10.1.0",
     "nodemon": "^2.0.20",
     "supertest": "^6.3.1"
   }
