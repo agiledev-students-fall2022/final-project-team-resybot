@@ -10,6 +10,8 @@ const server = require("../server")
 
 chai.use(chaiHttp)
 
+//Verifying the retrieving of data in the bookings route
+
 describe("GET request to bookings", () => {
     it("it should respond with 200 status and object",done => {
         chai
