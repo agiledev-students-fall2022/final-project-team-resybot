@@ -1,9 +1,11 @@
+const { expect } = require('chai');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const mocha = require('mocha')
-const assert = require('assert');
-const express = require('express');
-const server = require('../server');
+const should = chai.should();
+
+chai.use(chaiHttp)
+
+const server = require("../server")
 
 
 chai.use(chaiHttp)
@@ -14,9 +16,8 @@ describe("GET request to bookings", () => {
             .request(server)
             .get("/bookings")
             .end((err, res) => {
-                //res.should.have.status(200)
-                res.body.should.be.a("object")
-                res.body.should.have.property("success", true)
+                res.should.have.status(200)
+                res.body.should.be.a("Array")
                 done()
             })
     })
