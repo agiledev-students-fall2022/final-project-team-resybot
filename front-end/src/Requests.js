@@ -3,6 +3,13 @@ import React, { useEffect } from 'react'
 import {Box} from '@mui/material';
 import { useState } from 'react';
 import { Button } from 'reactstrap';
+const axios = require('axios')
+
+const removeRequest =  async ({val}) =>{
+  axios
+    .delete(`/request/${val.id}`);
+
+}
 
 const showRequests = ({setCartItems, data}) => {
   let list = data.map((val) => 
@@ -16,7 +23,7 @@ const showRequests = ({setCartItems, data}) => {
           </div>
           <div class="requestsColumnRight">
             {/*doesn't do anything yet*/}
-            <Button className="delete">
+            <Button onClick = {removeRequest(val)} className="delete">
                 Delete 
             </Button>
           </div>
@@ -27,9 +34,12 @@ const showRequests = ({setCartItems, data}) => {
 };
 
 const fetchRequests = async ({setCartItems}) => {
-    const response =  await fetch("/requests")
-    const data = await response.json()
-    showRequests({setCartItems,data})
+    axios.get("/requests")
+    .then( response => {
+      const data = response.data
+      showRequests({setCartItems,data})
+    }
+    )
 }
 const Requests = () => {
 const [cartItems, setCartItems] = useState([]);

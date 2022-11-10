@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'reactstrap';
 import { useLocation, useNavigate } from "react-router-dom";
+const axios = require('axios')
 
 
 const MyBookings = props => {
@@ -10,9 +11,12 @@ const MyBookings = props => {
   const [Resturaunts , setRes] = useState([])
   
   const fetchResy = async () => {
-    const response = await fetch("/bookings")
-    const stuff = await response.json()
-    setRes(stuff)
+    axios.get("/bookings")
+    .then( response => {
+      const data = response.data
+      setRes(data)
+    }
+    )
   }
   useEffect(() => {
     fetchResy()
