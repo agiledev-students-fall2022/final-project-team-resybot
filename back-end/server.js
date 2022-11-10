@@ -6,6 +6,8 @@ const search = require('./routes/search');
 const server = express();
 
 const port = 3001
+
+module.exports = server
 // set bodyparser
 server.use(express.json());
 
