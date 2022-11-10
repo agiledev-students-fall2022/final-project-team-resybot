@@ -13,7 +13,7 @@ router.get("/",(req,res) => {
 
 router.post("/", async (req,res) => {
     try{
-        const resp = await axios
+        axios
         .post(`${process.env.API_BASE_URL+process.env.REQUEST}?&key=${process.env.API_KEY}`,{ restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date})
         .then(apiResponse =>{
             res.json(apiResponse.data)
@@ -23,10 +23,13 @@ router.post("/", async (req,res) => {
     }
 })
 
-router.delete("/:id", async (req,res) => {
+router.delete("/", async (req,res) => {
+    console.log(req.body.id)
     try{
-        const resp = await axios
-        .delete(`${process.env.API_BASE_URL+process.env.REQUEST}?&key=${process.env.API_KEY}`,{id: req.params.id})
+        axios
+        .delete(`${process.env.API_BASE_URL+process.env.REQUEST}?&key=${process.env.API_KEY}`,{
+            params: {id: req.params.id}
+        })
         .then(apiResponse =>{
             res.json(apiResponse.data)
         })

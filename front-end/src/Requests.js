@@ -5,13 +5,17 @@ import { useState } from 'react';
 import { Button } from 'reactstrap';
 const axios = require('axios')
 
-const removeRequest =  async ({val}) =>{
-  axios
-    .delete(`/request/${val.id}`);
-
+const removeRequest =  async ({val, setCartItems, cartItems}) =>{
+  console.log(val.id)
+  const response = await axios
+    .delete(`/requests` ,{
+      params: {id: val.id}
+    })
+    console.log(response)
+    setCartItems(cartItems.filter(data => data.id !== val.id))
 }
 
-const showRequests = ({setCartItems, data}) => {
+const showRequests = ({cartItems,setCartItems, data}) => {
   let list = data.map((val) => 
     <div className="requestsTemplate" key={val.id}>
         <Box className="requestsDescription">
@@ -23,7 +27,7 @@ const showRequests = ({setCartItems, data}) => {
           </div>
           <div class="requestsColumnRight">
             {/*doesn't do anything yet*/}
-            <Button onClick = {removeRequest(val)} className="delete">
+            <Button onClick = {() => removeRequest({val, setCartItems, cartItems})} className="delete">
                 Delete 
             </Button>
           </div>
@@ -33,11 +37,11 @@ const showRequests = ({setCartItems, data}) => {
   setCartItems(list)
 };
 
-const fetchRequests = async ({setCartItems}) => {
+const fetchRequests = async ({setCartItems, cartItems}) => {
     axios.get("/requests")
     .then( response => {
       const data = response.data
-      showRequests({setCartItems,data})
+      showRequests({cartItems, setCartItems,data})
     }
     )
 }
