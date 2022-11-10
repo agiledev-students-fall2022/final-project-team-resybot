@@ -1,6 +1,7 @@
 import './MakeRequest.css';
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from "react-router-dom";
+import { Button } from 'reactstrap';
 const axios = require('axios')
 
 const MakeRequest = () => {
@@ -17,14 +18,21 @@ const MakeRequest = () => {
       let path = "/requests"; 
       navigate(path);
     };
+    const showRestaurant = ({restaurant}) =>{
+      return(
+      <div>
+        <img src={restaurant.picture} alt="" className="requestpicture"/>
+        <h1> Reservation at {restaurant.restaurant_name} </h1>
+        <h2> {restaurant.address} </h2>
+      </div>
+      )
+    }
 
     const location = useLocation();
     const restaurant = location.state;
     return (
     <div className = "makeRequest">
-        <img src={restaurant.picture} alt="" className="requestpicture"/>
-        <h1> Reservation {restaurant.restaurant_name} </h1>
-        <h2> {restaurant.address} </h2>
+        {showRestaurant(restaurant)}
         <input type = "number"  placeholder = "Party Size"  id = "party-size"
         onChange = {(e)=>setPartySize(e.target.value)}
         className = "form-control"/>
@@ -34,7 +42,7 @@ const MakeRequest = () => {
         <input type = "date"  placeholder = "Date"  id = "date"
         onChange = {(e)=>setDate(e.target.value)}
         className = "form-control"/>
-        <button onClick={() => addRequests(restaurant)} > Make Request </button> 
+        <Button onClick={() => addRequests(restaurant)} className  = "makeRequest"> Make Request </Button> 
     </div>
   )}
   export default MakeRequest;

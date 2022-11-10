@@ -2,11 +2,15 @@ import React, {useState, useEffect} from "react";
 import TextField from "@mui/material/TextField";
 import './SearchRestaurant.css';
 import {Link} from 'react-router-dom'
+const axios = require('axios')
 
 const fetchRestaurants = async ({setRestaurants}) => {
-    const response =  await fetch("/search")
-    const data = await response.json()
-    setRestaurants(data)
+    axios.get("/search")
+    .then( response => {
+        const data = response.data
+        setRestaurants(data)
+      }
+    )
 }
 
 const SearchRestaurant = (props) => {

@@ -2,18 +2,21 @@ import './MyBookings.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import {Box} from '@mui/material';
+import { useLocation, useNavigate } from "react-router-dom";
+const axios = require('axios')
 
 
 const MyBookings = props => {
-
+  const navigate = useNavigate();
   const [Resturaunts , setRes] = useState([])
   
   const fetchResy = async () => {
-    const response = await fetch("/bookings")//"https://api.mockaroo.com/api/c2496c90?count=10&key=459f4720"
-    const stuff = await response.json()
-    setRes(stuff)
+    axios.get("/bookings")
+    .then( response => {
+      const data = response.data
+      setRes(data)
+    }
+    )
   }
   useEffect(() => {
     fetchResy()
@@ -25,7 +28,6 @@ const MyBookings = props => {
 
     setRes(listChange)
   }
-
 
   return (
     <div>
@@ -45,9 +47,8 @@ const MyBookings = props => {
                     </Button>
                   </div>
                 </div>  
-                
               </div>))}
-              <Link to="/makerequest" className="btn btn-primary">New Reservation</Link>
+              <Button className = "newRequest" onClick = {() => navigate("/SearchRestaurant")}> New Reservation </Button>
           </div>
       )} 
 
