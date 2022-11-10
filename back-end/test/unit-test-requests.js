@@ -17,3 +17,15 @@ describe("GET request to /requests", () => {
             })
     })
 })
+
+describe("POST request to /requests", () => {
+    it("it should respond with 200 status",done => {
+        chai
+            .request(server)
+            .post("/requests")
+            .end((err, res) => {
+                res.should.have.status(200)
+                done()
+            })
+    })
+})
