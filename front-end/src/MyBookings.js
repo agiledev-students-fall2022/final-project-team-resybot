@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'reactstrap';
 import { useLocation, useNavigate } from "react-router-dom";
-const axios = require('axios')
+import axios from 'axios';
+//const axios = require('axios')
 
 
 const MyBookings = props => {

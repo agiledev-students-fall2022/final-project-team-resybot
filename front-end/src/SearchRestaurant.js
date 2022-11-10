@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import TextField from "@mui/material/TextField";
 import './SearchRestaurant.css';
 import {Link} from 'react-router-dom'
-const axios = require('axios')
+import axios from 'axios';
+//const axios = require('axios')
 
 const fetchRestaurants = async ({setRestaurants}) => {
     axios.get("/search")

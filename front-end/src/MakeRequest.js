@@ -2,7 +2,8 @@ import './MakeRequest.css';
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from 'reactstrap';
-const axios = require('axios')
+import axios from 'axios';
+//const axios = require('axios')
 
 const MakeRequest = () => {
     const [partySize, setPartySize] = useState(0);

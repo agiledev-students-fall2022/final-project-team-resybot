@@ -3,7 +3,8 @@ import React, { useEffect } from 'react'
 import {Box} from '@mui/material';
 import { useState } from 'react';
 import { Button } from 'reactstrap';
-const axios = require('axios')
+import axios from 'axios';
+//const axios = require('axios')
 
 const removeRequest =  async ({val, setCartItems, cartItems}) =>{
   console.log(val.id)
