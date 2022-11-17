@@ -8,25 +8,25 @@ import './Settings.css';
 
 const Settings = (props) => {
   const {state} = useLocation()
-  console.log(state)
-  console.log(state.displayName)
+  // console.log(state)
+  // console.log(state.displayName)
 
   let displayName;
-  if (state.displayName === "") {
+  if (state === null  || state.displayName === "") {
     displayName = <h2>Name: John Doe</h2>
   } else {
     displayName = <h2> Name: {state.displayName} </h2>
   }
 
   let displayResyBotEmail;
-  if (state.displayResyBotEmail === "") {
+  if (state === null  || state.displayResyBotEmail === "") {
     displayResyBotEmail = <h2>ResyBot Email: testresybot@gmail@gmail.com</h2>
   } else {
     displayResyBotEmail = <h2> ResyBot Email: {state.displayResyBotEmail} </h2>
   }
 
   let displayResyEmail;
-  if (state.displayResyEmail === "") {
+  if ( state === null  || state.displayResyEmail === "") {
     displayResyEmail = <h2>Resy Email: testresy@gmail.com</h2>
   } else {
     displayResyEmail = <h2> Resy Email: {state.displayResyEmail} </h2>
