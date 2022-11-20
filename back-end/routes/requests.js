@@ -6,22 +6,20 @@ const { request } = require('chai')
 require("dotenv").config({ silent: true })
 
 router.get("/", async (req,res) => {
-    //only display the stuff per user
+    //this should only display id by user once we implement user stuff
     requestSchema.find()
     .then(apiResponse => {res.send(apiResponse)})
     .catch(err => {})
 })
 
 router.post("/", async (req,res) => {
-    try{
-    axios
-        .post(`${process.env.API_BASE_URL+process.env.REQUEST}?&key=${process.env.API_KEY}`,{ restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date})
+        //this should only add by id
+        apiResponse = {restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date}
+        requestSchema.insertMany(apiResponse)
         .then(apiResponse =>{
-            res.json(apiResponse.data)
+            res.send(apiResponse)
         })
-    } catch (error) {
-        console.log(error.response)
-    }
+        .catch(err => {}) 
 })
 
 router.delete("/", async (req,res) => {
