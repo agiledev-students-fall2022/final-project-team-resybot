@@ -14,7 +14,7 @@ router.get("/", async (req,res) => {
 
 router.post("/", async (req,res) => {
         //this should only add by id
-        apiResponse = {restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date}
+        apiResponse = {restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date, userid: req.body.userid}
         requestSchema.insertMany(apiResponse)
         .then(apiResponse =>{
             res.send(apiResponse)

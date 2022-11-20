@@ -13,7 +13,7 @@ const MakeRequest = () => {
 
     const addRequests = async ({restaurant}) => {
       let result = await axios.post("/requests", {
-        "restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date
+        "restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date,/*fornow*/"userid":"1"
         })
       result = await result;
       let path = "/requests"; 
