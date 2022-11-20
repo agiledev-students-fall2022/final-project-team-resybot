@@ -22,6 +22,7 @@ router.post("/", async (req,res) => {
         .catch(err => {}) 
 })
 
+//this still isnt integrated and doesnt work
 router.delete("/", async (req,res) => {
     console.log(req.body.id)
     try{
