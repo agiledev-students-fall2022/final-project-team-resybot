@@ -7,6 +7,7 @@ import axios from 'axios';
 //const axios = require('axios')
 
 const removeRequest =  async ({val, setCartItems, cartItems}) =>{
+  console.log(cartItems)
   console.log(val._id)
   const response = await axios
     .delete(`/requests/${val._id}`)
@@ -46,7 +47,7 @@ const fetchRequests = async ({setCartItems, cartItems}) => {
 }
 const Requests = () => {
 const [cartItems, setCartItems] = useState([]);
-    useEffect(()=>{fetchRequests({setCartItems})},[])
+    useEffect(()=>{fetchRequests({setCartItems, cartItems})},[])
     return(
         <div>
             <h1 id="request_title"> Requests </h1>
