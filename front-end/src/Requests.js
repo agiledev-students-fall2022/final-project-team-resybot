@@ -7,18 +7,16 @@ import axios from 'axios';
 //const axios = require('axios')
 
 const removeRequest =  async ({val, setCartItems, cartItems}) =>{
-  console.log(val.id)
+  console.log(val._id)
   const response = await axios
-    .delete(`/requests` ,{
-      params: {id: val.id}
-    })
+    .delete(`/requests/${val._id}`)
     console.log(response)
-    setCartItems(cartItems.filter(data => data.id !== val.id))
+    setCartItems(cartItems.filter(data => data._id !== val._id))
 }
 
 const showRequests = ({cartItems,setCartItems, data}) => {
   let list = data.map((val) => 
-    <div className="requestsTemplate" key={val.id}>
+    <div className="requestsTemplate" key={val._id}>
         <Box className="requestsDescription">
           <div class="requestsColumnLeft">
             <div className = "requestsItemControl"> Restaurant: <div className = "requestsValueControl">{val.restaurant} </div></div>

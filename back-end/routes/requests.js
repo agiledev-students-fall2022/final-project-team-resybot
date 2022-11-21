@@ -3,6 +3,7 @@ const router = express.Router()
 const axios = require('axios')
 const requestSchema = require('../models/request')
 const { request } = require('chai')
+const { application } = require('express')
 require("dotenv").config({ silent: true })
 
 router.get("/", async (req,res) => {
@@ -16,26 +17,24 @@ router.post("/", async (req,res) => {
         //this should only add by id
         apiResponse = {restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date, userid: req.body.userid}
         requestSchema.insertMany(apiResponse)
-        .then(apiResponse =>{
-            res.send(apiResponse)
-        })
+        .then(apiResponse =>{res.send(apiResponse)})
         .catch(err => {}) 
 })
 
-//this still isnt integrated and doesnt work
-router.delete("/", async (req,res) => {
-    console.log(req.body.id)
-    try{
-        axios
-        .delete(`${process.env.API_BASE_URL+process.env.REQUEST}?&key=${process.env.API_KEY}`,{
-            params: {id: req.params.id}
-        })
-        .then(apiResponse =>{
-            res.json(apiResponse.data)
-        })
-    } catch (error) {
-        console.log(error.response)
-    }
+router.delete("/:id", async (req,res) => {
+       const id = req.params.id;
+       console.log(id)
+       requestSchema.findByIdAndDelete(id)
+       .then(apiResponse =>{
+            if(!application){
+                res.status(404).send({message: "Cannot delete product with id =" + id})
+            }
+            else{
+                res.send({message: "Product was succesfully deleted"})
+            }
+       })
+       .catch(err => {})
+
 })
 
 module.exports = router;
