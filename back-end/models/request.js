@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
+const User = require('../models/user')
 
 let requestSchema = new Schema(
     {
@@ -8,8 +9,7 @@ let requestSchema = new Schema(
         party_size : {type: Number},
         date: {type: Date},
         time: {type: String},
-        //this is gonna need an update for sure
-        userid: {type: String}
+        owner: {type: mongoose.Schema.Types.ObjectId, ref: User}
     }
 )
 
