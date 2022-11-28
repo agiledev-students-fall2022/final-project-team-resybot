@@ -1,21 +1,21 @@
 const express = require('express')
-const cookieParser = require('cookie-parser')
-const {verify} = require('jsonwebtoken')
-const {hash} = require('bcryptjs')
-const {registerValidation} = require('../validation')
+require("dotenv").config({ silent: true })
+const jwt = require('jsonwebtoken')
+const {hash, compare} = require('bcryptjs')
+const {registerValidation, loginValidation} = require('../validation')
 
 const userSchema = require('../models/user')
 const { request } = require('chai')
 const { application } = require('express')
-const user = require('../models/user')
 const { createSearchParams } = require('react-router-dom')
+const user = require('../models/user')
 const router = express.Router()
 require("dotenv").config({ silent: true })
 
 router.post('/register', async (req,res) => {
     //validate user input
-    const {error} = registerValidation(req.body)
-    if(error) {
+    const {err} = registerValidation(req.body)
+    if(err) {
         return res.status(400).json({error: error.details[0].message})
     }
 
@@ -42,6 +42,37 @@ router.post('/register', async (req,res) => {
 })
 
 router.post("/login", async (req,res) => {
+   //validate user input
+   const {err} = registerValidation(req.body)
+   if(err) {
+       return res.status(400).json({error: error.details[0].message})
+   }
+
+   //if login info is valid find user
+   const user = await userSchema.findOne({email: req.body.email})
+   //else throw error
+   if(!user) {
+       return res.status(400).json({error: "not a registered email "})
+   }
+   // check password
+   const correctPassword = await compare(req.body.password, user.password)
+   if(!correctPassword){
+        return res.status(400).json({error: "incorrect password"})
+   }
+
+   //create JWT with username and id
+   const token = jwt.sign(
+    {  
+        name: user.name,
+        id: user._id
+    },
+    process.env.TOKEN_SECRET
+   )
+   //attach to header
+   res.header("auth-token", token).json({
+        error: null,
+        data: {token}
+   })
 
 })
 
