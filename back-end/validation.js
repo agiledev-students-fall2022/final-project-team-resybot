@@ -22,7 +22,10 @@ const registerValidation = (data) => {
     return schema.validate(data)
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 // basic validation of login 
+=======
+>>>>>>> 3ce3625 (basic login)
 const loginValidation = (data) => {
     const schema = Joi.object(
         {
@@ -32,6 +35,7 @@ const loginValidation = (data) => {
     )
     return schema.validate(data)
 }
+<<<<<<< HEAD
 // veryifying our JWT
 const verification = (req,res,next) =>{
     const token = req.header("auth-token")
@@ -52,3 +56,7 @@ module.exports = {registerValidation, loginValidation, verification}
 
 module.exports = { registerValidation}
 >>>>>>> 210465c (working basic registration)
+=======
+
+module.exports = {registerValidation, loginValidation}
+>>>>>>> 3ce3625 (basic login)
