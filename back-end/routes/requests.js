@@ -23,11 +23,12 @@ router.post("/", verification, async (req,res) => {
 
 router.delete("/:id", verification, async (req,res) => {
        const id = req.params.id;
+       const owner = req.header('owner')
        console.log(id)
-       requestSchema.findByIdAndDelete(id)
+       requestSchema.findByIdAndDelete({"_id":id, "owner": owner})
        .then(apiResponse =>{
             if(!application){
-                res.status(404).send({message: "Cannot delete product with id =" + id})
+                res.status(404).send({message: "Cannot delete product with id = " + id + " and owner = " + owner})
             }
             else{
                 res.send({message: "Product was succesfully deleted"})
