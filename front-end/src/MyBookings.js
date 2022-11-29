@@ -46,7 +46,8 @@ const MyBookings = props => {
                     <div className = "itemControl"> Location: <div className = "valueControl">{res["time"]}</div></div>
                   </div>
                   <div class="columnRight">
-                  <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">              Delete Booking
+                  <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
+                      Delete Booking
                     </Button>
                   </div>
                 </div>  
