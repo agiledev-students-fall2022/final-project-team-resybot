@@ -7,6 +7,7 @@ import axios from 'axios';
 //const axios = require('axios')
 
 const removeRequest =  async ({val, cartItems, setCartItems}) =>{
+  console.log("deleting...")
   console.log(val._id)
   const response = await axios
     .delete(`/requests/${val._id}`, {
