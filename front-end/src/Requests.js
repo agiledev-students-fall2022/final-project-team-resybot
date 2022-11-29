@@ -11,7 +11,8 @@ const removeRequest =  async ({val, cartItems, setCartItems}) =>{
   const response = await axios
     .delete(`/requests/${val._id}`, {
       headers: {
-      "auth-token": JSON.parse(localStorage.getItem("user")).data.token
+      "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
+      "owner": JSON.parse(localStorage.getItem("user")).data.id
       }
     })
     console.log(response)
@@ -20,10 +21,11 @@ const removeRequest =  async ({val, cartItems, setCartItems}) =>{
 }
 
 const fetchRequests = async ({setCartItems, cartItems}) => {
-    console.log(JSON.parse(localStorage.getItem("user")).data.token)
+    console.log(JSON.parse(localStorage.getItem("user")).data.id)
     axios.get("/requests", {
       headers: {
-      "auth-token": JSON.parse(localStorage.getItem("user")).data.token
+      "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
+      "owner": JSON.parse(localStorage.getItem("user")).data.id
       }
     })
     .then(response => {

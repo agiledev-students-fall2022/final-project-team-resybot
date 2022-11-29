@@ -8,17 +8,17 @@ require("dotenv").config({ silent: true })
 
 router.get("/", verification, async (req,res) => {
     //this should only display id by user once we implement user stuff
-    requestSchema.find()
+    requestSchema.find({"owner": req.header('owner')})
     .then(apiResponse => {res.send(apiResponse)})
     .catch(err => {})
 })
 
 router.post("/", verification, async (req,res) => {
-        //this should only add by id
-        apiResponse = {restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date, userid: req.body.userid}
-        requestSchema.insertMany(apiResponse)
-        .then(apiResponse =>{res.send(apiResponse)})
-        .catch(err => {}) 
+    //this should only add by id
+    apiResponse = {restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date, owner: req.header('owner')}
+    requestSchema.insertMany(apiResponse)
+    .then(apiResponse =>{res.send(apiResponse)})
+    .catch(err => {}) 
 })
 
 router.delete("/:id", verification, async (req,res) => {
