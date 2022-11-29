@@ -6,23 +6,11 @@ const jwt = require('jsonwebtoken')
 const Joi = require('joi');
 const joi = require('joi');
 
-<<<<<<< HEAD
 // basic validation of registration
-=======
-=======
-const express = require('express')
-require("dotenv").config({ silent: true })
-const jwt = require('jsonwebtoken')
->>>>>>> 0794272 (basic verification)
 const Joi = require('joi');
 
-<<<<<<< HEAD
-// basic validating registration
->>>>>>> 210465c (working basic registration)
-=======
-// basic validation of registration
->>>>>>> 0794272 (basic verification)
-=======
+
+
 // basic validating registration
 >>>>>>> 8ec329162025c0dde1de8973b57d7cbfb8a9a187
 const registerValidation = (data) => {
