@@ -3,16 +3,17 @@ const router = express.Router()
 const requestSchema = require('../models/request')
 const { request } = require('chai')
 const { application } = require('express')
+const {verification} = require('../validation')
 require("dotenv").config({ silent: true })
 
-router.get("/", async (req,res) => {
+router.get("/", verification, async (req,res) => {
     //this should only display id by user once we implement user stuff
     requestSchema.find()
     .then(apiResponse => {res.send(apiResponse)})
     .catch(err => {})
 })
 
-router.post("/", async (req,res) => {
+router.post("/", verification, async (req,res) => {
         //this should only add by id
         apiResponse = {restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date, userid: req.body.userid}
         requestSchema.insertMany(apiResponse)
@@ -20,7 +21,7 @@ router.post("/", async (req,res) => {
         .catch(err => {}) 
 })
 
-router.delete("/:id", async (req,res) => {
+router.delete("/:id", verification, async (req,res) => {
        const id = req.params.id;
        console.log(id)
        requestSchema.findByIdAndDelete(id)
