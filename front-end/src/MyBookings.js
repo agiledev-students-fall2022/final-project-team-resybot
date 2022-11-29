@@ -47,7 +47,7 @@ const MyBookings = props => {
                   </div>
                   <div class="columnRight">
                   <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
-                      Delete 
+                      Delete Booking
                     </Button>
                   </div>
                 </div>  
