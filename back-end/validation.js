@@ -4,11 +4,6 @@ require("dotenv").config({ silent: true })
 const jwt = require('jsonwebtoken')
 const Joi = require('joi');
 
-// basic validation of registration
-const Joi = require('joi');
-
-
-
 // basic validating registration
 const registerValidation = (data) => {
     const schema = Joi.object(
