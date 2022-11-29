@@ -7,7 +7,6 @@ const {registerValidation, loginValidation} = require('../validation')
 const userSchema = require('../models/user')
 const { request } = require('chai')
 const { application } = require('express')
-const { createSearchParams } = require('react-router-dom')
 const user = require('../models/user')
 const router = express.Router()
 require("dotenv").config({ silent: true })
@@ -43,7 +42,7 @@ router.post('/register', async (req,res) => {
 
 router.post("/login", async (req,res) => {
    //validate user input
-   const {err} = registerValidation(req.body)
+   const {err} = loginValidation(req.body)
    if(err) {
        return res.status(400).json({error: error.details[0].message})
    }

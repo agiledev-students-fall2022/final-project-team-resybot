@@ -1,7 +1,9 @@
+const express = require('express')
+require("dotenv").config({ silent: true })
+const jwt = require('jsonwebtoken')
 const Joi = require('joi');
-const joi = require('joi');
 
-// basic validating registration
+// basic validation of registration
 const registerValidation = (data) => {
     const schema = Joi.object(
         {
@@ -12,6 +14,7 @@ const registerValidation = (data) => {
     )
     return schema.validate(data)
 }
+// basic validation of login 
 const loginValidation = (data) => {
     const schema = Joi.object(
         {
@@ -21,5 +24,19 @@ const loginValidation = (data) => {
     )
     return schema.validate(data)
 }
+// veryifying our JWT
+const verification = (req,res,next) =>{
+    const token = req.header("auth-token")
+    if(!token){
+        return res.status(401).json({error: "protected data"})
+    }
+    try {
+        const checkVerify = jwt.verify(token, process.env.TOKEN_SECRET)
+        req.user = checkVerify
+        next();
+    }catch(err){
+        res.status(400).json({error: "token not valid"})
+    }
+}
 
-module.exports = {registerValidation, loginValidation}
+module.exports = {registerValidation, loginValidation, verification} 
