@@ -4,9 +4,11 @@ import {Box} from '@mui/material';
 import { useState } from 'react';
 import { Button } from 'reactstrap';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
+
 //const axios = require('axios')
 
-const removeRequest =  async ({val, cartItems, setCartItems}) =>{
+const removeRequest =  async ({val, cartItems, setCartItems, navigate}) =>{
   console.log("deleting...")
   console.log(val._id)
   const response = await axios
@@ -21,7 +23,7 @@ const removeRequest =  async ({val, cartItems, setCartItems}) =>{
   setCartItems(removed)
 }
 
-const fetchRequests = async ({setCartItems, cartItems}) => {
+const fetchRequests = async ({setCartItems, cartItems, navigate}) => {
     console.log(JSON.parse(localStorage.getItem("user")).data.id)
     axios.get("/requests", {
       headers: {
@@ -36,8 +38,11 @@ const fetchRequests = async ({setCartItems, cartItems}) => {
     )
 }
 const Requests = () => {
+const navigate = useNavigate();
 const [cartItems, setCartItems] = useState([]);
-    useEffect(()=>{fetchRequests({setCartItems, cartItems})},[])
+    useEffect(()=>{
+      fetchRequests({setCartItems, cartItems, navigate})
+    },[])
     return(
         <div>
             <h1 id="request_title"> Requests </h1>
@@ -51,7 +56,7 @@ const [cartItems, setCartItems] = useState([]);
                     <div className = "requestsItemControl"> Date: <div className = "requestsValueControl">{val.date}</div></div>      
                 </div>
                 <div class="requestsColumnRight">
-                  <Button onClick = {() => removeRequest({val, cartItems, setCartItems})} className="delete">
+                  <Button onClick = {() => removeRequest({val, cartItems, setCartItems, navigate})} className="delete">
                     Delete 
                   </Button>
                 </div>
