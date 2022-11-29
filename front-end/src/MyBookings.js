@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'reactstrap';
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 //const axios = require('axios')
 
 
@@ -23,9 +24,17 @@ const MyBookings = props => {
     fetchResy()
   }, [])
 
-  function rem(id) {
+  const rem = async ({_id}) =>{
+    console.log(_id)
+    const response = await axios
+      .delete(`/bookings/${_id}`)
+      .then(res => {
+    console.log(response);
+    console.log(res.data);
+    })
+    
 
-    const listChange= Resturaunts.filter(item => item.id !== id);
+    const listChange= Resturaunts.filter(item => item._id !== _id);
 
     setRes(listChange)
   }
@@ -36,14 +45,14 @@ const MyBookings = props => {
       {Resturaunts.length > 0 && (
           <div className= 'lists'>
             {Resturaunts.map(res => (
-              <div key={res["id"]} className = "template">
+              <div key={res["_id"]} className = "template">
                 <div className="bookingsDescription">
                   <div class="columnLeft">
                     <div className = "itemControl"> Restaurant: <div className = "valueControl">{res["restaurant"]}</div></div>
-                    <div className = "itemControl"> Location: <div className = "valueControl">{res["location"]}</div></div>
+                    <div className = "itemControl"> Location: <div className = "valueControl">{res["time"]}</div></div>
                   </div>
                   <div class="columnRight">
-                    <Button className="delete" onClick = {() => rem(res["id"])}>
+                    <Button className="delete" onClick = {() => rem(res["_id"])}>
                       Delete 
                     </Button>
                   </div>
