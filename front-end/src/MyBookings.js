@@ -42,12 +42,12 @@ const MyBookings = props => {
               <div key={res["_id"]} className = "template">
                 <div className="bookingsDescription">
                   <div class="columnLeft">
-                    <div className = "itemControl"> Restaurant: <div className = "valueControl">{res["restaurant"]}</div></div>
+                    <div className = "itemControl"> Restaurant: <div className = "valueControl">{res["resturaunt"]}</div></div>
                     <div className = "itemControl"> Location: <div className = "valueControl">{res["time"]}</div></div>
                   </div>
                   <div class="columnRight">
                   <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
-                      Delete 
+                      Delete Booking
                     </Button>
                   </div>
                 </div>  
