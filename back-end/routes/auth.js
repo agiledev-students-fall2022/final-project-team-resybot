@@ -1,76 +1,78 @@
-const express = require('express')
-require("dotenv").config({ silent: true })
-const jwt = require('jsonwebtoken')
-const {hash, compare} = require('bcryptjs')
-const {registerValidation, loginValidation} = require('../validation')
 
-const userSchema = require('../models/user')
-const { request } = require('chai')
-const { application } = require('express')
-const user = require('../models/user')
-const router = express.Router()
-require("dotenv").config({ silent: true })
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const router = require('express').Router();
+const User = require('../models/user');
+const { registerValidation, loginValidation } = require('../validation');
 
-router.post('/register', async (req,res) => {
-    //validate user input
-    const {err} = registerValidation(req.body)
-    if(err) {
-        return res.status(400).json({error: error.details[0].message})
+router.post("/register", async (req, res) => {
+
+    //validate user 
+    const { error } = registerValidation(req.body);
+
+    if (error) {
+        return res.status(400).json({ error: error.details[0].message });
     }
 
-    //check if the email is already registered
-    const emailExist = await userSchema.findOne({email: req.body.email})
-    if(emailExist){
-        return res.status(400).json({error: "email already registered"})
-    }
-    //hash the password
-    const hashpswd = await hash(req.body.password, 10)
+    //check if already registered
+    const emailExists = await User.findOne({ email: req.body.email });
 
-    //create a user
-    const userObject = new userSchema({
+    if (emailExists) {
+        return res.status(400).json({ error: "Email already exists" });
+    }
+
+    //hash password
+    const generatedsalt = await bcrypt.genSalt(10);
+    const hashpswd = await bcrypt.hash(req.body.password, generatedsalt);
+
+    //create user o bject and save it in Mongo (via try-catch)
+    const user = new User({
         name: req.body.name,
         email: req.body.email,
-        password: hashpswd
-    })
+        hashpswd
+    });
+
     try {
-        const savedUser = await userObject.save()
-        res.json({error : null, data: savedUser._id});
-    } catch (err) {
-        res.status(400).json({err})
+        const savedUser = await user.save(); 
+        res.json({ error: null, data: savedUser._id });
+    } catch (error) {
+        res.status(400).json({ error });
     }
-})
 
-router.post("/login", async (req,res) => {
-   //validate user input
-   const {err} = loginValidation(req.body)
-   if(err) {
-       return res.status(400).json({error: error.details[0].message})
-   }
+});
 
-   //if login info is valid find user
-   const user = await userSchema.findOne({email: req.body.email})
-   //else throw error
-   if(!user) {
-       return res.status(400).json({error: "not a registered email "})
-   }
-   // check password
-   const correctPassword = await compare(req.body.password, user.password)
-   if(!correctPassword){
-        return res.status(400).json({error: "incorrect password"})
-   }
+router.post("/login", async (req, res) => {
 
-   //create JWT with username and id
-   const token = jwt.sign(
-    {  
-        name: user.name,
-        id: user._id
-    },
-    process.env.TOKEN_SECRET
-   )
-   //attach to header
-   res.header("auth-token", token).json({
+    //validate user login info
+    const { error } = loginValidation(req.body);
+
+    if (error) {
+        return res.status(400).json({ error: error.details[0].message });
+    }
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+        return res.status(400).json({ error: "user not found" });
+    }
+
+    //check for password correctness
+    const correctPassword = await bcrypt.compare(req.body.password, user.password);
+    if (!correctPassword) {
+        return res.status(400).json({ error: "Password is incorrect" })
+    }
+
+    //create authentication token with username and id
+    const generatedtoken = jwt.sign(
+        {
+            name: user.name,
+            id: user._id
+        },
+        process.env.TOKEN_SECRET
+    );
+
+    res.header("auth-token", generatedtoken).json({
         error: null,
-        data: {token}
-   })
-
+        data: { generatedtoken }
+    });
 })
+
+module.exports = router;
