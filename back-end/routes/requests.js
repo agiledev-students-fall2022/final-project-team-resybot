@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const requestSchema = require('../models/request')
 const { request } = require('chai')
-const { application } = require('express')
 const {verification} = require('../validation')
 require("dotenv").config({ silent: true })
 
@@ -25,9 +24,9 @@ router.delete("/:id", verification, async (req,res) => {
        const id = req.params.id;
        const owner = req.header('owner')
        console.log(id)
-       requestSchema.findByIdAndDelete({"_id":id, "owner": owner})
+       requestSchema.deleteOne({"_id": id, "owner": owner})
        .then(apiResponse =>{
-            if(!application){
+            if(!apiResponse){
                 res.status(404).send({message: "Cannot delete product with id = " + id + " and owner = " + owner})
             }
             else{
