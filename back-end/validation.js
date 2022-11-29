@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-const express = require('express')
-require("dotenv").config({ silent: true })
-const jwt = require('jsonwebtoken')
 const Joi = require('joi');
-const joi = require('joi');
 
 // basic validation of registration
 const Joi = require('joi');
@@ -69,15 +63,3 @@ module.exports = {registerValidation, loginValidation, verification}
 =======
 
 module.exports = { registerValidation}
->>>>>>> 210465c (working basic registration)
-=======
-
-module.exports = {registerValidation, loginValidation}
->>>>>>> 3ce3625 (basic login)
-=======
-module.exports = {registerValidation, loginValidation, verification} 
->>>>>>> 0794272 (basic verification)
-=======
-
-module.exports = {registerValidation, loginValidation}
->>>>>>> 8ec329162025c0dde1de8973b57d7cbfb8a9a187
