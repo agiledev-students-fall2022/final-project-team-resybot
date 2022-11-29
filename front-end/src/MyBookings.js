@@ -6,6 +6,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios';
 //const axios = require('axios')
 
+const rem = async ({res, Resturaunts, setRes}) =>{
+  console.log(res._id)
+  const response = await axios
+    .delete(`/bookings/${res._id}`)
+    console.log(response);
+  const listChange= Resturaunts.filter(item => item._id !== res._id);
+  setRes(listChange)
+}
+
 
 const MyBookings = props => {
   const navigate = useNavigate();
@@ -23,28 +32,21 @@ const MyBookings = props => {
     fetchResy()
   }, [])
 
-  function rem(id) {
-
-    const listChange= Resturaunts.filter(item => item.id !== id);
-
-    setRes(listChange)
-  }
-
   return (
     <div>
       <h1 className='top'>My Bookings</h1>
       {Resturaunts.length > 0 && (
           <div className= 'lists'>
             {Resturaunts.map(res => (
-              <div key={res["id"]} className = "template">
+              <div key={res["_id"]} className = "template">
                 <div className="bookingsDescription">
                   <div class="columnLeft">
-                    <div className = "itemControl"> Restaurant: <div className = "valueControl">{res["restaurant"]}</div></div>
-                    <div className = "itemControl"> Location: <div className = "valueControl">{res["location"]}</div></div>
+                    <div className = "itemControl"> Restaurant: <div className = "valueControl">{res["resturaunt"]}</div></div>
+                    <div className = "itemControl"> Location: <div className = "valueControl">{res["time"]}</div></div>
                   </div>
                   <div class="columnRight">
-                    <Button className="delete" onClick = {() => rem(res["id"])}>
-                      Delete 
+                  <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
+                      Delete Booking
                     </Button>
                   </div>
                 </div>  
