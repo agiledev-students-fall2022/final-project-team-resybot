@@ -7,8 +7,13 @@ const { registerValidation, loginValidation } = require('../validation');
 
 router.post("/register", async (req, res) => {
 
-    //validate user 
-    const { error } = registerValidation(req.body);
+const userSchema = require('../models/user')
+const { request } = require('chai')
+const { application } = require('express')
+const { createSearchParams } = require('react-router-dom')
+const user = require('../models/user')
+const router = express.Router()
+require("dotenv").config({ silent: true })
 
     if (error) {
         return res.status(400).json({ error: error.details[0].message });
@@ -25,7 +30,7 @@ router.post("/register", async (req, res) => {
     const generatedsalt = await bcrypt.genSalt(10);
     const hashpswd = await bcrypt.hash(req.body.password, generatedsalt);
 
-    //create user o bject and save it in Mongo (via try-catch)
+    //create user 
     const user = new User({
         name: req.body.name,
         email: req.body.email,
@@ -39,26 +44,27 @@ router.post("/register", async (req, res) => {
         res.status(400).json({ error });
     }
 
-});
+})
 
-router.post("/login", async (req, res) => {
 
-    //validate user login info
-    const { error } = loginValidation(req.body);
+router.post("/login", async (req,res) => {
+   //validate user input
+   const {err} = registerValidation(req.body)
+   if(err) {
+       return res.status(400).json({error: error.details[0].message})
+   }
 
-    if (error) {
-        return res.status(400).json({ error: error.details[0].message });
-    }
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) {
-        return res.status(400).json({ error: "user not found" });
-    }
-
-    //check for password correctness
-    const correctPassword = await bcrypt.compare(req.body.password, user.password);
-    if (!correctPassword) {
-        return res.status(400).json({ error: "Password is incorrect" })
-    }
+   //if login info is valid find user
+   const user = await userSchema.findOne({email: req.body.email})
+   //else throw error
+   if(!user) {
+       return res.status(400).json({error: "not a registered email "})
+   }
+   // check password
+   const correctPassword = await compare(req.body.password, user.password)
+   if(!correctPassword){
+        return res.status(400).json({error: "incorrect password"})
+   }
 
     //create authentication token with username and id
     const token = jwt.sign(
@@ -72,7 +78,7 @@ router.post("/login", async (req, res) => {
     res.header("auth-token", token).json({
         error: null,
         data: { token }
-    });
+    })
 })
 
-module.exports = router;
+module.exports = router
