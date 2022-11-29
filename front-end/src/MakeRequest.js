@@ -12,8 +12,12 @@ const MakeRequest = () => {
     const navigate = useNavigate();
 
     const addRequests = async ({restaurant}) => {
-      let result = await axios.post("/requests", {
-        "restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date,/*fornow*/"userid":"1"
+      console.log(JSON.parse(localStorage.getItem("user")).data.token)
+      let result = await axios.post("/requests", {},{
+          headers: {
+          "auth-token": JSON.parse(localStorage.getItem("user")).data.token
+          },
+          "restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date,/*fornow*/"userid":"1"
         })
       result = await result;
       let path = "/requests"; 
