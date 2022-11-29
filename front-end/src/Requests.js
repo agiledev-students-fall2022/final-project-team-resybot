@@ -7,17 +7,29 @@ import axios from 'axios';
 //const axios = require('axios')
 
 const removeRequest =  async ({val, cartItems, setCartItems}) =>{
+  console.log("deleting...")
   console.log(val._id)
   const response = await axios
-    .delete(`/requests/${val._id}`)
+    .delete(`/requests/${val._id}`, {
+      headers: {
+      "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
+      "owner": JSON.parse(localStorage.getItem("user")).data.id
+      }
+    })
     console.log(response)
   const removed = cartItems.filter(item => item._id !== val._id)
   setCartItems(removed)
 }
 
 const fetchRequests = async ({setCartItems, cartItems}) => {
-    axios.get("/requests")
-    .then( response => {
+    console.log(JSON.parse(localStorage.getItem("user")).data.id)
+    axios.get("/requests", {
+      headers: {
+      "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
+      "owner": JSON.parse(localStorage.getItem("user")).data.id
+      }
+    })
+    .then(response => {
       const data = response.data
       setCartItems(data)
     }

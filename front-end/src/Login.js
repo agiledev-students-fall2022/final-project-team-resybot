@@ -1,31 +1,24 @@
 import './Login.css'
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
       if (localStorage.getItem('user')){
-        //test for now, should reroute to / next sprint
-        navigate("/login")
+        navigate("/")
       }
   }, [])
   async function login(){
     console.warn(email, password)
-    let item={email, password}
-    let result = await fetch("https://635740569243cf412f954e2c.mockapi.io/api/rb/user", {
-      method: 'POST',
-      headers:{
-        "Content-Type":"application/json",
-        "Accept":'application/json'
-      },
-      body:JSON.stringify(item)
+    let result = await axios.post("user/login", {
+      "email": email, "password": password
     })
-    result = await result.json();
     localStorage.setItem("user", JSON.stringify(result))
     //test for now
-    navigate("/login")
+    navigate("/")
   }
   return (
   <div className = "login">
