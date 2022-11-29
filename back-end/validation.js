@@ -4,7 +4,9 @@ const express = require('express')
 require("dotenv").config({ silent: true })
 const jwt = require('jsonwebtoken')
 const Joi = require('joi');
+const joi = require('joi');
 
+<<<<<<< HEAD
 // basic validation of registration
 =======
 =======
@@ -20,6 +22,9 @@ const Joi = require('joi');
 =======
 // basic validation of registration
 >>>>>>> 0794272 (basic verification)
+=======
+// basic validating registration
+>>>>>>> 8ec329162025c0dde1de8973b57d7cbfb8a9a187
 const registerValidation = (data) => {
     const schema = Joi.object(
         {
@@ -33,12 +38,15 @@ const registerValidation = (data) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // basic validation of login 
 =======
 >>>>>>> 3ce3625 (basic login)
 =======
 // basic validation of login 
 >>>>>>> 0794272 (basic verification)
+=======
+>>>>>>> 8ec329162025c0dde1de8973b57d7cbfb8a9a187
 const loginValidation = (data) => {
     const schema = Joi.object(
         {
@@ -48,6 +56,7 @@ const loginValidation = (data) => {
     )
     return schema.validate(data)
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -80,3 +89,7 @@ module.exports = {registerValidation, loginValidation}
 =======
 module.exports = {registerValidation, loginValidation, verification} 
 >>>>>>> 0794272 (basic verification)
+=======
+
+module.exports = {registerValidation, loginValidation}
+>>>>>>> 8ec329162025c0dde1de8973b57d7cbfb8a9a187
