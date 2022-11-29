@@ -41,4 +41,9 @@
 .newRequest{
     margin-bottom: 10px;
 }
+.delete{
+    color: red;
+    background-color: red;
+    size: 100;
+}
 
