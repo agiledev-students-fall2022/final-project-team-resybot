@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'reactstrap';
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 //const axios = require('axios')
 
 const rem = async ({res, Resturaunts, setRes}) =>{
