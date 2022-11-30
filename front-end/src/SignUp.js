@@ -18,9 +18,7 @@ const SignUp = () => {
   }
   return(
   <div className = "signUp">
-      <br/>
       <h1 className = "signUp-header"> Sign Up </h1>
-      <br/>
           <input type = "text"  placeholder = "Name"  id = "name"
           onChange = {(e)=>setName(e.target.value)}
           className = "form-control"/>
@@ -33,7 +31,7 @@ const SignUp = () => {
           onChange = {(e)=>setPassword(e.target.value)}
           className = "form-control"/>
           <br/>
-          <button onClick={signUp} className = "signUp" type = "submit">Sign Up</button>
+          <button onClick={signUp} className = "signUpButton" type = "submit">Sign Up</button>
           <div className = "to-SignUpBlock">
             Already have an account?  
             <Link to = "/login"  className = "to-SignUp"> 

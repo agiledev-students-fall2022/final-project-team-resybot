@@ -6,8 +6,6 @@
 .form-control{
     text-align: center;
     position: center;
-    padding: 20px;
-    margin-left: 10px;
     width: calc( 100% - 20px);
 }
 .loginButton{
