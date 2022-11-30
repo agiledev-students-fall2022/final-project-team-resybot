@@ -1,6 +1,6 @@
 import './Login.css'
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,9 +22,8 @@ const Login = () => {
   }
   return (
   <div className = "login">
-      <br/>
       <h1 className = "login-header"> Login </h1>
-      <br/>
+      <div>
           <input type = "text"  placeholder = "Email"  id = "email"
           onChange = {(e)=>setEmail(e.target.value)}
           className = "form-control"/>
@@ -34,7 +33,15 @@ const Login = () => {
           onChange = {(e)=>setPassword(e.target.value)}
           className = "form-control"/>
           <br/>
-          <button onClick={login} className = "btn" type = "submit">Login</button>
+          <button onClick={login} className = "loginButton" type = "submit">Continue</button>
+          <br/>
+          <div className = "to-SignUpBlock">
+            Don't have an account?  
+            <Link to = "/signup"  className = "to-SignUp"> 
+              Sign Up
+            </Link>
+          </div>
+      </div>
   </div>
   )};
 export default Login;
