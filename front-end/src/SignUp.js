@@ -18,7 +18,7 @@ const SignUp = () => (
           //onChange = {(e)=>setPassword(e.target.value)}
           className = "form-control"/>
           <br/>
-          <button /*onClick={SignUp}*/ className = "btn" type = "submit">Sign Up</button>
+          <button /*onClick={SignUp}*/ className = "signUp" type = "submit">Sign Up</button>
   </div>
 );
 export default SignUp;
