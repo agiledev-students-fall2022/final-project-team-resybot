@@ -40,7 +40,7 @@ const Login = () => {
           <div className = "to-SignUpBlock">
             Don't have an account?  
             <Link to = "/signup"  className = "to-SignUp"> 
-              SignUp
+              Sign Up
             </Link>
           </div>
       </div>

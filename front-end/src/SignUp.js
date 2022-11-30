@@ -1,6 +1,6 @@
 import './SignUp.css'
 import React, { useState, useEffect } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios';
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -34,6 +34,12 @@ const SignUp = () => {
           className = "form-control"/>
           <br/>
           <button onClick={signUp} className = "signUp" type = "submit">Sign Up</button>
+          <div className = "to-SignUpBlock">
+            Already have an account?  
+            <Link to = "/login"  className = "to-SignUp"> 
+              Login
+            </Link>
+          </div>
   </div>
 )};
 export default SignUp;
