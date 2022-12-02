@@ -68,3 +68,9 @@
 .bm-item:hover {
     color: #ffffff;
 }
+
+.logoutButton{
+    background: #ff462d;
+    position: absolute;
+    bottom: 5vh
+}

@@ -9,7 +9,9 @@ let requestSchema = new Schema(
         party_size : {type: Number},
         date: {type: Date},
         time: {type: String},
-        owner: {type: mongoose.Schema.Types.ObjectId, ref: User}
+        owner: {type: mongoose.Schema.Types.ObjectId, ref: User},
+        dateCreated: {type: Date, default: Date.now}
+        
     }
 )
 

@@ -1,9 +1,15 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
 import './Sidebar.css';
-import {Link} from 'react-router-dom'
+import {Button} from 'reactstrap'
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = (props) => {
+  const navigate = useNavigate()
+  const logout = () =>{
+    localStorage.removeItem("user")
+    navigate("/login")
+  }
   return (
     <Menu>
       <a className="menu-item" href="/">
@@ -21,6 +27,9 @@ const Sidebar = (props) => {
       <a className="menu-item" href="/contactus">
         Contact Us
       </a>
+      <Button className = "logoutButton" onClick = {logout}>
+        Log Out
+      </Button>
     </Menu>
   );
 };

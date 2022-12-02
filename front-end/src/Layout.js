@@ -9,8 +9,6 @@ const Layout =({children}) =>{
     const location = useLocation();
     const navigate = useNavigate();
     useEffect(() => {
-    let bool = (location.pathname !== "/login")
-    console.log(bool)
     if((location.pathname !== "/signup") && (localStorage.getItem('user') === null)){
         navigate("/login")
     }
