@@ -24,8 +24,7 @@ const removeRequest =  async ({val, cartItems, setCartItems, navigate}) =>{
 }
 
 const fetchRequests = async ({setCartItems, cartItems, navigate}) => {
-    console.log(JSON.parse(localStorage.getItem("user")).data.id)
-    axios.get("/requests", {
+  axios.get("/requests", {
       headers: {
       "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
       "owner": JSON.parse(localStorage.getItem("user")).data.id
@@ -33,9 +32,13 @@ const fetchRequests = async ({setCartItems, cartItems, navigate}) => {
     })
     .then(response => {
       const data = response.data
+      console.log()
       setCartItems(data)
-    }
-    )
+    })
+    .catch(error => {
+        localStorage.removeItem("user")
+        navigate("/login")
+    })
 }
 const Requests = () => {
 const navigate = useNavigate();

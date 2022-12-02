@@ -31,7 +31,7 @@ const verification = (req, res, next) => {
         req.user = verified;
         next();        
     } catch (error) {
-        res.status(400).json({ error: "Token is not valid"});
+        res.status(401).json({ error: "Token is not valid"});
     }
 }
 
