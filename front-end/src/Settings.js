@@ -17,8 +17,10 @@ const Settings = (props) => {
   })
   .then(response => {
     const data = response.data
+    // console.log(data[0].name)
     setDisplayName(data[0].name)
     setDisplayEmail(data[0].email)
+
   })
   //comment out this line for tests for now, cause it will just keep logging u out on error throw 
   .catch(error => {
