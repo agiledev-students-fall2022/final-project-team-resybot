@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser')
 const {verify} = require('jsonwebtoken')
 const jwt = require('jsonwebtoken')
 const {hash, genSalt, compare} = require('bcryptjs')
-const {registerValidation, loginValidation} = require('../validation')
+const {registerValidation, loginValidation, verification} = require('../validation')
 
 const userSchema = require('../models/user')
 const { request } = require('chai')
@@ -72,5 +72,13 @@ router.post("/login", async (req, res) => {
         id: user._id
     })
 })
+
+router.get("/", verification, async (req,res) => {
+    userSchema.find({"_id": req.header('_id')})
+    .then(apiResponse => {res.send(apiResponse)})
+    .catch(err => {})
+}) 
+
+
 
 module.exports = router;
