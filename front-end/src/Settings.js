@@ -61,18 +61,9 @@ const Settings = () => {
       <Button variant = "secondary" size = "lg " type = "submit" onClick={buttonClick}>Save Resy Information</Button>
     </Form>
     }
-
-
-
-    
-    return (
-    <div>
-        <div className='info-container'>
-          <div className='personal-information'>
-            <h1>  Hello {displayName}! </h1>
-            <h2> Email: {displayEmail}.</h2>
-            {content}
-            <Form>
+    else{
+      content = <Form>
+      <h2> Your resy info is stored! </h2>
       <Form.Group controlId= 'x-resy-auth-token' className = 'form-container'>
         <Form.Control
               type = "text"
@@ -91,11 +82,17 @@ const Settings = () => {
       </Form.Group>
       <Button variant = "secondary" size = "lg " type = "submit" onClick={buttonClick}>Update Resy Information</Button>
     </Form>
-          
+    }
+    return (
+    <div>
+        <div className='info-container'>
+          <div className='personal-information'>
+            <h1>  Hello {displayName}! </h1>
+            <h2> Email: {displayEmail}.</h2>
+            {content}
           </div>   
         </div>
     </div>
     );
   }
-
 export default Settings;
