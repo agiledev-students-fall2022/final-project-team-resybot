@@ -40,6 +40,7 @@ const fetchRequests = async ({setCartItems, cartItems, navigate}) => {
         navigate("/login")
     })
 }
+
 const Requests = () => {
 const navigate = useNavigate();
 const [cartItems, setCartItems] = useState([]);

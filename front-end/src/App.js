@@ -9,7 +9,6 @@ import Settings from './Settings'
 import Requests from './Requests'
 import MakeRequest from './MakeRequest'
 import SearchRestaurant from './SearchRestaurant';
-import EditInformation from './EditInformation';
 import ContactUs from './ContactUs';
 
 const App = () => {
@@ -23,7 +22,6 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
               <Route path="/settings" element={<Settings/>}/>
-              <Route path = "/editinformation" element = {<EditInformation/>}/>
               <Route path="/requests" element={<Requests/>}/>
               <Route path="/makerequest" element={<MakeRequest />}/>
               <Route path="/SearchRestaurant" element={<SearchRestaurant />} />
