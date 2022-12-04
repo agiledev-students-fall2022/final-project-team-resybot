@@ -74,9 +74,6 @@ const Settings = () => {
             {content}
           </div>   
         </div>
-        <div className='button-container'>
-          <Button variant = "danger" size = "lg "> Sign Out</Button>
-        </div>
     </div>
     );
   }
