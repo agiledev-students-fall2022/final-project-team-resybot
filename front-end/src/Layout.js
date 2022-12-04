@@ -12,6 +12,9 @@ const Layout =({children}) =>{
     if((location.pathname !== "/signup") && (localStorage.getItem('user') === null)){
         navigate("/login")
     }
+    else if((location.pathname !== "/signup") && (localStorage.getItem('resyUser') === null)){
+        navigate("/settings")
+    }
     },[]) 
     if(location.pathname === "/login" || location.pathname === "/signup")
     return (
