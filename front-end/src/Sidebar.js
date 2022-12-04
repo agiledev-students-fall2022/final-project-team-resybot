@@ -8,7 +8,9 @@ const Sidebar = (props) => {
   const navigate = useNavigate()
   const logout = () =>{
     localStorage.removeItem("user")
+    localStorage.removeItem("resyUser")
     navigate("/login")
+    
   }
   return (
     <Menu>
