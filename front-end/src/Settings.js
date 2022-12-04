@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import axios  from 'axios';
 import {Link, Location, useLocation} from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import {Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Settings.css';
 
 const Settings = (props) => {
   const [displayName, setDisplayName] = useState('')
   const [displayEmail, setDisplayEmail] = useState('')
+  const [resyAuthToken, setresyAuthToken] = useState('')
+  const [authorization, setAuthorization] = useState('')
 
+
+  // getting data from MongoDB
   axios.get("/user", {
     headers: {
     "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
@@ -26,6 +30,14 @@ const Settings = (props) => {
       // localStorage.removeItem("user")
       // navigate("/login")
   })
+
+  // validating local storage
+  if (!localStorage.getItem('token')){
+    
+  }
+
+
+
   
   return (
 
