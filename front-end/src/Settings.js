@@ -41,7 +41,7 @@ const Settings = () => {
   }   
 
     if (!localStorage.getItem('resyUser')){
-      content =             <Form>
+      content = <Form>
       <Form.Group controlId= 'x-resy-auth-token' className = 'form-container'>
         <Form.Control
               type = "text"
@@ -70,8 +70,28 @@ const Settings = () => {
         <div className='info-container'>
           <div className='personal-information'>
             <h1>  Hello {displayName}! </h1>
-            <h1> Your email is {displayEmail}.</h1>
+            <h2> Email: {displayEmail}.</h2>
             {content}
+            <Form>
+      <Form.Group controlId= 'x-resy-auth-token' className = 'form-container'>
+        <Form.Control
+              type = "text"
+              placeholder='Update x-resy-auth-token'
+              value = {resyAuthToken}
+              onChange = {(e) => setResyAuthToken(e.target.value)}
+        ></Form.Control>
+      </Form.Group>
+      <Form.Group controlId= 'authorization' className = 'form-container'>
+        <Form.Control
+              type = "text"
+              placeholder='Update authorization'
+              value = {authorization}
+              onChange = {(e) => setAuthorization(e.target.value)}
+        ></Form.Control>
+      </Form.Group>
+      <Button variant = "secondary" size = "lg " type = "submit" onClick={buttonClick}>Update Resy Information</Button>
+    </Form>
+          
           </div>   
         </div>
     </div>
