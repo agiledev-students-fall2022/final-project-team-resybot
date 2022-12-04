@@ -41,7 +41,7 @@ const MyBookings = props => {
               <div key={res["_id"]} className = "template">
                 <div className="bookingsDescription">
                   <div class="columnLeft">
-                    <div className = "itemControl"> Restaurant: <div className = "valueControl">{res["reservation"]}</div></div>
+                    <div className = "itemControl"> Restaurant: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
                     <div className = "itemControl"> Location: <div className = "valueControl">{res["time"]}</div></div>
                   </div>
                   <div class="columnRight">
