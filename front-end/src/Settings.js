@@ -5,7 +5,7 @@ import {Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Settings.css';
 
-const Settings = (props) => {
+const Settings = () => {
     const [displayName, setDisplayName] = useState('')
     const [displayEmail, setDisplayEmail] = useState('')
     const [resyAuthToken, setResyAuthToken] = useState('')
@@ -58,7 +58,7 @@ const Settings = (props) => {
               onChange = {(e) => setAuthorization(e.target.value)}
         ></Form.Control>
       </Form.Group>
-      <Button variant = "secondary" size = "lg " type = "submit" onClick={buttonClick}>Save resy information</Button>
+      <Button variant = "secondary" size = "lg " type = "submit" onClick={buttonClick}>Save Resy Information</Button>
     </Form>
     }
 
@@ -66,20 +66,16 @@ const Settings = (props) => {
 
     
     return (
-
     <div>
         <div className='info-container'>
           <div className='personal-information'>
-            <h1> Personal Information </h1>
-            <h2>  Hello {displayName}! </h2>
-            <h2> Your email is {displayEmail}.</h2>
+            <h1>  Hello {displayName}! </h1>
+            <h1> Your email is {displayEmail}.</h1>
             {content}
           </div>   
         </div>
         <div className='button-container'>
-          <div className='sign-out'>
           <Button variant = "danger" size = "lg "> Sign Out</Button>
-          </div>
         </div>
     </div>
     );
