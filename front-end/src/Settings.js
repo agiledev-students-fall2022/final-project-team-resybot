@@ -34,7 +34,7 @@ const Settings = () => {
     // setting localStorage item
     const buttonClick = (e) => {
       let resyObj = {
-        "x-resy-auth-token": resyAuthToken,
+        "xresyauthtoken": resyAuthToken,
         "authorization": authorization
       }
       localStorage.setItem('resyUser', JSON.stringify(resyObj))
