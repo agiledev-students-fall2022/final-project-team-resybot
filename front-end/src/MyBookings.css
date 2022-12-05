@@ -4,12 +4,17 @@
 }
 .itemControl{
     padding-left: 10px;
-    font-family: 'Franklin Gothic Medium';
+    font: 'Arial';
+    font-weight: 600;
+    color: orangered;
 }
 .valueControl{
     display: inline;
     padding-left: 5px;
     font-family: 'Times New Roman', Times, serif;
+    font-weight: 300;
+    color: black;
+    
 }
 .columnLeft{
     display:inline-block;
