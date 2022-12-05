@@ -38,15 +38,16 @@ const MyBookings = props => {
       {Resturaunts.length > 0 && (
           <div className= 'lists'>
             {Resturaunts.map(res => (
-              <div key={res["_id"]} className = "template">
+              <div key={res["reservation_id"]} className = "template">
                 <div className="bookingsDescription">
                   <div class="columnLeft">
-                    <div className = "itemControl"> Restaurant: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
-                    <div className = "itemControl"> Location: <div className = "valueControl">{res["time"]}</div></div>
+                    <div className = "itemControl"> Reservation message: <div className = "valueControl">{res["content"]["body"]}</div></div>
+                    <div className = "itemControl"> Cancellation Policy: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
+                    <div className = "itemControl"> Date: <div className = "valueControl">{res["day"]}</div></div>
                   </div>
                   <div class="columnRight">
                   <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
-                      Delete Booking
+                      Cancel Booking
                     </Button>
                   </div>
                 </div>  
