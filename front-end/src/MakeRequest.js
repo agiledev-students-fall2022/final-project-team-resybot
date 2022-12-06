@@ -12,11 +12,15 @@ const MakeRequest = () => {
     const navigate = useNavigate();
 
     const addRequests = async ({restaurant}) => {
-      console.log(JSON.parse(localStorage.getItem("user")).data.id)
-      let result = await axios.post("/requests", {"restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date,/*fornow*/"userid":"1"},{
+      //test for now
+      console.log(JSON.parse(localStorage.getItem("resyUser")).authorization)
+      console.log(JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken)
+      let result = await axios.post("/requests", {"restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date},{
           headers: {
           "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
-          "owner": JSON.parse(localStorage.getItem("user")).data.id
+          "owner": JSON.parse(localStorage.getItem("user")).data.id,
+          "authorization": JSON.parse(localStorage.getItem("resyUser")).authorization,
+          "x-resy-auth-token": JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
           }
         })
       result = await result;

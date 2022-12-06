@@ -15,7 +15,7 @@ const removeRequest =  async ({val, cartItems, setCartItems, navigate}) =>{
     .delete(`/requests/${val._id}`, {
       headers: {
       "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
-      "owner": JSON.parse(localStorage.getItem("user")).data.id
+      "owner": JSON.parse(localStorage.getItem("user")).data.id,
       }
     })
     console.log(response)
