@@ -15,9 +15,9 @@ const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequ
     })
     .then(apiResponse =>{
         const result = apiResponse.data.results.venues
-        console.log(JSON.parse(JSON.stringify(result.at(0))).slots)
+        const slots = JSON.parse(JSON.stringify(result.at(0))).slots
         //no slots open
-        if(JSON.parse(JSON.stringify(result.at(0))).slots.length === 0){
+        if(slots.length === 0){
             // activate bot cause can't book rn
             //setInterval(anotherbotfunc, time)
             // this is test
@@ -29,7 +29,48 @@ const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequ
             // check to see if time is similar
             // use booking bot
             // this is test
-            console.log("No Interval Here")
+            let id = 0;
+            for(let i = 0; i < slots.length; i++){
+                //slot time
+                const slotTime = (((JSON.parse(JSON.stringify(slots.at(i))).date.start).slice(-8)).slice(0,5))
+                console.log(slotTime)
+                //search everyslot for something close enough
+                if(slotTime !== bookingTime){
+                    if(slotTime.slice(0,2) === bookingTime.slice(0,2) && (parseInt(slotTime.slice(-2)) + 15 >= parseInt(bookingTime.slice(-2)) && parseInt(slotTime.slice(-2)) - 15 <= parseInt(bookingTime.slice(-2)))){
+                    id = i;
+                    console.log(`close enough, index: ${id}`)
+                    }
+                }
+                //break immediatly cause we have the best time
+                else if(slotTime === bookingTime){
+                    id = i;
+                    console.log(`we found a time exactly like the one we want, index: ${id}`)
+                    break;
+                }
+            }
+            const config_id = JSON.parse(JSON.stringify(slots.at(id))).config.token
+            console.log(`No Interval Here, configID: ${config_id}`)
+            console.log(`https://api.resy.com/3/details?party_size=${party_size}&day=${"" + bookingDate.getFullYear() + "-" + ("0" + (bookingDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (bookingDate.getDate())).slice(-2)}&config_id=${config_id}`)
+            axios.get(`https://api.resy.com/3/details?party_size=${party_size}&day=${"" + bookingDate.getFullYear() + "-" + ("0" + (bookingDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (bookingDate.getDate())).slice(-2)}&config_id=${config_id}`, {
+                headers: {
+                    "x-resy-auth-token": xresyauthtoken,
+		            "authorization": resyAPIkey
+                }
+            })
+            .then(response =>{
+                const book_token = response.data.book_token.value
+                console.log(book_token)
+                //last call!
+                axios.post(`https://api.resy.com/3/book`,{"book_token":`book_token=${book_token}`},{
+                    headers:{
+                        "x-resy-auth-token": xresyauthtoken,
+		                "authorization": resyAPIkey
+                    }
+                })
+                .then(res =>{
+                    console.log(res)
+                })
+            })
         }
 
     })
@@ -37,7 +78,8 @@ const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequ
 
 //testing for now
 const bookingDate = new Date()
-const bookingTime = "12:30"
+bookingDate.setDate(7)
+const bookingTime = "13:30"
 const party_size = 2
 const venueId = 6410
 const timeToRequest = "00:00"
