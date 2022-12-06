@@ -58,6 +58,7 @@ const [cartItems, setCartItems] = useState([]);
                     <div className = "requestsItemControl"> Party Size: <div className = "requestsValueControl">{val.party_size}</div></div>
                     <div className = "requestsItemControl"> Time: <div className = "requestsValueControl">{val.time}</div></div>
                     <div className = "requestsItemControl"> Date: <div className = "requestsValueControl">{val.date}</div></div>      
+                    <div className = "requestsItemControl"> Time to check: <div className = "requestsValueControl">{val.timeToCheck}</div></div>     
                 </div>
                 <div class="requestsColumnRight">
                   <Button onClick = {() => removeRequest({val, cartItems, setCartItems, navigate})} className="delete">
