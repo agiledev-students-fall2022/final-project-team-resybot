@@ -61,10 +61,11 @@ const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequ
                 const book_token = response.data.book_token.value
                 console.log(book_token)
                 //last call!
-                axios.post(`https://api.resy.com/3/book`,{"book_token":`book_token=${book_token}`},{
+                axios.post(`https://api.resy.com/3/book`,{book_token},{
                     headers:{
                         "x-resy-auth-token": xresyauthtoken,
-		                "authorization": resyAPIkey
+		                "authorization": resyAPIkey,
+                        "Content-Type": "application/x-www-form-urlencoded"
                     }
                 })
                 .then(res =>{
@@ -79,7 +80,7 @@ const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequ
 //testing for now
 const bookingDate = new Date()
 bookingDate.setDate(7)
-const bookingTime = "13:30"
+const bookingTime = "12:30"
 const party_size = 2
 const venueId = 6410
 const timeToRequest = "00:00"
