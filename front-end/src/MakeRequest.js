@@ -9,13 +9,15 @@ const MakeRequest = () => {
     const [partySize, setPartySize] = useState(0);
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
+    const [timeToCheck, setTimeToCheck] = useState("")
     const navigate = useNavigate();
 
     const addRequests = async ({restaurant}) => {
       //test for now
+      console.log(timeToCheck)
       console.log(JSON.parse(localStorage.getItem("resyUser")).authorization)
       console.log(JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken)
-      let result = await axios.post("/requests", {"restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date},{
+      let result = await axios.post("/requests", {"restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date,"timeToCheck":timeToCheck},{
           headers: {
           "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
           "owner": JSON.parse(localStorage.getItem("user")).data.id,
@@ -42,14 +44,22 @@ const MakeRequest = () => {
     return (
     <div className = "makeRequest">
         {showRestaurant(restaurant)}
+        <br/>
+        <h3 className = "header3Control">Party size</h3>
         <input type = "number"  placeholder = "Party Size"  id = "party-size"
         onChange = {(e)=>setPartySize(e.target.value)}
         className = "form-control"/>
-        <input type = "time"  placeholder = "Time"  id = "time"
+        <h3 className = "header3Control">Time of reservation</h3>
+        <input type = "time"  placeholder = "Time of Reservation"  id = "time"
         onChange = {(e)=>setTime(e.target.value)}
         className = "form-control"/>
-        <input type = "date"  placeholder = "Date"  id = "date"
+        <h3 className = "header3Control">Date of reservation</h3>
+        <input type = "date"  placeholder = "Date of Reservation"  id = "date"
         onChange = {(e)=>setDate(e.target.value)}
+        className = "form-control"/>
+        <h3 className = "header3Control">Time to make reservation</h3>
+        <input type = "time"  placeholder = "Time to Check"  id = "timeToCheck"
+        onChange = {(e)=>setTimeToCheck(e.target.value)}
         className = "form-control"/>
         <Button onClick={() => addRequests(restaurant)} className  = "makeRequest"> Make Request </Button> 
     </div>

@@ -21,4 +21,9 @@ h1{
 }
 .makeRequest{
     margin-top: 15px;
+    margin-bottom: 10px;
+}
+.header3Control{
+    font-family: 'Lucida Console', "Courier New", monospace;
+    color:#808080
 }

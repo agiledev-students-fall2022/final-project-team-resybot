@@ -10,8 +10,8 @@ let requestSchema = new Schema(
         date: {type: Date},
         time: {type: String},
         owner: {type: mongoose.Schema.Types.ObjectId, ref: User},
-        dateCreated: {type: Date, default: Date.now}
-        
+        dateCreated: {type: Date, default: Date.now},
+        timeToCheck: {type: String}
     }
 )
 
