@@ -1,4 +1,5 @@
 const axios = require('axios')
+const schedule = require('node-schedule');
 
 
 const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequest, xresyauthtoken, resyAPIkey}) => {
@@ -17,8 +18,9 @@ const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequ
         const result = apiResponse.data.results.venues
         const slots = JSON.parse(JSON.stringify(result.at(0))).slots
         //no slots open
-        if(slots.length !== 0){
+        if(slots.length === 0){
             console.log("Interval Here")
+            /*
             // activate bot cause can't book rn
             // getting the right time
             const rightNow = new Date()
@@ -28,12 +30,31 @@ const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequ
             const DateAndTimetoBook = new Date(""+ date.getFullYear() + "-" +  ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + ((date.getDate()) + 1)).slice(-2) + "T"+thisTime);
             console.log(DateAndTimetoBook)
             //how long to wait at first
-            const waitTime = (DateAndTimetoBook.getTime() - rightNow.getTime() + 10000)
+            let waitTime = (DateAndTimetoBook.getTime() - rightNow.getTime() + 10000)
             console.log(waitTime + 10000)
             //our first time we have to use setTimeout, because it's not guarenteed to be exactly 24 hours afterwards
-            console.log(slots)
-            setTimeout(helperBookingBot, waitTime, {bookingDate, bookingTime, party_size, xresyauthtoken, resyAPIkey, result, slots})
-            // this is test
+            setTimeout(helperBookingBot, 0, {bookingDate, bookingTime, party_size, xresyauthtoken, resyAPIkey, result, slots})
+            const newwaitTime = 24*60*60*1000
+            setInterval(helperBookingBot, newwaitTime , {bookingDate, bookingTime, party_size, xresyauthtoken, resyAPIkey, result, slots})
+            */
+            // we don't need anyofthat cause someone already wrote it
+            const hours = timeToRequest.slice(0,2)
+            const minutes = timeToRequest.slice(-2)
+            console.log(hours)
+            console.log(minutes)
+            const job = schedule.scheduleJob(`0 0 0 * * *`, ()=>{helperBookingBot({bookingDate, bookingTime, party_size, xresyauthtoken, resyAPIkey, result, slots})
+            })
+            const today = new Date()
+            today.setHours(0,0,0,0)
+            bookingDate.setHours(0,0,0,0)
+            console.log(today)
+            const checkjob = schedule.scheduleJob(`0 0 0 * * *`,()=>{
+                if(today >= bookingDate){
+                    job.cancel()
+                    //is this legal?
+                    checkjob.cancel()
+                }
+            })
         }
         
         // we can book rn!
@@ -90,6 +111,10 @@ const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequ
 }
 
 const helperBookingBot =  async({bookingDate, bookingTime, party_size, xresyauthtoken, resyAPIkey, result, slots}) => { 
+    if(slots.length == 0){
+        console.log("exiting")
+        return false
+    }
         // check to see if time is similar
         // use booking bot
         // this is test
@@ -144,7 +169,7 @@ const helperBookingBot =  async({bookingDate, bookingTime, party_size, xresyauth
 
 //testing for now
 const bookingDate = new Date()
-bookingDate.setDate(16)
+bookingDate.setDate(18)
 const bookingTime = "12:30"
 const party_size = 2
 const venueId = 40734
