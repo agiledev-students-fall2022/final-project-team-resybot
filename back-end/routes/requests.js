@@ -3,7 +3,7 @@ const router = express.Router()
 const requestSchema = require('../models/request')
 const { request } = require('chai')
 const {verification} = require('../validation')
-const {runBot,helperBookingBot} = require('../bot')
+//const {runBot,helperBookingBot} = require('../bot')
 require("dotenv").config({ silent: true })
 
 
@@ -17,8 +17,18 @@ router.get("/", verification, async (req,res) => {
 router.post("/", verification, async (req,res) => {
     //this should only add by id
     apiResponse = {restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date, owner: req.header('owner'), timeToCheck:req.body.timeToCheck}
+    const date = req.body.date
+    const time = req.body.time
+    const party_size = req.body.party_size
+    const venue_id = req.body.venue_id
+    const timeToCheck = req.body.timeToCheck
+    const xresyauthtoken = req.header("x-resy-auth-token")
+    const authorization = req.header("authorization")
     requestSchema.insertMany(apiResponse)
-    .then(apiResponse =>{res.send(apiResponse)})
+    .then(apiResponse =>{
+        //runBot({date,time,party_size,venue_id,timeToCheck,xresyauthtoken,authorization})
+        res.send(apiResponse)
+    })
     .catch(err => {}) 
 })
 

@@ -18,7 +18,7 @@ const Login = () => {
     })
     localStorage.setItem("user", JSON.stringify(result))
     //test for now
-    navigate("/")
+    navigate("/settings")
   }
   return (
   <div className = "login">
