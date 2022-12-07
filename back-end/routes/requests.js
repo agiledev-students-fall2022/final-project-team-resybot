@@ -3,7 +3,7 @@ const router = express.Router()
 const requestSchema = require('../models/request')
 const { request } = require('chai')
 const {verification} = require('../validation')
-//const {runBot,helperBookingBot} = require('../bot')
+const {runBot,helperBookingBot} = require('../bot')
 require("dotenv").config({ silent: true })
 
 
