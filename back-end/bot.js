@@ -42,7 +42,7 @@ const runBot = async ({bookingDate, bookingTime, party_size, venueId, timeToRequ
             const minutes = timeToRequest.slice(-2)
             console.log(hours)
             console.log(minutes)
-            const job = schedule.scheduleJob(`0 0 0 * * *`, ()=>{helperBookingBot({bookingDate, bookingTime, party_size, xresyauthtoken, resyAPIkey, result, slots})
+            const job = schedule.scheduleJob(`10 ${minutes} ${hours} * * *`, ()=>{helperBookingBot({bookingDate, bookingTime, party_size, xresyauthtoken, resyAPIkey, result, slots})
             })
             const today = new Date()
             today.setHours(0,0,0,0)
