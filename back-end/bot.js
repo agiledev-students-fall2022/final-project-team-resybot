@@ -180,4 +180,4 @@ const xresyauthtoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE2NzI4ODE
 const resyAPIkey = "ResyAPI api_key=\"VbWk7s3L4KiK5fzlO7JD3Q5EYolJI7n5\""
 
 runBot({bookingDate,bookingTime,party_size,venueId,timeToRequest,xresyauthtoken,resyAPIkey})
-module.exports = {runBot};
+module.exports = {runBot,helperBookingBot};
