@@ -15,7 +15,6 @@ const rem = async ({res, Resturaunts, setRes}) =>{
   setRes(listChange)
 }
 
-
 const MyBookings = props => {
   const navigate = useNavigate();
   const [Resturaunts , setRes] = useState([])
