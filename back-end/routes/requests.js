@@ -3,7 +3,9 @@ const router = express.Router()
 const requestSchema = require('../models/request')
 const { request } = require('chai')
 const {verification} = require('../validation')
+const {runBot,helperBookingBot} = require('../bot')
 require("dotenv").config({ silent: true })
+
 
 router.get("/", verification, async (req,res) => {
     //this should only display id by user once we implement user stuff
