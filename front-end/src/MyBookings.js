@@ -41,7 +41,7 @@ const MyBookings = props => {
               <div key={res["reservation_id"]} className = "template">
                 <div className="bookingsDescription">
                   <div class="columnLeft">
-                    <div className = "itemControl"> Reservation message: <div className = "valueControl">{res["content"]["body"]}</div></div>
+                    <div className = "itemControl"> Reservation message: <div className = "valueControl">{res["venues"]}</div></div>
                     <div className = "itemControl"> Cancellation Policy: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
                     <div className = "itemControl"> Date: <div className = "valueControl">{res["day"]}</div></div>
                   </div>
