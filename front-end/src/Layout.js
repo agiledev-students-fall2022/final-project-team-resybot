@@ -9,6 +9,9 @@ const Layout =({children}) =>{
     const location = useLocation();
     const navigate = useNavigate();
     useEffect(() => {
+    if(localStorage.getItem('user') === null){
+        localStorage.removeItem("resyUser")
+    }
     if((location.pathname !== "/signup") && (localStorage.getItem('user') === null)){
         navigate("/login")
     }
