@@ -37,7 +37,7 @@ jobs:
       - run: |
           cd front-end
           npm install # install all dependencies listed in package.json
-          npm run build # have react build the stand-alone front-end code
+          CI=false npm run build # have react build the stand-alone front-end code
 
 # Orchestrate our job run sequence
 workflows:
