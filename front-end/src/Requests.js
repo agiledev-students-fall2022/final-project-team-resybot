@@ -37,6 +37,7 @@ const fetchRequests = async ({setCartItems, cartItems, navigate}) => {
     })
     .catch(error => {
         localStorage.removeItem("user")
+        localStorage.removeItem("resyUser")
         navigate("/login")
     })
 }
