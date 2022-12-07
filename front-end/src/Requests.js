@@ -34,11 +34,16 @@ const fetchRequests = async ({setCartItems, cartItems, navigate}) => {
       const data = response.data
       console.log()
       setCartItems(data)
-    })
-    .catch(error => {
+      if(response.status === 401){
         localStorage.removeItem("user")
         localStorage.removeItem("resyUser")
         navigate("/login")
+      }
+    })
+    .catch(error => {
+        // localStorage.removeItem("user")
+        // localStorage.removeItem("resyUser")
+        // navigate("/login")
     })
 }
 
