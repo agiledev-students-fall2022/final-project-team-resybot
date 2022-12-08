@@ -19,14 +19,28 @@ const rem = async ({res, Resturaunts, setRes}) =>{
 const MyBookings = props => {
   const navigate = useNavigate();
   const [Resturaunts , setRes] = useState([])
+  const auth = JSON.parse(localStorage.getItem("resyUser")).authorization
+  const xresy = JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
   
   const fetchResy = async () => {
-    axios.get("/bookings")
+    axios.get("/bookings",{
+      headers:{
+        "authorization": auth,
+        "x-resy-auth-token": xresy
+      }
+       
+    })
     .then( response => {
       const data = response.data
       setRes(data)
     }
     )
+    .catch(error => {
+      if(error.response.status === 419){
+        localStorage.removeItem("resyUser")
+        navigate("/settings")
+      }
+    })
   }
   useEffect(() => {
     fetchResy()
