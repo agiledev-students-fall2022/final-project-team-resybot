@@ -41,7 +41,9 @@ const MakeRequest = () => {
       </div>
       )
     }
-
+    const today = new Date()
+    const formattedToday = "" + today.getFullYear() + "-" + ("0" + (today.getMonth() + 1)).slice(-2) + "-" + ("0" + (today.getDate())).slice(-2)
+    const formattedTodayYear = "" + (today.getFullYear() + 1) + "-" + ("0" + (today.getMonth() + 1)).slice(-2) + "-" + ("0" + (today.getDate())).slice(-2)
     const location = useLocation();
     const restaurant = location.state;
     return (
@@ -50,7 +52,7 @@ const MakeRequest = () => {
         <br/>
         <h3 className = "header3Control">Party Size</h3>
         <input type = "number"  placeholder = "Party Size"  id = "time"
-        onChange = {(e)=>setPartySize(e.target.value)}
+        onChange = {(e)=>setPartySize(e.target.value)} 
         className = "form-control"/>
         <h3 className = "header3Control">Time of reservation</h3>
         <input type = "time"  placeholder = "Time of Reservation"  id = "time"
@@ -58,7 +60,7 @@ const MakeRequest = () => {
         className = "form-control"/>
         <h3 className = "header3Control">Date of reservation</h3>
         <input type = "date"  placeholder = "Date of Reservation"  id = "date"
-        onChange = {(e)=>setDate(e.target.value)}
+        onChange = {(e)=>setDate(e.target.value)} min = {formattedToday} max = {formattedTodayYear}
         className = "form-control"/>
         <h3 className = "header3Control">Time to make reservation</h3>
         <input type = "time"  placeholder = "Time to Check"  id = "timeToCheck"
