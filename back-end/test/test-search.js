@@ -9,15 +9,15 @@ chai.use(chaiHttp)
 
 //Verifying the retrieving of data in the search route
 
-describe("GET request to search", () => {
-    it("it should respond with 200 status and object",done => {
-        chai
-            .request(server)
-            .get("/search")
-            .end((err, res) => {
-                res.should.have.status(200)
-                res.body.should.be.a("Array")
-                done()
-            })
-    })
-})
+// describe("GET request to search", () => {
+//     it("it should respond with 200 status and object",done => {
+//         chai
+//             .request(server)
+//             .get("/search")
+//             .end((err, res) => {
+//                 res.should.have.status(200)
+//                 res.body.should.be.a("Array")
+//                 done()
+//             })
+//     })
+// })
