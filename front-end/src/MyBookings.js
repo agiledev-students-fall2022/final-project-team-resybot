@@ -65,10 +65,10 @@ let name = null
               // <div key={res["reservation_id"]} className = "template">
                 <div className="bookingsDescription">
                   <div class="columnLeft">
-                    {/* {idd = JSON.parse(JSON.stringify(resturaunt))} */}
-                    {/* <div className = "itemControl"> Reservation message: <div className = "valueControl">{res["venues"]}</div></div> */}
+                    <div className = "itemControl"> Venue ID: <div className = "valueControl">{idd = res["venue"]["id"]}</div></div>
+                    <div className = "itemControl"> Name: <div className = "valueControl">{Resturaunts["venues"][idd]["name"]}</div></div>
                     <div className = "itemControl"> Cancellation Policy: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
-                    <div className = "itemControl"> Date: <div className = "valueControl">{Resturaunts["venues"]["6410"]["name"]}</div></div>
+                    <div className = "itemControl"> Date: <div className = "valueControl">{res["day"]}</div></div>
                   </div>
                   <div class="columnRight">
                   <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
