@@ -26,10 +26,15 @@ const rem = async ({res, Resturaunts, setRes}) =>{
 const MyBookings = props => {
   const navigate = useNavigate();
   const [Resturaunts , setRes] = useState([])
+  const [isLoading, setLoading] = useState(true)
   const auth = JSON.parse(localStorage.getItem("resyUser")).authorization
   const xresy = JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
   
-  const fetchResy = async () => {
+  useEffect(() => {
+    fetchResy()
+  }, [])
+  
+  const fetchResy = () => {
     axios.get("/bookings",{
       headers:{
         "authorization": auth,
@@ -40,6 +45,7 @@ const MyBookings = props => {
     .then( response => {
       const data = response.data
       setRes(data)
+      setLoading(false)
     }
     )
     .catch(error => {
@@ -49,40 +55,46 @@ const MyBookings = props => {
       }
     })
   }
-  useEffect(() => {
-    fetchResy()
-  }, [])
 
-let idd = null
+  let idd = null
+  let name = null
 
-  return (
-    <div>
-      <h1 className='top'>My Bookings</h1>
-      {Resturaunts.reservations.length > 0 && (
-          <div className= 'lists'>
-            {Resturaunts.reservations.map(res => (
-              // <div key={res["reservation_id"]} className = "template">
-                <div className="bookingsDescription">
-                  <div class="columnLeft">
-                    <div className = "itemControl"> Venue ID: <div className = "valueControl">{idd = res["venue"]["id"]}</div></div>
-                    <div className = "itemControl"> Name: <div className = "valueControl">{Resturaunts["venues"][idd]["name"]}</div></div>
-                    <div className = "itemControl"> Cancellation Policy: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
-                    <div className = "itemControl"> Date: <div className = "valueControl">{res["day"]}</div></div>
-                  </div>
-                  <div class="columnRight">
-                  <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
-                      Cancel Booking
-                    </Button>
-                  </div>
-                </div>  
-              // </div>
-              ))}
-              <Button className = "newRequest" onClick = {() => navigate("/SearchRestaurant")}> New Reservation </Button>
-          </div>
-      )} 
-
-    </div>
-  )
+  if (isLoading) {
+    return (
+      <div  className="loadingContainer">
+        <a>Loading</a>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div>
+        <h1 className='top'>My Bookings</h1>
+        {Resturaunts.reservations.length > 0 && (
+            <div className= 'lists'>
+              {Resturaunts.reservations.map(res => (
+                <div key={res["reservation_id"]} className = "template">
+                  <div className="bookingsDescription">
+                    <div class="columnLeft">
+                      <div className = "itemControl"> Venue ID: <div className = "valueControl">{idd = res["venue"]["id"]}</div></div>
+                      <div className = "itemControl"> Name: <div className = "valueControl">{Resturaunts["venues"][idd]["name"]}</div></div>
+                      <div className = "itemControl"> Cancellation Policy: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
+                      <div className = "itemControl"> Date: <div className = "valueControl">{res["day"]}</div></div>
+                    </div>
+                    <div class="columnRight">
+                    <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
+                        Cancel Booking
+                      </Button>
+                    </div>
+                  </div>  
+                </div>
+                ))}
+                <Button className = "newRequest" onClick = {() => navigate("/SearchRestaurant")}> New Reservation </Button>
+            </div>
+        )} 
+      </div>
+    )
+  }
 }
 
 export default MyBookings
