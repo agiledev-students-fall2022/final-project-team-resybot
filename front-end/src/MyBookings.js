@@ -8,8 +8,15 @@ import axios from 'axios';
 
 const rem = async ({res, Resturaunts, setRes}) =>{
   console.log(res._id)
+  const auth = JSON.parse(localStorage.getItem("resyUser")).authorization
+  const xresy = JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
   const response = await axios
-    .delete(`/bookings/${res._id}`)
+    .delete(`/bookings/${res["reservation_id"]}`,{
+      headers:{
+        "authorization": auth,
+        "x-resy-auth-token": xresy
+      }
+    })
     console.log(response);
   const listChange= Resturaunts.filter(item => item._id !== res._id);
   setRes(listChange)

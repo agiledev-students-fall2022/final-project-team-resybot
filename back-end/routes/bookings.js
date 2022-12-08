@@ -42,8 +42,8 @@ router.delete("id", async (req,res) => {
 
     axios.post(`https://api.resy.com/3/cancel`, {
         headers: {
-        "authorization": JSON.parse(localStorage.getItem("user")).data.token,
-        "x-resy-auth-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE2NzM4MjkxODYsInVpZCI6MzczMzM4NzcsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImV4dHJhIjp7Imd1ZXN0X2lkIjoxMjU0MTM5MDB9fQ.AZeARHcdxaJiIqHu8sraUDPAdYLGeicUmkob5rDDFglr5opobrpxjpx9JdBthNUMBPvIGyoDdh5lxh5-xB60_v-OAIC4vtUoVAF96U4C9omspI1evt2rjlyDiPu-unyVvODFD6IN79BJDDjAOAQk9F3xIUR0Ycd9gPDyW4EIkXnRbAEs"
+        "authorization": res.header("authorization"),
+        "x-resy-auth-token": res.header("x-resy-auth-token")
         }
     })
     .then(apiResponse =>{
