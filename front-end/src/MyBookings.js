@@ -56,20 +56,19 @@ const MyBookings = props => {
 let idd = null
 let name = null
 
-
   return (
     <div>
       <h1 className='top'>My Bookings</h1>
       {Resturaunts.reservations.length > 0 && (
           <div className= 'lists'>
             {Resturaunts.reservations.map(res => (
-              <div key={res["reservation_id"]} className = "template">
+              // <div key={res["reservation_id"]} className = "template">
                 <div className="bookingsDescription">
                   <div class="columnLeft">
-                    {idd = JSON.parse(JSON.stringify(resturaunt))}
-                    <div className = "itemControl"> Reservation message: <div className = "valueControl">{res["venues"]}</div></div>
+                    {/* {idd = JSON.parse(JSON.stringify(resturaunt))} */}
+                    {/* <div className = "itemControl"> Reservation message: <div className = "valueControl">{res["venues"]}</div></div> */}
                     <div className = "itemControl"> Cancellation Policy: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
-                    <div className = "itemControl"> Date: <div className = "valueControl">{res["day"]}</div></div>
+                    <div className = "itemControl"> Date: <div className = "valueControl">{Resturaunts["venues"]["6410"]["name"]}</div></div>
                   </div>
                   <div class="columnRight">
                   <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
@@ -77,7 +76,8 @@ let name = null
                     </Button>
                   </div>
                 </div>  
-              </div>))}
+              // </div>
+              ))}
               <Button className = "newRequest" onClick = {() => navigate("/SearchRestaurant")}> New Reservation </Button>
           </div>
       )} 
