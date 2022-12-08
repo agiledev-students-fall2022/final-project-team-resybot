@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import axios from 'axios';
 // const axios = require('axios')
 
-const fetchRestaurant = async ({venueId, setRestaurant, setSearched}) => {
+const fetchRestaurant = async ({venueId, setRestaurant, setSearched, setTemplateId}) => {
     console.log(typeof(partySize))
     axios.get("/search", {
         headers: {
@@ -19,6 +19,7 @@ const fetchRestaurant = async ({venueId, setRestaurant, setSearched}) => {
         const restaurant = apiResponse.data
         setRestaurant(restaurant)
         setSearched(true)
+        setTemplateId(JSON.parse(JSON.stringify(restaurant.at(0))).venue.default_template)
       }
     )
 }
@@ -37,6 +38,7 @@ const SearchRestaurant = (props) => {
                     <div className="details">
                         <h3>{JSON.parse(JSON.stringify(restaurant.at(0))).venue.name}</h3>
                         <h5>{JSON.parse(JSON.stringify(restaurant.at(0))).venue.type}, {JSON.parse(JSON.stringify(restaurant.at(0))).venue.location.neighborhood}, {JSON.parse(JSON.stringify(restaurant.at(0))).venue.location.name}</h5>
+                        <a>{JSON.parse(JSON.stringify(restaurant.at(0)))["templates"][templateId]["content"]["en-us"]["about"]["body"]}</a>
                     </div>
                 </div>
             </Link> 
@@ -55,7 +57,7 @@ const SearchRestaurant = (props) => {
                 />
             </div>
             <div className="venueButton">
-                <Button variant="outlined" onClick={() => fetchRestaurant({venueId, setRestaurant, setSearched})}>
+                <Button variant="outlined" onClick={() => fetchRestaurant({venueId, setRestaurant, setSearched, setTemplateId})}>
                     Enter
                 </Button>
             </div>
