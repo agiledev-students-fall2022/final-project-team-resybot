@@ -112,6 +112,9 @@ const runBot = async (bookingDate, bookingTime, party_size, venueId, timeToReque
                 .then(res =>{
                     console.log(res)
                 })
+                .catch(err =>{
+                    console.log(err)
+                })
             })
         }
 
@@ -171,6 +174,9 @@ const helperBookingBot =  async(bookingDate, bookingTime, party_size, xresyautht
                 })
                 .then(res =>{
                     console.log(res)
+                })
+                .catch(err =>{
+                    console.log(err)
                 })
             })
             
