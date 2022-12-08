@@ -5,10 +5,12 @@
 .itemControl{
     padding-left: 10px;
     font-family: 'Franklin Gothic Medium';
+    color: orangered;
 }
 .valueControl{
     display: inline;
     padding-left: 5px;
+    color: black;
     font-family: 'Times New Roman', Times, serif;
 }
 .columnLeft{
