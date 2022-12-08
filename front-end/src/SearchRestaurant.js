@@ -6,11 +6,10 @@ import {Link} from 'react-router-dom'
 import axios from 'axios';
 // const axios = require('axios')
 
-const fetchRestaurant = async ({partySize, venueId, setRestaurant, setSearched}) => {
+const fetchRestaurant = async ({venueId, setRestaurant, setSearched}) => {
     console.log(typeof(partySize))
     axios.get("/search", {
         headers: {
-            "partySize": partySize, 
             "venueId": venueId,
             "authorization": JSON.parse(localStorage.getItem("resyUser")).authorization,
             "xresytoken": JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
@@ -52,21 +51,12 @@ const SearchRestaurant = (props) => {
                 id="outlined-basic"
                 variant="outlined"
                 fullWidth
-                label="Party Size"
-                onChange={(event) => {setPartySize(event.target.value)}}
-                />
-            </div>
-            <div className="input">
-                <TextField
-                id="outlined-basic"
-                variant="outlined"
-                fullWidth
                 label="Venue ID"
                 onChange={(event) => {setVenueID(event.target.value)}}
                 />
             </div>
             <div className="venueButton">
-                <Button variant="outlined" onClick={() => fetchRestaurant({partySize, venueId, setRestaurant, setSearched})}>
+                <Button variant="outlined" onClick={() => fetchRestaurant({venueId, setRestaurant, setSearched})}>
                     Enter
                 </Button>
             </div>

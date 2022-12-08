@@ -10,13 +10,12 @@ const todaysDate = new Date();
 todaysDate.setHours(0,0,0,0)
 
 router.get("/", async (req,res) => {
-    const partySize = req.header('partySize')
     const venueId = req.header('venueId')
     const xresytoken = req.headers.xresytoken
     const authorization = req.headers.authorization
 
     axios
-        .get(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + todaysDate.getFullYear() + "-" + ("0" + (todaysDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (todaysDate.getDate())).slice(-2)}&party_size=${partySize}&venue_id=${venueId}`, {
+        .get(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + todaysDate.getFullYear() + "-" + ("0" + (todaysDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (todaysDate.getDate())).slice(-2)}&party_size=2&venue_id=${venueId}`, {
             headers: {
             "authorization": authorization,
             "x-resy-auth-token": xresytoken

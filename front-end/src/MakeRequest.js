@@ -12,12 +12,16 @@ const MakeRequest = () => {
     const [timeToCheck, setTimeToCheck] = useState("")
     const navigate = useNavigate();
 
-    const addRequests = async ({restaurant}) => {
+    const addRequests = async (restaurant) => {
+      const name = JSON.parse(JSON.stringify(restaurant.data.at(0))).venue.name
+      const venue_id = JSON.parse(JSON.stringify(restaurant.data.at(0))).venue.id.resy
+      console.log(name)
+      console.log(venue_id)
       //test for now
       console.log(timeToCheck)
       console.log(JSON.parse(localStorage.getItem("resyUser")).authorization)
       console.log(JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken)
-      let result = await axios.post("/requests", {"restaurant":restaurant.restaurant_name,"party_size":partySize,"time": time,"date":date,"timeToCheck":timeToCheck},{
+      let result = await axios.post("/requests", {"restaurant":name, "venue_id":venue_id,"party_size":partySize,"time": time,"date":date,"timeToCheck":timeToCheck},{
           headers: {
           "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
           "owner": JSON.parse(localStorage.getItem("user")).data.id,
@@ -29,12 +33,11 @@ const MakeRequest = () => {
       let path = "/requests"; 
       navigate(path);
     };
-    const showRestaurant = ({restaurant}) =>{
+    const showRestaurant = (restaurant) =>{
       return(
       <div>
-        <img src={restaurant.picture} alt="" className="requestpicture"/>
-        <h1> Reservation at {restaurant.restaurant_name} </h1>
-        <h2> {restaurant.address} </h2>
+        <h1> Reservation at {JSON.parse(JSON.stringify(restaurant.data.at(0))).venue.name} </h1>
+        <h2> {JSON.parse(JSON.stringify(restaurant.data.at(0))).venue.type}, {JSON.parse(JSON.stringify(restaurant.data.at(0))).venue.location.neighborhood}, {JSON.parse(JSON.stringify(restaurant.data.at(0))).venue.location.name} </h2>
       </div>
       )
     }
@@ -45,8 +48,8 @@ const MakeRequest = () => {
     <div className = "makeRequest">
         {showRestaurant(restaurant)}
         <br/>
-        <h3 className = "header3Control">Party size</h3>
-        <input type = "number"  placeholder = "Party Size"  id = "party-size"
+        <h3 className = "header3Control">Party Size</h3>
+        <input type = "number"  placeholder = "Party Size"  id = "time"
         onChange = {(e)=>setPartySize(e.target.value)}
         className = "form-control"/>
         <h3 className = "header3Control">Time of reservation</h3>

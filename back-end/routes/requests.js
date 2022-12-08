@@ -17,17 +17,18 @@ router.get("/", verification, async (req,res) => {
 router.post("/", verification, async (req,res) => {
     //this should only add by id
     apiResponse = {restaurant: req.body.restaurant, party_size: req.body.party_size, time: req.body.time, date: req.body.date, owner: req.header('owner'), timeToCheck:req.body.timeToCheck}
-    const date = req.body.date
+    let date = new Date(req.body.date)
     const time = req.body.time
     const party_size = req.body.party_size
     const venue_id = req.body.venue_id
     const timeToCheck = req.body.timeToCheck
     const xresyauthtoken = req.header("x-resy-auth-token")
     const authorization = req.header("authorization")
+    console.log(date,time,party_size,venue_id,timeToCheck)
     requestSchema.insertMany(apiResponse)
     .then(apiResponse =>{
-        //runBot({date,time,party_size,venue_id,timeToCheck,xresyauthtoken,authorization})
         res.send(apiResponse)
+        runBot(date,time,party_size,venue_id,timeToCheck,xresyauthtoken,authorization)
     })
     .catch(err => {}) 
 })
