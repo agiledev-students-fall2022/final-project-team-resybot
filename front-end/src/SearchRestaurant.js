@@ -24,7 +24,6 @@ const fetchRestaurant = async ({venueId, setRestaurant, setSearched}) => {
 }
  
 const SearchRestaurant = (props) => {
-    const [partySize, setPartySize] = useState("");
     const [venueId, setVenueID] = useState("");
     const [restaurant, setRestaurant] = useState([]);
     const [searched, setSearched] = useState(false)
