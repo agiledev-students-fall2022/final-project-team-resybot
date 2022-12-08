@@ -52,7 +52,7 @@ const [cartItems, setCartItems] = useState([]);
     },[])
     return(
         <div>
-            <h1 id="request_title"> Requests </h1>
+            <h1 id="request_title"> Request History </h1>
             {cartItems.map(val => (
               <div className="requestsTemplate" key={val._id}>
                <Box className="requestsDescription">
@@ -63,10 +63,7 @@ const [cartItems, setCartItems] = useState([]);
                     <div className = "requestsItemControl"> Date: <div className = "requestsValueControl">{val.date}</div></div>      
                     <div className = "requestsItemControl"> Time to check: <div className = "requestsValueControl">{val.timeToCheck}</div></div>     
                 </div>
-                <div class="requestsColumnRight">
-                  <Button onClick = {() => removeRequest({val, cartItems, setCartItems, navigate})} className="delete">
-                    Delete 
-                  </Button>
+                <div class="requestsColumnRight">  
                 </div>
               </Box>
             </div> 
