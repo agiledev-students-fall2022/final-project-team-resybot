@@ -26,18 +26,18 @@ const fetchRestaurant = async ({venueId, setRestaurant, setSearched, setTemplate
     )
     .catch(error => {
         if(error.response.status === 419){
-          localStorage.removeItem("resyUser")
-          navigate("/settings")
+            localStorage.removeItem("resyUser")
+            navigate("/settings")
         }
-      if(error.response.status === 401){
-        localStorage.removeItem("user")
-        localStorage.removeItem("resyUser")
-        navigate("/login")
-      }
-      if(error.response.status === 400){
-        console.log("Invalid Input")
-        setInvalid(true)
-      }
+        if(error.response.status === 401){
+          localStorage.removeItem("user")
+          localStorage.removeItem("resyUser")
+          navigate("/login")
+        }
+        if(error.response.status === 400){
+            console.log("Invalid Input")
+            setInvalid(true)
+        }
     })
 }
  
@@ -95,4 +95,5 @@ const SearchRestaurant = (props) => {
     );
 };
 export default SearchRestaurant
+
 

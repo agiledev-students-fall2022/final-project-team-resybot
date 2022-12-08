@@ -28,8 +28,15 @@ router.get("/", verification, async (req,res) => {
             res.json(result)
         })
         .catch(err => {
-            res.status(400).json({ error: "Invalid User Input"});
-            res.status(419).json({ error: "Token is not valid"});
+            if(err.response.status === 400){
+                res.status(400).json({ error: "Invalid User Input"});
+            }
+            if(err.response.status === 401){
+                res.status(400).json({ error: "Invalid User Token"});
+            }
+            if(err.response.status === 419){
+                res.status(419).json({ error: "Invalid Token"});
+            }
         }) 
 })
 module.exports = router;
