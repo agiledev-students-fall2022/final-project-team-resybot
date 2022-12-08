@@ -80,6 +80,7 @@ const MyBookings = props => {
                       <div className = "itemControl"> Name: <div className = "valueControl">{Resturaunts["venues"][idd]["name"]}</div></div>
                       <div className = "itemControl"> Cancellation Policy: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
                       <div className = "itemControl"> Date: <div className = "valueControl">{res["day"]}</div></div>
+                      <div className = "itemControl"> Party Size <div className = "valueControl">{res["num_seats"]}</div></div>
                     </div>
                     <div class="columnRight">
                     <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
