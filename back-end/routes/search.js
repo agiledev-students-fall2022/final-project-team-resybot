@@ -1,15 +1,31 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios')
+const assert = require('assert')
 require("dotenv").config({ silent: true })
+const { bookings } = require('chai')
+const { application } = require('express')
 
-router.get("/",(req,res) => {
-    //do stuff in here
+const todaysDate = new Date();
+todaysDate.setHours(0,0,0,0)
+
+router.get("/", async (req,res) => {
+    const partySize = req.header('partySize')
+    const venueId = req.header('venueId')
+    const xresytoken = req.headers.xresytoken
+    const authorization = req.headers.authorization
+
     axios
-        .get(`${process.env.API_BASE_URL+process.env.RESTAURANTS}?&key=${process.env.API_KEY}`)
+        .get(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + todaysDate.getFullYear() + "-" + ("0" + (todaysDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (todaysDate.getDate())).slice(-2)}&party_size=${partySize}&venue_id=${venueId}`, {
+            headers: {
+            "authorization": authorization,
+            "x-resy-auth-token": xresytoken
+          }
+        })
         .then(apiResponse => {
-            res.json(apiResponse.data)
+            // console.log(JSON.parse(JSON.stringify(result.at(0))).slots)
+            const result = apiResponse.data.results.venues
+            res.json(result)
         })
 })
-
 module.exports = router;
