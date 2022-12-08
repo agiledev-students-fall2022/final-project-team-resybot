@@ -9,7 +9,7 @@ const { application } = require('express')
 const todaysDate = new Date();
 todaysDate.setHours(0,0,0,0)
 
-router.get("/", async (req,res) => {
+router.get("/", verification, async (req,res) => {
     const venueId = req.header('venueId')
     const xresytoken = req.headers.xresytoken
     const authorization = req.headers.authorization
@@ -26,5 +26,6 @@ router.get("/", async (req,res) => {
             const result = apiResponse.data.results.venues
             res.json(result)
         })
+        .catch(err => {}) 
 })
 module.exports = router;
