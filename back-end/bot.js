@@ -49,11 +49,17 @@ const runBot = async (bookingDate, bookingTime, party_size, venueId, timeToReque
             today.setHours(0,0,0,0)
             bookingDate.setHours(0,0,0,0)
             console.log(today)
+            if(today >= bookingDate){
+                job.cancel()
+                console.log("canceled")
+            }
             const checkjob = schedule.scheduleJob(`0 0 0 * * *`,()=>{
                 if(today >= bookingDate){
                     job.cancel()
+                    console.log("job canceled")
                     //is this legal?
                     checkjob.cancel()
+                    console.log("job canceled")
                 }
             })
         }

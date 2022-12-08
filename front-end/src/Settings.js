@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import axios  from 'axios';
-import {Link, Location, useLocation} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Settings.css';
 
 const Settings = () => {
+    const navigate = useNavigate()
     const [displayName, setDisplayName] = useState('')
     const [displayEmail, setDisplayEmail] = useState('')
     const [resyAuthToken, setResyAuthToken] = useState('')
@@ -27,8 +28,11 @@ const Settings = () => {
     //comment out this line for tests for now, cause it will just keep logging u out on error throw 
     .catch(error => {
         // //this logs out the user if their token expires
-        // localStorage.removeItem("user")
-        // navigate("/login")
+        if(error.response.status === 401){
+        localStorage.removeItem("user")
+        localStorage.removeItem("resyUser")
+        navigate("/login")
+        }
     })
 
     // setting localStorage item
