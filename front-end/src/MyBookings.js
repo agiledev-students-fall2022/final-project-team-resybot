@@ -53,15 +53,20 @@ const MyBookings = props => {
     fetchResy()
   }, [])
 
+let idd = null
+let name = null
+
+
   return (
     <div>
       <h1 className='top'>My Bookings</h1>
-      {Resturaunts.length > 0 && (
+      {Resturaunts.reservations.length > 0 && (
           <div className= 'lists'>
-            {Resturaunts.map(res => (
+            {Resturaunts.reservations.map(res => (
               <div key={res["reservation_id"]} className = "template">
                 <div className="bookingsDescription">
                   <div class="columnLeft">
+                    {idd = JSON.parse(JSON.stringify(resturaunt))}
                     <div className = "itemControl"> Reservation message: <div className = "valueControl">{res["venues"]}</div></div>
                     <div className = "itemControl"> Cancellation Policy: <div className = "valueControl">{res["cancellation_policy"]}</div></div>
                     <div className = "itemControl"> Date: <div className = "valueControl">{res["day"]}</div></div>

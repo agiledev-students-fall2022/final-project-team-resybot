@@ -19,7 +19,7 @@ router.get("/", async (req,res) => {
       }
     })
     .then(apiResponse => {
-        res.json(apiResponse.data.reservations)
+        res.json(apiResponse.data)
     })
     .catch(error => {
             res.status(419).json({ error: "Token is not valid"});
