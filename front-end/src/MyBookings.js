@@ -54,7 +54,6 @@ const MyBookings = props => {
   }, [])
 
 let idd = null
-let name = null
 
   return (
     <div>
