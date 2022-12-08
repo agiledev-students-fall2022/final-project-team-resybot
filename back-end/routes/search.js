@@ -5,11 +5,12 @@ const assert = require('assert')
 require("dotenv").config({ silent: true })
 const { bookings } = require('chai')
 const { application } = require('express')
+const {verification} = require('../validation')
 
 const todaysDate = new Date();
 todaysDate.setHours(0,0,0,0)
 
-router.get("/", async (req,res) => {
+router.get("/", verification, async (req,res) => {
     const venueId = req.header('venueId')
     const xresytoken = req.headers.xresytoken
     const authorization = req.headers.authorization
@@ -26,5 +27,9 @@ router.get("/", async (req,res) => {
             const result = apiResponse.data.results.venues
             res.json(result)
         })
+        .catch(err => {
+            res.status(400).json({ error: "Invalid User Input"});
+            res.status(419).json({ error: "Token is not valid"});
+        }) 
 })
 module.exports = router;
