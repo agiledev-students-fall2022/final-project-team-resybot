@@ -7,9 +7,10 @@ const bookingsSchema = require('../models/bookings')
 const { bookings } = require('chai')
 const { application } = require('express')
 const { readSync } = require('fs')
+const {verification} = require('../validation')
 require("dotenv").config({ silent: true })
 
-router.get("/", async (req,res) => {
+router.get("/", verification, async (req,res) => {
     //this should only display id by user once we implement user stuff
     //bookingsSchema.find()
     axios.get("https://api.resy.com/3/user/reservations", {

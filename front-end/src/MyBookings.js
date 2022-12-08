@@ -38,7 +38,9 @@ const MyBookings = props => {
     axios.get("/bookings",{
       headers:{
         "authorization": auth,
-        "x-resy-auth-token": xresy
+        "x-resy-auth-token": xresy,
+        "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
+        "owner": JSON.parse(localStorage.getItem("user")).data.id
       }
        
     })
@@ -52,6 +54,11 @@ const MyBookings = props => {
       if(error.response.status === 419){
         localStorage.removeItem("resyUser")
         navigate("/settings")
+      }
+      if(error.response.status === 401){
+        localStorage.removeItem("user")
+        localStorage.removeItem("resyUser")
+        navigate("/login")
       }
     })
   }
