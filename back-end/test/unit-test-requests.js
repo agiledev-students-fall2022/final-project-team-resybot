@@ -9,7 +9,7 @@ const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsImlk
 const owner = "6389511c0c0c1e4d36716266"
 
 describe("GET request to /requests", () => {
-    it("it should respond with 200 status and object",done => {
+    it("it should respond with 200 status and object.",done => {
         chai.request(server)
             .get("/requests")
             .set("auth-token", authToken)
