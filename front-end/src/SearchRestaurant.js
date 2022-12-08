@@ -4,10 +4,10 @@ import Button from '@mui/material/Button';
 import './SearchRestaurant.css';
 import {Link} from 'react-router-dom'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 // const axios = require('axios')
 
-const fetchRestaurant = async ({venueId, setRestaurant, setSearched, setTemplateId}) => {
-    console.log(typeof(partySize))
+const fetchRestaurant = async ({venueId, setRestaurant, setSearched, setTemplateId, setInvalid, navigate}) => {
     axios.get("/search", {
         headers: {
             "venueId": venueId,
@@ -22,17 +22,37 @@ const fetchRestaurant = async ({venueId, setRestaurant, setSearched, setTemplate
         setTemplateId(JSON.parse(JSON.stringify(restaurant.at(0))).venue.default_template)
       }
     )
+    .catch(error => {
+      if(error.response.status === 401){
+        localStorage.removeItem("user")
+        localStorage.removeItem("resyUser")
+        navigate("/login")
+      }
+      if(error.response.status === 400){
+        console.log("Invalid Input")
+        setInvalid(true)
+      }
+    })
 }
  
 const SearchRestaurant = (props) => {
+    const navigate = useNavigate();
     const [venueId, setVenueID] = useState("");
     const [restaurant, setRestaurant] = useState([]);
     const [searched, setSearched] = useState(false)
+    const [invalid, setInvalid] = useState(false)
     const [templateId, setTemplateId] = useState("");
-    let content = <h2>No Result</h2>
+    let content = <h2>Please Input Data</h2>
 
     if (searched){
-        content = <div className="searchResult">
+        if(invalid){
+            content = <h2>Input is Invalid</h2>
+        }
+        if(restaurant.length === 0){
+            content = <h2>No Results</h2>
+        }
+        else{
+            content = <div className="searchResult">
             <Link to="/makerequest" state={{ data: restaurant }}> 
                 <div className="entry">
                     <div className="details">
@@ -43,6 +63,7 @@ const SearchRestaurant = (props) => {
                 </div>
             </Link> 
         </div>
+        }
     }
 
     return (
@@ -57,7 +78,7 @@ const SearchRestaurant = (props) => {
                 />
             </div>
             <div className="venueButton">
-                <Button variant="outlined" onClick={() => fetchRestaurant({venueId, setRestaurant, setSearched, setTemplateId})}>
+                <Button variant="outlined" onClick={() => fetchRestaurant({venueId, setRestaurant, setSearched, setTemplateId, setInvalid, navigate})}>
                     Enter
                 </Button>
             </div>
