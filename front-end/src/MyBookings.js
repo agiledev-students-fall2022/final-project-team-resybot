@@ -89,11 +89,6 @@ const MyBookings = props => {
                       <div className = "itemControl"> Date: <div className = "valueControl">{res["day"]}</div></div>
                       <div className = "itemControl"> Party Size <div className = "valueControl">{res["num_seats"]}</div></div>
                     </div>
-                    <div class="columnRight">
-                    <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
-                        Cancel Booking
-                      </Button>
-                    </div>
                   </div>  
                 </div>
                 ))}
@@ -105,4 +100,14 @@ const MyBookings = props => {
   }
 }
 
+
+/*
+
+                    <div class="columnRight">
+                    <Button onClick = {() => rem({res, Resturaunts, setRes})} className="delete">
+                        Cancel Booking
+                      </Button>
+                    </div>
+
+*/
 export default MyBookings
