@@ -5,7 +5,7 @@
 .itemControl{
     padding-left: 10px;
     font-family: 'Franklin Gothic Medium';
-    color: orangered;
+    color: red;
 }
 .valueControl{
     display: inline;

@@ -5,10 +5,12 @@
 .requestsItemControl{
     padding-left: 10px;
     font-family: 'Franklin Gothic Medium';
+    color: red;
 }
 .requestsValueControl{
     display: inline;
     padding-left: 5px;
+    color: black;
     font-family: 'Times New Roman', Times, serif;
 }
 .requestsDescription{
