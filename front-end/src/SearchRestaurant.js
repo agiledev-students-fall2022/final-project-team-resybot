@@ -11,6 +11,8 @@ const fetchRestaurant = async ({venueId, setRestaurant, setSearched, setTemplate
     axios.get("/search", {
         headers: {
             "venueId": venueId,
+            "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
+            "owner": JSON.parse(localStorage.getItem("user")).data.id,
             "authorization": JSON.parse(localStorage.getItem("resyUser")).authorization,
             "xresytoken": JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
         }
@@ -23,6 +25,10 @@ const fetchRestaurant = async ({venueId, setRestaurant, setSearched, setTemplate
       }
     )
     .catch(error => {
+        if(error.response.status === 419){
+          localStorage.removeItem("resyUser")
+          navigate("/settings")
+        }
       if(error.response.status === 401){
         localStorage.removeItem("user")
         localStorage.removeItem("resyUser")

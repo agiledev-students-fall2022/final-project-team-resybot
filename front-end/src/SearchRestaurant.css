@@ -49,9 +49,3 @@ h3 {
 h5 {
     text-overflow: ellipsis;
 }
-
-.rating {
-    float: right;
-    text-overflow: ellipsis;
-    text-decoration:none;
-}
