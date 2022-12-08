@@ -1,24 +1,50 @@
 import React, {useState, useEffect} from "react";
 import TextField from "@mui/material/TextField";
+import Button from '@mui/material/Button';
 import './SearchRestaurant.css';
 import {Link} from 'react-router-dom'
 import axios from 'axios';
-//const axios = require('axios')
+// const axios = require('axios')
 
-const fetchRestaurants = async ({setRestaurants}) => {
-    axios.get("/search")
-    .then( response => {
-        const data = response.data
-        setRestaurants(data)
+const fetchRestaurant = async ({partySize, venueId, setRestaurant, setSearched}) => {
+    console.log(typeof(partySize))
+    axios.get("/search", {
+        headers: {
+            "partySize": partySize, 
+            "venueId": venueId,
+            "authorization": JSON.parse(localStorage.getItem("resyUser")).authorization,
+            "xresytoken": JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
+        }
+    })
+    .then(apiResponse => {
+        const restaurant = apiResponse.data
+        setRestaurant(restaurant)
+        setSearched(true)
       }
     )
 }
-
+ 
 const SearchRestaurant = (props) => {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [restaurants, setRestaurants] = useState([]);
+    const [partySize, setPartySize] = useState("");
+    const [venueId, setVenueID] = useState("");
+    const [restaurant, setRestaurant] = useState([]);
+    const [searched, setSearched] = useState(false)
+    const [templateId, setTemplateId] = useState("");
+    let content = <h2>No Result</h2>
 
-    useEffect(()=>{fetchRestaurants({setRestaurants})},[])
+    if (searched){
+        content = <div className="searchResult">
+            <Link to="/makerequest" state={{ data: restaurant }}> 
+                <div className="entry">
+                    <div className="details">
+                        <h3>{JSON.parse(JSON.stringify(restaurant.at(0))).venue.name}</h3>
+                        <h5>{JSON.parse(JSON.stringify(restaurant.at(0))).venue.type}, {JSON.parse(JSON.stringify(restaurant.at(0))).venue.location.neighborhood}, {JSON.parse(JSON.stringify(restaurant.at(0))).venue.location.name}</h5>
+                    </div>
+                </div>
+            </Link> 
+        </div>
+    }
+
     return (
         <div className="search">
             <div className="input">
@@ -26,40 +52,29 @@ const SearchRestaurant = (props) => {
                 id="outlined-basic"
                 variant="outlined"
                 fullWidth
-                label="Search"
-                onChange={(event) => {setSearchTerm(event.target.value)}}
+                label="Party Size"
+                onChange={(event) => {setPartySize(event.target.value)}}
                 />
             </div>
-            <div className="filter">
-                {
-                    restaurants 
-                    .filter((val) => {
-                        if(searchTerm == ""){
-                            return val;
-                        }
-                        else if(val.restaurant_name.toLowerCase().includes(searchTerm.toLowerCase())){
-                            return val;
-                        }
-                    })
-                    .map((val) => {
-                        return(
-                            <Link to="/makerequest" state={{ restaurant: val }}> 
-                            <div className="entry" key={val.id}>
-                                <img src={val.picture} alt="" className="picture"/>
-                                <div className="details">
-                                    <h3>{val.restaurant_name}</h3>
-                                    <h5>{val.location}, {val.type}</h5>
-                                </div>
-                                <div className="rating">
-                                    <h6>{val.rating}/5 ({val.no_reviews} reviews)</h6>
-                                </div>
-                            </div>
-                            </Link> 
-                        )
-                    })
-                }
+            <div className="input">
+                <TextField
+                id="outlined-basic"
+                variant="outlined"
+                fullWidth
+                label="Venue ID"
+                onChange={(event) => {setVenueID(event.target.value)}}
+                />
+            </div>
+            <div className="venueButton">
+                <Button variant="outlined" onClick={() => fetchRestaurant({partySize, venueId, setRestaurant, setSearched})}>
+                    Enter
+                </Button>
+            </div>
+            <div className="venueDetails">
+                {content}
             </div>   
         </div>
     );
 };
 export default SearchRestaurant
+
