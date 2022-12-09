@@ -13,7 +13,7 @@ const Login = () => {
   }, [])
   async function login(){
     console.warn(email, password)
-    let result = await axios.post("user/login", {
+    let result = await axios.post(`${process.env.REACT_APP_BACKEND}/user/login`, {
       "email": email, "password": password
     })
     localStorage.setItem("user", JSON.stringify(result))
