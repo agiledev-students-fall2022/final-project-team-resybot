@@ -10,7 +10,7 @@ const SignUp = () => {
 
   async function signUp(){
     console.warn(name,email,password)
-    let result = await axios.post("user/register", {
+    let result = await axios.post(`${process.env.REACT_APP_BACKEND}/user/register`, {
       "name": name, "email": email, "password": password, 
     })
     console.warn(JSON.stringify(result))

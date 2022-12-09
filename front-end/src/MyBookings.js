@@ -11,7 +11,7 @@ const rem = async ({res, Resturaunts, setRes}) =>{
   const auth = JSON.parse(localStorage.getItem("resyUser")).authorization
   const xresy = JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
   const response = await axios
-    .delete(`/bookings/${res["reservation_id"]}`,{
+    .delete(`${process.env.REACT_APP_BACKEND}/bookings/${res["reservation_id"]}`,{
       headers:{
         "authorization": auth,
         "x-resy-auth-token": xresy
@@ -35,7 +35,7 @@ const MyBookings = props => {
   }, [])
   
   const fetchResy = () => {
-    axios.get("/bookings",{
+    axios.get(`${process.env.REACT_APP_BACKEND}/bookings`,{
       headers:{
         "authorization": auth,
         "x-resy-auth-token": xresy,
