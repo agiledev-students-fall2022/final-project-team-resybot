@@ -21,7 +21,7 @@ For more info on contribution visit [CONTRIBUTING.md](./CONTRIBUTING.md)
 1. Navigate into the `front-end` directory
 1. Run `npm install` to install all dependencies listed in the `package.json` file, Make sure the `proxy` setting in the json file specifies the right domain: 
 ```javascript
-REACT_APP_BACKEND=http://localhost:3000
+REACT_APP_BACKEND=http://localhost:3001
 ```
 1. Run `npm start` to launch the React.js server
 
