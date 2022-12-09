@@ -66,6 +66,7 @@ const MyBookings = props => {
       }
     })
   }
+  useEffect(()=>{
   if(localStorage.getItem("user") === null){
     localStorage.removeItem("user")
     localStorage.removeItem("resyUser")
@@ -73,7 +74,7 @@ const MyBookings = props => {
   }
   else{
     fetchResy()
-  }
+}},[]) 
   
 
   let idd = null
