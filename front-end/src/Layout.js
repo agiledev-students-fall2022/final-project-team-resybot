@@ -12,11 +12,13 @@ const Layout =({children}) =>{
     if(localStorage.getItem('user') === null){
         localStorage.removeItem("resyUser")
     }
-    if((location.pathname !== "/signup") && (localStorage.getItem('user') === null)){
-        navigate("/login")
-    }
-    else if((location.pathname !== "/signup") && (localStorage.getItem('resyUser') === null)){
+    if((location.pathname !== "/signup") && (localStorage.getItem('resyUser') === null)){
+        console.log("excuse MEEE??")
         navigate("/settings")
+    }
+    if((location.pathname !== "/signup") && (localStorage.getItem('user') === null)){
+        console.log("enter this block pls")
+        navigate("/login")
     }
     },[]) 
     if(location.pathname === "/login" || location.pathname === "/signup")

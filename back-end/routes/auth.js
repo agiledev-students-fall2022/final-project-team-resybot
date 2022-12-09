@@ -11,6 +11,7 @@ const { application } = require('express')
 const router = express.Router()
 require("dotenv").config({ silent: true })
 
+
 router.post('/register', async (req,res) => {
     //validate user input
     const {error} = registerValidation(req.body)
