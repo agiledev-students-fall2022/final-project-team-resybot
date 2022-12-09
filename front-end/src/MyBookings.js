@@ -27,11 +27,6 @@ const MyBookings = props => {
   const navigate = useNavigate();
   const [Resturaunts , setRes] = useState([])
   const [isLoading, setLoading] = useState(true)
-  
-  useEffect(() => {
-    fetchResy()
-  }, [])
-  
   const fetchResy = () => {
     let auth = ""
     let xresy = ""
@@ -71,6 +66,16 @@ const MyBookings = props => {
       }
     })
   }
+  useEffect(()=>{
+  if(localStorage.getItem("user") === null){
+    localStorage.removeItem("user")
+    localStorage.removeItem("resyUser")
+    navigate("/login")
+  }
+  else{
+    fetchResy()
+}},[]) 
+  
 
   let idd = null
   let name = null

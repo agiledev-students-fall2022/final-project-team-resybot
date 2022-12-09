@@ -47,9 +47,15 @@ const fetchRequests = async ({setCartItems, cartItems, navigate}) => {
 const Requests = () => {
 const navigate = useNavigate();
 const [cartItems, setCartItems] = useState([]);
-    useEffect(()=>{
+useEffect(()=>{
+    if(localStorage.getItem("user") === null){
+      localStorage.removeItem("user")
+      localStorage.removeItem("resyUser")
+      navigate("/login")
+    }
+    else{
       fetchRequests({setCartItems, cartItems, navigate})
-    },[])
+    }},[])
     return(
         <div>
             <h1 id="request_title"> Request History </h1>
