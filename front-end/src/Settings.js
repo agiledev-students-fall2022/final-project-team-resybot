@@ -14,7 +14,7 @@ const Settings = () => {
     let content = <h2> Your resy info is stored! </h2>
 
     // getting data from MongoDB
-    axios.get("/user", {
+    axios.get(`${process.env.REACT_APP_BACKEND}/user`, {
       headers: {
       "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
       "_id": JSON.parse(localStorage.getItem("user")).data.id

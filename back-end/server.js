@@ -5,6 +5,9 @@ const search = require('./routes/search');
 const auth = require('./routes/auth')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
+const cors = require("cors") 
+require("dotenv").config({ silent: true })
+
 
 const server = express();
 
@@ -13,7 +16,7 @@ const port = 3001
 server.use(express.json());
 server.use(cookieParser())
 server.use(express.urlencoded({extended: true}))
-
+server.use(cors({ origin: process.env.FRONT_END_DOMAIN, credentials: true }))
 server.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });

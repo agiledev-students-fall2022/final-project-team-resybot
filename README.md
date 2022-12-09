@@ -16,12 +16,15 @@ For more info on contribution visit [CONTRIBUTING.md](./CONTRIBUTING.md)
 1. Navigate into the `back-end` directory
 1. Run `npm install` to install all dependencies listed in the `package.json` file
 1. Make sure to create an .env file and copy the contents of .env.example into it
+```javascript
+FRONT_END_DOMAIN=http://localhost:3000
+```
 1. Run `npm start` to launch the Express.js server
 ### Build and launch the front end
 1. Navigate into the `front-end` directory
-1. Run `npm install` to install all dependencies listed in the `package.json` file, Make sure the `proxy` setting in the json file specifies the right domain: 
+1. Run `npm install` to install all dependencies listed in the `package.json` file, Make sure the .env file specifies the right domain: 
 ```javascript
-"proxy": "http://localhost:3001"
+REACT_APP_BACKEND=http://localhost:3001
 ```
 1. Run `npm start` to launch the React.js server
 

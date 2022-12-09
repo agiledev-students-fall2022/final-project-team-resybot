@@ -11,7 +11,7 @@ const rem = async ({res, Resturaunts, setRes}) =>{
   const auth = JSON.parse(localStorage.getItem("resyUser")).authorization
   const xresy = JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
   const response = await axios
-    .delete(`/bookings/${res["reservation_id"]}`,{
+    .delete(`${process.env.REACT_APP_BACKEND}/bookings/${res["reservation_id"]}`,{
       headers:{
         "authorization": auth,
         "x-resy-auth-token": xresy
@@ -27,15 +27,24 @@ const MyBookings = props => {
   const navigate = useNavigate();
   const [Resturaunts , setRes] = useState([])
   const [isLoading, setLoading] = useState(true)
-  const auth = JSON.parse(localStorage.getItem("resyUser")).authorization
-  const xresy = JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
   
   useEffect(() => {
     fetchResy()
   }, [])
   
   const fetchResy = () => {
-    axios.get("/bookings",{
+    let auth = ""
+    let xresy = ""
+    try{
+    auth = JSON.parse(localStorage.getItem("resyUser")).authorization
+    xresy = JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken
+    }
+    catch(error){
+      console.log(error)
+      console.log("catching this error")
+      navigate("settings")
+    }
+    axios.get(`${process.env.REACT_APP_BACKEND}/bookings`,{
       headers:{
         "authorization": auth,
         "x-resy-auth-token": xresy,
@@ -48,17 +57,17 @@ const MyBookings = props => {
       const data = response.data
       setRes(data)
       setLoading(false)
-    }
-    )
+    })
     .catch(error => {
-      if(error.response.status === 419){
-        localStorage.removeItem("resyUser")
-        navigate("/settings")
-      }
       if(error.response.status === 401){
         localStorage.removeItem("user")
         localStorage.removeItem("resyUser")
         navigate("/login")
+      }
+      else {
+        console.log("hey can this work pls")
+        localStorage.removeItem("resyUser")
+        navigate("/settings")
       }
     })
   }

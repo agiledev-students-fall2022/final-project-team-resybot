@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 // const axios = require('axios')
 
 const fetchRestaurant = async ({venueId, setRestaurant, setSearched, setTemplateId, setInvalid, navigate}) => {
-    axios.get("/search", {
+    axios.get(`${process.env.REACT_APP_BACKEND}/search`, {
         headers: {
             "venueId": venueId,
             "auth-token": JSON.parse(localStorage.getItem("user")).data.token,

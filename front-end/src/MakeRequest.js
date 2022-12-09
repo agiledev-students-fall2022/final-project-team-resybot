@@ -21,7 +21,7 @@ const MakeRequest = () => {
       console.log(timeToCheck)
       console.log(JSON.parse(localStorage.getItem("resyUser")).authorization)
       console.log(JSON.parse(localStorage.getItem("resyUser")).xresyauthtoken)
-      let result = await axios.post("/requests", {"restaurant":name, "venue_id":venue_id,"party_size":partySize,"time": time,"date":date,"timeToCheck":timeToCheck},{
+      let result = await axios.post(`${process.env.REACT_APP_BACKEND}/requests`, {"restaurant":name, "venue_id":venue_id,"party_size":partySize,"time": time,"date":date,"timeToCheck":timeToCheck},{
           headers: {
           "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
           "owner": JSON.parse(localStorage.getItem("user")).data.id,
