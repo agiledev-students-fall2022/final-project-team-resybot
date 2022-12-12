@@ -10,6 +10,7 @@ import Requests from './Requests'
 import MakeRequest from './MakeRequest'
 import SearchRestaurant from './SearchRestaurant';
 import ContactUs from './ContactUs';
+import React from 'react'
 
 const App = () => {
 

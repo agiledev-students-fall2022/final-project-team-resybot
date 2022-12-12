@@ -2,7 +2,7 @@ import Header from './Header'
 import Footer from './Footer'
 import LoginSignUpHeader from './LoginSignUpHeader'
 import {useLocation, useNavigate} from 'react-router-dom'
-import {useEffect} from 'react'
+import React, {useEffect} from 'react'
 import './Layout.css'
 
 const Layout =({children}) =>{
