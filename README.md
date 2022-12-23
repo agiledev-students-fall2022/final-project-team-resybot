@@ -29,15 +29,11 @@ REACT_APP_BACKEND=http://localhost:3001
 1. Run `npm start` to launch the React.js server
 
 
-## Additional Links
-[UX-DESIGN](./UX-DESIGN.md)
+## Our Running Web-App
+http://159.223.112.133:3000
 
-1. See the [Sprint Planning instructions](instructions-0d-sprint-planning.md) for the requirements of Sprint Planning for each Sprint.
+### Notes:
+1. password and email must be 6 characters long
+1. site is not encrypted
 
-1. See the [Front-End Development instructions](./instructions-1-front-end.md) for the requirements of the initial Front-End Development.
 
-1. See the [Back-End Development instructions](./instructions-2-back-end.md) for the requirements of the initial Back-End Development.
-
-1. See the [Database Integration instructions](./instructions-3-database.md) for the requirements of integrating a database into the back-end.
-
-1. See the [Deployment instructions](./instructions-4-deployment.md) for the requirements of deploying an app.
