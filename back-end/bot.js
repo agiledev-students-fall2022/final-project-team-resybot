@@ -6,7 +6,7 @@ const runBot = async (bookingDate, bookingTime, party_size, venueId, timeToReque
     console.log(bookingDate)
     //console.log(xresyauthtoken)
     //console.log(resyAPIkey)
-    //console.log(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + bookingDate.getFullYear() + "-" + ("0" + (bookingDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (bookingDate.getDate() + 1)).slice(-2)}&party_size=${party_size}&venue_id=${venueId}`)
+    console.log(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + bookingDate.getFullYear() + "-" + ("0" + (bookingDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (bookingDate.getDate() + 1)).slice(-2)}&party_size=${party_size}&venue_id=${venueId}`)
     const result = await axios.get(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + bookingDate.getFullYear() + "-" + ("0" + (bookingDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (bookingDate.getDate())).slice(-2)}&party_size=${party_size}&venue_id=${venueId}`,
     {
         headers:{
@@ -43,7 +43,7 @@ const runBot = async (bookingDate, bookingTime, party_size, venueId, timeToReque
             const minutes = timeToRequest.slice(-2)
             console.log(hours)
             console.log(minutes)
-            const job = schedule.scheduleJob(`10 ${minutes} ${hours} * * *`, ()=>{helperBookingBot(bookingDate, bookingTime, party_size, xresyauthtoken, resyAPIkey, result, slots)
+            const job = schedule.scheduleJob(`10 ${minutes} ${hours} * * *`, ()=>{helperBookingBot(bookingDate, bookingTime, party_size, venueId, xresyauthtoken, resyAPIkey)
             })
             const today = new Date()
             today.setHours(0,0,0,0)
@@ -121,11 +121,24 @@ const runBot = async (bookingDate, bookingTime, party_size, venueId, timeToReque
     })
 }
 
-const helperBookingBot =  async(bookingDate, bookingTime, party_size, xresyauthtoken, resyAPIkey, result, slots) => { 
-    if(slots.length === 0){
-        console.log("exiting")
-        return false
-    }
+const helperBookingBot =  async(bookingDate, bookingTime, party_size, venueId, xresyauthtoken, resyAPIkey) => { 
+    console.log(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + bookingDate.getFullYear() + "-" + ("0" + (bookingDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (bookingDate.getDate() + 1)).slice(-2)}&party_size=${party_size}&venue_id=${venueId}`)
+    const result = await axios.get(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + bookingDate.getFullYear() + "-" + ("0" + (bookingDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (bookingDate.getDate())).slice(-2)}&party_size=${party_size}&venue_id=${venueId}`,
+    {
+        headers:{
+            'Content-type': 'application/json',
+            "x-resy-auth-token": xresyauthtoken,
+		    "authorization": resyAPIkey
+        }
+    })
+    .then(apiResponse =>{
+        const result = apiResponse.data.results.venues
+        const slots = JSON.parse(JSON.stringify(result.at(0))).slots
+        console.log("Execution Date" + new Date())
+        if(slots.length === 0){
+            console.log("exiting")
+            return false
+        }
         // check to see if time is similar
         // use booking bot
         // this is test
@@ -179,7 +192,7 @@ const helperBookingBot =  async(bookingDate, bookingTime, party_size, xresyautht
                     console.log(err)
                 })
             })
-            
+        })          
 }
 
 //testing for now

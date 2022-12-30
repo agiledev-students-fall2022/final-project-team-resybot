@@ -13,6 +13,10 @@ const MakeRequest = () => {
     const navigate = useNavigate();
 
     const addRequests = async (restaurant) => {
+      if(formattedToday > date){
+        console.log("you cant do that")
+      }
+      else{
       const name = JSON.parse(JSON.stringify(restaurant.data.at(0))).venue.name
       const venue_id = JSON.parse(JSON.stringify(restaurant.data.at(0))).venue.id.resy
       console.log(name)
@@ -32,6 +36,7 @@ const MakeRequest = () => {
       result = await result;
       let path = "/requests"; 
       navigate(path);
+      }
     };
     const showRestaurant = (restaurant) =>{
       return(
