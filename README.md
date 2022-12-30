@@ -35,5 +35,5 @@ http://159.223.112.133:3000
 ### Notes:
 1. password and email must be 6 characters long
 1. site is not encrypted
-
+1. Time of reservation is Coordinated universal time
 
