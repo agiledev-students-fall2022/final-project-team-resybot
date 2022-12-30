@@ -32,8 +32,8 @@ REACT_APP_BACKEND=http://localhost:3001
 ## Our Running Web-App
 http://159.223.112.133:3000
 
-### Notes:
+### Notes on Running web-app:
 1. password and email must be 6 characters long
 1. site is not encrypted
-1. Time to make reservation is Coordinated universal time
+1. Time to make reservation is coordinated universal time (UTC)
 
