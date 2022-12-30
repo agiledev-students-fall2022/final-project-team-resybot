@@ -19,7 +19,7 @@ const runBot = async (bookingDate, bookingTime, party_size, venueId, timeToReque
         const result = apiResponse.data.results.venues
         const slots = JSON.parse(JSON.stringify(result.at(0))).slots
         //no slots open
-        if(slots.length !== 0){
+        if(slots.length === 0){
             console.log("Interval Here")
             /*
             // activate bot cause can't book rn
