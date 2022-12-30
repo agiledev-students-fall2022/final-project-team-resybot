@@ -19,7 +19,7 @@ const runBot = async (bookingDate, bookingTime, party_size, venueId, timeToReque
         const result = apiResponse.data.results.venues
         const slots = JSON.parse(JSON.stringify(result.at(0))).slots
         //no slots open
-        if(slots.length === 0){
+        if(slots.length !== 0){
             console.log("Interval Here")
             /*
             // activate bot cause can't book rn
@@ -43,7 +43,7 @@ const runBot = async (bookingDate, bookingTime, party_size, venueId, timeToReque
             const minutes = timeToRequest.slice(-2)
             console.log(hours)
             console.log(minutes)
-            const job = schedule.scheduleJob(`10 ${minutes} ${hours} * * *`, ()=>{helperBookingBot(bookingDate, bookingTime, party_size, venueId, xresyauthtoken, resyAPIkey)
+            const job = schedule.scheduleJob(`10 ${minutes} ${hours} * * *`, ()=>{helperBookingBot(bookingDate, bookingTime, party_size, venueId, xresyauthtoken, resyAPIkey,job)
             })
             const today = new Date()
             today.setHours(0,0,0,0)
@@ -121,7 +121,7 @@ const runBot = async (bookingDate, bookingTime, party_size, venueId, timeToReque
     })
 }
 
-const helperBookingBot =  async(bookingDate, bookingTime, party_size, venueId, xresyauthtoken, resyAPIkey) => { 
+const helperBookingBot =  async(bookingDate, bookingTime, party_size, venueId, xresyauthtoken, resyAPIkey,job) => { 
     console.log(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + bookingDate.getFullYear() + "-" + ("0" + (bookingDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (bookingDate.getDate() + 1)).slice(-2)}&party_size=${party_size}&venue_id=${venueId}`)
     const result = await axios.get(`https://api.resy.com/4/find?lat=0&long=0&day=${"" + bookingDate.getFullYear() + "-" + ("0" + (bookingDate.getMonth() + 1)).slice(-2) + "-" + ("0" + (bookingDate.getDate())).slice(-2)}&party_size=${party_size}&venue_id=${venueId}`,
     {
@@ -187,9 +187,13 @@ const helperBookingBot =  async(bookingDate, bookingTime, party_size, venueId, x
                 })
                 .then(res =>{
                     console.log(res)
+                    job.cancel()
+                    console.log("job canceled")
                 })
                 .catch(err =>{
                     console.log(err)
+                    job.cancel()
+                    console.log("job canceled")
                 })
             })
         })          
