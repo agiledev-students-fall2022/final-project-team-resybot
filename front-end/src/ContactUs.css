@@ -1,0 +1,31 @@
+.ContactUs-header{
+    margin-top: 125px;
+}
+
+.complaintFormHeader {
+    text-align: center;
+    display: inline-block;
+    margin-top: 30px;
+
+}
+
+.ComplaintFormHolder {
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+    width: 400px;
+
+}
+
+label {
+    text-align: center;
+    width: 400px;
+    line-height: 26px;
+    margin-bottom: 20px;
+}
+
+.People-Holder {
+    text-align: center;
+    line-height: 30px;
+    margin-top: 50px;
+}

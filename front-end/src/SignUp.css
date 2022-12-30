@@ -1,0 +1,22 @@
+.signUp-header{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium';
+}
+.form-control{
+    text-align: center;
+    position: center;
+    width: calc( 100% - 20px);
+}
+.signUpButton{
+    font-size: 20px;
+    border-radius: 10px;
+    text-align:center;
+    position: center;
+    padding: 20px;
+    width: calc(100% - 20px);
+    height: auto;
+}
+.signUp{
+    margin-top: 0px
+}

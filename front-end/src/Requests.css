@@ -1,0 +1,42 @@
+#request_title{
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium';
+}
+.requestsItemControl{
+    padding-left: 10px;
+    font-family: 'Franklin Gothic Medium';
+    color: red;
+}
+.requestsValueControl{
+    display: inline;
+    padding-left: 5px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.requestsDescription{
+    border-radius: 25px;
+    justify-content: space-between;
+    column-count: 2;
+    display:flex;
+    text-align: left;
+    color: black;
+    margin-left:5vw;
+    background-color: white;
+    border: 2px solid #d4d4d48a;
+    width:90vw;
+    padding: 5px;
+}
+.requestsTemplate{
+    padding: 10px;
+    align-items: center;
+}
+.requestsColumnLeft{
+    display:inline-block;
+    text-align:left;
+}
+.requestsColumnRight{
+    padding-top: 40px;
+    padding-right: 30px;
+    text-align:right;
+    right: 25vw;
+}
