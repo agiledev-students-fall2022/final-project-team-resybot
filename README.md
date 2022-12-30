@@ -3,7 +3,7 @@
 ## Collaborators
 Mark Lung ([github](https://github.com/ml6754)), Zack Goldberg([github](https://github.com/zrg228)), Aditya Pradeep([github](https://github.com/adityapradeep12)) ,Geoffrey Budiman ([github](https://github.com/geoffreybudiman91)), Rayhan Ahmed ([github](https://github.com/rfahmed))
 ## Vision Statement
-Resy Bot aims to obtain reservations at popular and hard to get into restaurants. As NYC continues to open up post-pandemic, popular restaurants are harder to get reservations at, but with Resy Bot, you are able to get a reservation at any restaurant of your liking! For whoever wants to get a reservation at a restaurant of their choosing. Web app where you can select a restaurant and timing(s) of when you want to go. Resy Bot will then wait for the reservation to be open and snipe it instantly, then will email or send a text message regarding the reservation. 
+Resy Bot aims to obtain reservations at popular and restaurants. As NYC continues to open up post-pandemic, popular restaurants are harder to get reservations at, but with Resy Bot, you are able to get a reservation at any restaurant of your liking! If the restaurant exists on Resy.com, Resy Bot will wait for the reservation to be open and snipe it instantly, and will then email or send a text message regarding the reservation. 
 ## Contributing
 For more info on contribution visit [CONTRIBUTING.md](./CONTRIBUTING.md)
 
