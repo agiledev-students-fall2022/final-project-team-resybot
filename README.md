@@ -30,7 +30,7 @@ REACT_APP_BACKEND=http://localhost:3001
 
 
 ## Our Running Web-App
-http://159.223.112.133:3000
+http://159.223.112.133
 
 ### Notes on Running web-app:
 1. password and email must be 6 characters long
