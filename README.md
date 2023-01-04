@@ -29,11 +29,3 @@ REACT_APP_BACKEND=http://localhost:3001
 1. Run `npm start` to launch the React.js server
 
 
-## Our Running Web-App
-http://159.223.112.133
-
-### Notes on Running web-app:
-1. password and email must be 6 characters long
-1. site is not encrypted
-1. Time to make reservation is coordinated universal time (UTC)
-
