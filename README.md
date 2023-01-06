@@ -31,4 +31,4 @@ REACT_APP_BACKEND=http://localhost:3001
 ## Our Running Webapp: https://resybott.com
 ### Notes:
 1. username and password MUST be at least 6 chars
-
+1. Time of reservation is made in UTC
