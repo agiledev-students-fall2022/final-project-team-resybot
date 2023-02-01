@@ -17,7 +17,7 @@ const Settings = () => {
     axios.get(`${process.env.REACT_APP_BACKEND}/user`, {
       headers: {
       "auth-token": JSON.parse(localStorage.getItem("user")).data.token,
-      "_id": JSON.parse(localStorage.getItem("user")).data.id
+      "id": JSON.parse(localStorage.getItem("user")).data.id
       }
     })
     .then(response => {

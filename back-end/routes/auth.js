@@ -75,7 +75,7 @@ router.post("/login", async (req, res) => {
 })
 
 router.get("/", verification, async (req,res) => {
-    userSchema.find({"_id": req.header('_id')})
+    userSchema.find({"_id": `ObjectId(${req.header('id')})`})
     .then(apiResponse => {res.send(apiResponse)})
     .catch(err => {})
 }) 
