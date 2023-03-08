@@ -28,7 +28,7 @@ REACT_APP_BACKEND=http://localhost:3001
 ```
 1. Run `npm start` to launch the React.js server
 
-## Our Running Webapp: https://resybott.com
+## Our Running Webapp: https://resybott.com (This should be up until 3/31/2023)
 ### Notes:
 1. username and password MUST be at least 6 chars
 1. Time of reservation is made in UTC
