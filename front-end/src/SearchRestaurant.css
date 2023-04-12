@@ -1,0 +1,51 @@
+.search {
+    padding: 20px;
+    margin: 20px;
+}
+
+.input {
+    float: center;
+    margin: 10px;
+}
+
+.entry {
+    border-radius: 25px;
+    margin: 10px;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 2px solid #d4d4d48a;
+    float: center;
+    color: black;
+    text-decoration:none;
+    font-family: 'Franklin Gothic Medium';
+}
+
+.entry:hover {
+    background-color: #d4d4d48a;
+}
+
+.venueDetails {
+    padding: 10px;
+}
+
+.picture {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.details {
+    float: center;
+    text-overflow: ellipsis;
+    text-decoration:none;
+}
+
+h3 {
+    text-overflow: ellipsis;
+}
+
+h5 {
+    text-overflow: ellipsis;
+}

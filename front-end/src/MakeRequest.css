@@ -1,0 +1,29 @@
+.makerequest {
+    width: 800px;
+    padding: 50px;
+}
+
+.requestpicture {
+    width: 700px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+.form-control{
+    text-align: center;
+    position: center;
+    padding: 20px;
+    margin-left: 10px;
+    width: calc( 100% - 20px);
+}
+h1{
+    font-family: 'Franklin Gothic Medium';
+}
+.makeRequest{
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.header3Control{
+    font-family: 'Franklin Gothic Medium'; 
+    color:black
+}
